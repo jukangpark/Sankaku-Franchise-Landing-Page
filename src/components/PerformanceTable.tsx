@@ -1,0 +1,79 @@
+import { motion } from "framer-motion";
+import CountUpAnimation from "./CountUpAnimation";
+
+const PerformanceTable = ({
+  containerVariants,
+  itemVariants,
+}: {
+  containerVariants: any;
+  itemVariants: any;
+}) => {
+  return (
+    <div className="flex items-center gap-8 text-4xl font-bold text-gray-900 mb-6 mt-16">
+      <motion.div
+        className="w-[600px] h-[553px] text-center flex flex-col justify-center items-center text-white space-y-4"
+        style={{
+          background:
+            "url(/images/수치로말하는산카쿠.jpg) no-repeat 50% 50% / cover",
+          display: "flex",
+        }}
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <motion.h2
+          className="text-center text-[30px] text-white font-bold"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          한치의 의심없는 성공의 혁신
+        </motion.h2>
+        <motion.h1
+          className="text-center text-white font-bold text-7xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          수치로 말하는
+          <br /> 산/카/쿠
+        </motion.h1>
+      </motion.div>
+      <motion.div
+        className="h-[553px] flex-1"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+      >
+        <div className="grid grid-cols-2 gap-1 h-full">
+          {[
+            { number: 17, unit: "회전", label: "테이블 회전율" },
+            { number: 682, unit: "만원", label: "일 매출" },
+            { number: 42.4, unit: "%", label: "평균 재방문율" },
+            { number: 31.7, unit: "%", label: "평균 수익률" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              className="border border-gray-300 p-6 bg-white flex flex-col justify-end items-start"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
+            >
+              <div className="flex items-baseline justify-start mb-1">
+                <span className="text-7xl font-bold text-gray-900">
+                  <CountUpAnimation endValue={item.number} duration={2} />
+                </span>
+                <span className="text-2xl font-medium text-gray-600 ml-1">
+                  {item.unit}
+                </span>
+              </div>
+              <p className="text-lg font-medium text-gray-800">{item.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default PerformanceTable;
