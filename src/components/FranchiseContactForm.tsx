@@ -9,6 +9,7 @@ const FranchiseContactForm = ({
 }) => {
   return (
     <section
+      id="franchise-contact"
       className="py-24 bg-white bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: "url(/images/contact_form.jpg)" }}
     >

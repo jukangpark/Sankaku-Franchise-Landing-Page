@@ -15,7 +15,7 @@ const Navigation = () => {
     { name: "메뉴안내", href: "#menu-guide" },
     { name: "차별화시스템", href: "#differentiation" },
     { name: "창업안내", href: "#startup-guide" },
-    { name: "고객의 소리함", href: "#customer-voice" },
+    { name: "가맹점 문의", href: "#franchise-contact" },
     { name: "브랜드", href: "https://sankaku-steel.vercel.app/" },
   ];
 
