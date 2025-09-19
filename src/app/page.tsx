@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import LogoSlider from "@/components/LogoSlider";
 import Navigation from "@/components/Navigation";
 import YouTubeSection from "@/components/YouTubeSection";
@@ -12,6 +11,8 @@ import BrandPowerSection from "@/components/BrandPowerSection";
 import SalesVerificationSection from "@/components/SalesVerificationSection";
 import SalesReceiptSection from "@/components/SalesReceiptSection";
 import ReviewSection from "@/components/ReviewSection";
+import MenuSection from "@/components/MenuSection";
+import InteriorSection from "@/components/InteriorSection";
 
 export default function Home() {
   const containerVariants = {
@@ -62,33 +63,8 @@ export default function Home() {
 
       <ReviewSection />
 
-      <section>
-        <div className="text-center pb-20 bg-white">
-          <div className="flex justify-center">
-            <Image
-              src="/images/맛과품질부터다릅니다.png"
-              alt="맛과 품질부터 다릅니다"
-              width={974}
-              height={123}
-            />
-          </div>
-
-          <p className="text-[40px] font-bold text-gray-800 leading-[2em]">
-            국가대표 브랜드로 성공하세요!
-          </p>
-
-          <div className="flex justify-center mt-8">
-            <iframe
-              className="w-[1400px] h-[788px]"
-              src="https://www.youtube.com/embed/SA5k2XlEalM?autoplay=1&mute=1"
-              title="산카쿠 브랜드 소개 영상"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </section>
+      <MenuSection />
+      <InteriorSection />
 
       {/* 차별화시스템 Section */}
       <section id="differentiation" className="py-20 bg-gray-50">
