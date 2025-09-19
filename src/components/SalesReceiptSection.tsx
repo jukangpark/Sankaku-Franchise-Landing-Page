@@ -1,6 +1,6 @@
 const SalesReceiptSection = () => {
   return (
-    <section className="bg-gray-50 flex items-center">
+    <section className="bg-gray-50 flex items-center pb-24">
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* 중앙 타이틀 */}
         <h2 className="text-6xl font-bold text-gray-900 text-center mb-16 mt-30">
