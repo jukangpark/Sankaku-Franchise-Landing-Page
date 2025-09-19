@@ -1,0 +1,82 @@
+---
+description: Sankaku Landing Page Design Rules - Monochrome Color Scheme
+globs: ["src/**/*.tsx", "src/**/*.ts", "src/**/*.css"]
+alwaysApply: true
+---
+
+# Design Rules for Sankaku Landing Page
+
+## Color Restrictions
+
+**STRICT RULE: Only use monochrome colors**
+
+### ✅ ALLOWED Colors
+
+- **White**: `#ffffff`, `bg-white`
+- **Black**: `#000000`, `bg-black`, `text-black`
+- **Gray Scale**:
+  - `#2c2c2c` (dark gray)
+  - `#6b6b6b` (medium gray)
+  - `#888888` (gray)
+  - `#a8a8a8` (light gray)
+  - `#e5e5e5` (border gray)
+
+### ❌ FORBIDDEN Colors
+
+- **NO Orange**: `#ea8a00` (old brand color)
+- **NO Red**: `#ff0000` or any red variants
+- **NO Yellow**: `#ffff00` or any yellow variants
+- **NO Blue**: `#0000ff` or any blue variants
+- **NO Green**: `#00ff00` or any green variants
+- **NO Purple**: `#ff00ff` or any purple variants
+- **NO Colorful elements**
+
+## Text Color Guidelines
+
+```css
+/* Primary Text */
+color: #000000; /* Main headings */
+
+/* Secondary Text */
+color: #2c2c2c; /* Sub headings */
+
+/* Body Text */
+color: #6b6b6b; /* Regular content */
+
+/* Helper Text */
+color: #888888; /* Captions, labels */
+
+/* Disabled Text */
+color: #a8a8a8; /* Inactive elements */
+```
+
+## Component Styling Rules
+
+### Emphasis/Highlight
+
+- Use **font-weight: bold** instead of colors
+- Use **background: rgba(0, 0, 0, 0.05)** for subtle emphasis
+- Use **border-left: 4px solid #2c2c2c** for important sections
+
+### Buttons
+
+```css
+/* Primary Button */
+background: #000000;
+color: #ffffff;
+
+/* Secondary Button */
+background: #ffffff;
+color: #2c2c2c;
+border: 1px solid #e5e5e5;
+```
+
+### Cards
+
+```css
+background: #ffffff;
+border: 1px solid #e5e5e5;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+```
+
+**Remember: This is a monochrome design. NO colorful elements allowed!**

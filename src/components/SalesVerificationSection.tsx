@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SalesSlider from "./SalesSlider";
 
 const SalesVerificationSection = () => {
   return (
@@ -54,12 +55,9 @@ const SalesVerificationSection = () => {
             </div>
           </div>
 
-          {/* 오른쪽 섹션 - 추후 컨텐츠 배치 */}
-          <div className="w-[740px] flex flex-col items-end bg-gray-200">
-            {/* 오른쪽 컨텐츠가 들어갈 영역 */}
-            <div className="text-center text-white-500 h-[962px]">
-              슬라이드 영역
-            </div>
+          {/* 오른쪽 섹션 - 매출 슬라이더 */}
+          <div className="w-[740px] flex flex-col items-center justify-center">
+            <SalesSlider />
           </div>
         </div>
       </div>

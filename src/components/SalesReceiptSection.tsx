@@ -1,25 +1,24 @@
-import Image from "next/image";
-
 const SalesReceiptSection = () => {
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-gray-50 flex items-center">
+      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* 중앙 타이틀 */}
+        <h2 className="text-6xl font-bold text-gray-900 text-center mb-16 mt-30">
+          산카쿠 매출전표
+        </h2>
+
         <div className="flex justify-between items-start">
           {/* 왼쪽 영역 */}
           <div className="w-[740px] flex flex-col items-start">
-            <h2 className="text-6xl font-bold text-gray-900 mb-8">
-              산카쿠 매출전표
-            </h2>
-
             <div className="bg-white rounded-2xl p-12 shadow-lg">
               <h3 className="text-4xl font-bold text-gray-900 mb-6">
-                안양본점
+                전대본점
               </h3>
               <div className="flex items-baseline gap-4">
                 <span className="text-2xl font-semibold text-gray-700">
                   영업이익 :
                 </span>
-                <span className="text-5xl font-bold text-[#888888]">
+                <span className="text-5xl font-bold text-[#222222]">
                   25,847,490
                 </span>
                 <span className="text-2xl font-semibold text-gray-700">원</span>
@@ -131,7 +130,7 @@ const SalesReceiptSection = () => {
               {/* 하단 설명 */}
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  산카쿠 안양본점의 실제 매출전표(24년 3월)에 근거한
+                  산카쿠 전대본점의 실제 매출전표(24년 3월)에 근거한
                   손익자료입니다.
                   <br />
                   타지점인 경우 상권특성, 경기변화, 평수, 점주역량 등에 따라
