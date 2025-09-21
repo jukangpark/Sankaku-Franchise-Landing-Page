@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import storeShowCaseData from "@/mock/storeShowCaseData";
 
 const StoreShowCaseSection = ({
   containerVariants,
@@ -10,28 +11,12 @@ const StoreShowCaseSection = ({
   containerVariants: any;
   itemVariants: any;
 }) => {
-  // 매장 데이터
-  const stores = [
-    { name: "산카쿠 전대본점", image: "/store-show-case-slider/1.jpg" },
-    { name: "산카쿠 인계점", image: "/store-show-case-slider/2.jpg" },
-    { name: "산카쿠 충대점", image: "/store-show-case-slider/3.jpg" },
-    { name: "산카쿠 전대본점", image: "/store-show-case-slider/4.jpg" },
-    { name: "산카쿠 인계점", image: "/store-show-case-slider/5.jpg" },
-    { name: "산카쿠 충대점", image: "/store-show-case-slider/6.jpg" },
-    { name: "산카쿠 전대본점", image: "/store-show-case-slider/7.jpg" },
-    { name: "산카쿠 인계점", image: "/store-show-case-slider/8.jpg" },
-    { name: "산카쿠 충대점", image: "/store-show-case-slider/9.jpg" },
-    { name: "산카쿠 전대본점", image: "/store-show-case-slider/10.jpg" },
-    { name: "산카쿠 인계점", image: "/store-show-case-slider/11.jpg" },
-    { name: "산카쿠 충대점", image: "/store-show-case-slider/12.jpg" },
-    { name: "산카쿠 전대본점", image: "/store-show-case-slider/13.jpg" },
-    { name: "산카쿠 인계점", image: "/store-show-case-slider/14.jpg" },
-    { name: "산카쿠 충대점", image: "/store-show-case-slider/15.jpg" },
-    { name: "산카쿠 전대본점", image: "/store-show-case-slider/16.jpg" },
-  ];
-
   // 무한 스크롤을 위해 매장 데이터를 3번 복제
-  const infiniteStores = [...stores, ...stores, ...stores];
+  const infiniteStores = [
+    ...storeShowCaseData,
+    ...storeShowCaseData,
+    ...storeShowCaseData,
+  ];
 
   return (
     <section className="py-24 bg-white overflow-hidden">
