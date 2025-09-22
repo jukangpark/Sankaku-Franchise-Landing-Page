@@ -24,7 +24,7 @@ const BrandPowerSection = () => {
     >
       {/* 회전하는 이미지 - 섹션 정중앙 위쪽 */}
       <div
-        className="absolute top-[-250px] left-1/2 transform -translate-x-1/2 z-[998] animate-spin"
+        className="absolute top-[-250px] left-1/2 transform -translate-x-1/2 z-[10] animate-spin"
         style={{
           width: "985px",
           height: "985px",
