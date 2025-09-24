@@ -55,7 +55,7 @@ const CountUpAnimation = ({
   return (
     <div ref={ref}>
       {prefix}
-      {Math.round(count)}
+      {Math.round(count).toLocaleString()}
       {suffix}
     </div>
   );
