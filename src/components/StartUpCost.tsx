@@ -27,32 +27,34 @@ const StartUpCost = () => {
           </h1>
 
           {/* 가맹절차 카드들 - 반응형 배치 */}
-          <div className="flex flex-wrap gap-4 sm:gap-3 lg:gap-4 justify-center">
+          <div className="flex flex-col gap-4 sm:gap-3 lg:gap-4">
             {franchiseSteps.map((step, index) => (
               <motion.div
                 key={index}
-                className="flex-shrink-0 w-full sm:w-[180px] lg:w-[220px] bg-white border border-gray-200 rounded-lg shadow-lg p-3 sm:p-4"
+                className="w-full bg-white border border-gray-200 rounded-lg shadow-lg p-4 sm:p-6 lg:p-8"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                {/* 번호 */}
-                <div className="text-center mb-2 sm:mb-3">
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900">
-                    {step.number}
-                  </span>
+                <div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
+                  {/* 번호 */}
+                  <div className="flex-shrink-0">
+                    <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900">
+                      {step.number}
+                    </span>
+                  </div>
+
+                  {/* 제목과 설명 */}
+                  <div className="flex-1">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-
-                {/* 제목 */}
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 text-center mb-2 sm:mb-3">
-                  {step.title}
-                </h3>
-
-                {/* 설명 */}
-                <p className="text-[10px] sm:text-xs text-gray-600 text-center leading-relaxed">
-                  {step.description}
-                </p>
               </motion.div>
             ))}
           </div>
