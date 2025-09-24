@@ -47,27 +47,56 @@ const PerformanceTable = ({
       >
         <div className="grid grid-cols-2 gap-1 h-full">
           {[
-            { number: 17, unit: "회전", label: "테이블 회전율" },
-            { number: 682, unit: "만원", label: "일 매출" },
-            { number: 42.4, unit: "%", label: "평균 재방문율" },
-            { number: 31.7, unit: "%", label: "평균 수익률" },
+            {
+              number: 17,
+              unit: "회전",
+              label: "테이블 회전율",
+              icon: "/icons/테이블_아이콘.png",
+            },
+            {
+              number: 682,
+              unit: "만원",
+              label: "일 매출",
+              icon: "/icons/일매출_아이콘.png",
+            },
+            {
+              number: 42.4,
+              unit: "%",
+              label: "평균 재방문율",
+              icon: "/icons/재방문율_아이콘.png",
+            },
+            {
+              number: 31.7,
+              unit: "%",
+              label: "평균 수익률",
+              icon: "/icons/평균수익률_아이콘.png",
+            },
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="border border-gray-300 p-6 bg-white flex flex-col justify-end items-start"
+              className="border-2 border-black p-6 bg-white flex flex-col justify-between items-start relative"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
             >
-              <div className="flex items-baseline justify-start mb-1">
-                <span className="text-7xl font-bold text-gray-900">
-                  <CountUpAnimation endValue={item.number} duration={2} />
-                </span>
-                <span className="text-2xl font-medium text-gray-600 ml-1">
-                  {item.unit}
-                </span>
+              <img
+                src={item.icon}
+                alt={item.label}
+                className="w-12 h-12 absolute top-15 left-7"
+              />
+              <div className="mt-10">
+                <div className="flex items-baseline justify-start mt-16 mb-2">
+                  <span className="text-7xl font-bold text-gray-900">
+                    <CountUpAnimation endValue={item.number} duration={2} />
+                  </span>
+                  <span className="text-2xl font-extrabold text-gray-600 ml-1">
+                    {item.unit}
+                  </span>
+                </div>
+                <p className="text-[24px] font-bold text-gray-800">
+                  {item.label}
+                </p>
               </div>
-              <p className="text-lg font-medium text-gray-800">{item.label}</p>
             </motion.div>
           ))}
         </div>
