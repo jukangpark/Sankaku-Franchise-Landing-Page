@@ -46,7 +46,6 @@ const StoreShowCaseSection = ({
                   alt="산카쿠"
                   width={253}
                   height={73}
-                  quality={100}
                   className="w-[120px] sm:w-[150px] lg:w-[253px] h-auto"
                   style={{ width: "100%", height: "auto" }}
                 />
@@ -55,7 +54,6 @@ const StoreShowCaseSection = ({
                   alt="산카쿠"
                   width={253}
                   height={73}
-                  quality={100}
                   className="w-[120px] sm:w-[150px] lg:w-[253px] h-auto"
                   style={{ width: "100%", height: "auto" }}
                 />

@@ -113,7 +113,7 @@ const StoreInfoSection = () => {
           {ownerData.slice(0, 1).map((owner, index) => (
             <motion.div
               key={owner.id}
-              className="bg-[#efe8dc] border border-gray-200 rounded-lg overflow-hidden w-full lg:w-[1400px] lg:h-[395px] mx-auto"
+              className="bg-[#efe8dc] border border-gray-200 rounded-lg overflow-hidden w-full lg:h-[395px]"
               transition={{ delay: index * 0.1 }}
             >
               <div className="flex flex-col lg:flex-row h-full">

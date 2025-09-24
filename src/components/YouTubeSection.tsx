@@ -7,6 +7,7 @@ const YouTubeSection = () => {
       className="text-white min-h-screen w-full flex items-center justify-center pt-20 relative"
       style={{
         background: "url(/images/vis_bg.jpg) no-repeat 50% 50% / contain",
+        overflow: "hidden",
       }}
     >
       <div className="w-full max-w-[1460px] mx-auto px-[30px] relative z-10 min-h-[600px] lg:min-h-[800px] pt-20">

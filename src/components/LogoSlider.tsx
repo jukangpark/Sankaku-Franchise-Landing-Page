@@ -4,17 +4,17 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const LogoSlider = () => {
-  // 로고 아이템 생성 (원본 해상도 1581×658 적용)
+  // 로고 아이템 생성 (원본 해상도 1422×658 적용)
   const logoItems = Array.from({ length: 80 }, (_, index) => (
     <div
       key={index}
       className="flex-shrink-0 mx-12 flex items-center justify-center"
     >
-      <div className="relative w-[150px] h-[62px] sm:w-[200px] sm:h-[83px] lg:w-[300px] lg:h-[125px]">
+      <div className="relative w-[150px] h-[69px] sm:w-[200px] sm:h-[92px] lg:w-[300px] lg:h-[139px]">
         <Image
           src="/logo_slider.png"
           alt="산카쿠 로고"
-          width={1581}
+          width={1422}
           height={658}
           className="object-contain"
           style={{ width: "100%", height: "auto" }}

@@ -61,7 +61,7 @@ const ReviewSection = () => {
       </div>
 
       {/* 중앙 휴대폰 섹션 */}
-      <div className="relative flex justify-center items-center py-8 sm:py-12 lg:py-16">
+      <div className="relative flex justify-center items-center py-8 sm:py-12 lg:py-16 overflow-hidden">
         <div className="relative w-[180px] h-[360px] sm:w-[220px] sm:h-[440px] lg:w-[342px] lg:h-[700px]">
           {/* iPhone 화면 안의 컨텐츠 */}
           <div className="absolute inset-0 flex items-center justify-center">
@@ -119,36 +119,24 @@ const ReviewSection = () => {
         </div>
 
         {/* 화살표 버튼들 */}
-        <button className="absolute left-2 sm:left-4 lg:left-8 top-1/2 transform -translate-y-1/2 z-40 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-          <svg
-            className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
+        <button className="absolute left-1 sm:left-2 lg:left-4 top-1/2 transform -translate-y-1/2 z-40 w-[27px] h-[50px] flex items-center justify-center opacity-60 hover:opacity-100 transition-all duration-200 cursor-pointer">
+          <Image
+            src="/phone_slider/left_button.png"
+            alt="이전 버튼"
+            width={27}
+            height={50}
+            className="w-full h-full object-contain drop-shadow-lg"
+          />
         </button>
 
-        <button className="absolute right-2 sm:right-4 lg:right-8 top-1/2 transform -translate-y-1/2 z-40 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-          <svg
-            className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
+        <button className="absolute right-1 sm:right-2 lg:right-4 top-1/2 transform -translate-y-1/2 z-40 w-[27px] h-[50px] flex items-center justify-center opacity-60 hover:opacity-100 transition-all duration-200 cursor-pointer">
+          <Image
+            src="/phone_slider/right_button.png"
+            alt="다음 버튼"
+            width={27}
+            height={50}
+            className="w-full h-full object-contain drop-shadow-lg"
+          />
         </button>
       </div>
 
