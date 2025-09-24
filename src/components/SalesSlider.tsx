@@ -8,20 +8,6 @@ import SalesCard from "./SalesCard";
 const SalesSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(1024); // 기본값 설정
-
-  // 윈도우 크기 감지
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    // 초기 설정
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   // 자동 슬라이드 (5초마다)
   useEffect(() => {
@@ -54,13 +40,18 @@ const SalesSlider = () => {
       <div className="relative w-full max-w-[350px] sm:max-w-[500px] lg:w-[600px] h-[600px] sm:h-[600px] lg:h-[940px] overflow-hidden">
         {/* 카드 컨테이너 */}
         <div
-          className="flex flex-col gap-2 sm:gap-3 lg:gap-4 transition-transform duration-400 ease-in-out"
-          style={{
-            transform: `translateY(-${
-              currentIndex *
-              (windowWidth < 640 ? 220 : windowWidth < 1024 ? 300 : 316)
-            }px)`, // 반응형 거리
-          }}
+          className="flex flex-col gap-2 sm:gap-3 lg:gap-4 transition-transform duration-400 ease-in-out sales-slider-transform"
+          style={
+            {
+              "--transform-y": `-${currentIndex * 220}px`, // 모바일 기본값
+              "--sm-transform-y": `-${currentIndex * 300}px`, // 태블릿
+              "--lg-transform-y": `-${currentIndex * 316}px`, // PC
+            } as React.CSSProperties & {
+              "--transform-y": string;
+              "--sm-transform-y": string;
+              "--lg-transform-y": string;
+            }
+          }
         >
           {/* 모든 카드 렌더링 (3개씩 보이도록) */}
           {Array.from({ length: salesData.length + 2 }, (_, i) => {

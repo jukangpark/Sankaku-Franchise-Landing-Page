@@ -1,5 +1,12 @@
 # 반응형 웹 개발 규칙 (Responsive Web Development Rules)
 
+## 0. 핵심 원칙
+
+- **handleResize, windowWidth 상태 사용 금지**
+- **모든 레이아웃은 Tailwind CSS 클래스로만 처리**
+- **조건부 렌더링은 Tailwind CSS의 `hidden`, `block`, `flex` 등으로 처리**
+- **반응형 디자인은 `sm:`, `md:`, `lg:`, `xl:` 브레이크포인트만 사용**
+
 ## 1. 반응형 레이아웃 규칙
 
 ### 1.1 Flexbox 레이아웃

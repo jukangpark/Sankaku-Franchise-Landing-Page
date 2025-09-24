@@ -14,20 +14,6 @@ const ReviewSection = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(1024);
-
-  // 윈도우 크기 감지
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    // 초기 설정
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   // 자동 슬라이드 (3초마다)
   useEffect(() => {
@@ -115,46 +101,34 @@ const ReviewSection = () => {
         >
           {/* iPhone 화면 안의 컨텐츠 */}
           <div className="absolute inset-0 flex items-center justify-center">
-            {windowWidth >= 1024 ? (
-              // PC에서는 모든 이미지 표시
-              reviewImages.map((image, index) => {
-                let width = 280; // 기본 크기
-                if (index === 2) {
-                  width = 320; // 중앙 이미지는 가장 크게
-                } else if (index === 0 || index === 4) {
-                  width = 260; // 양 끝 이미지는 더 작게
-                }
+            {/* PC에서는 모든 이미지 표시 */}
+            <div className="hidden lg:flex items-center justify-center">
+              {reviewImages.map((image, index) => (
+                <Image
+                  key={index}
+                  src={image}
+                  alt={`리뷰 ${index + 1}`}
+                  width={
+                    index === 2 ? 320 : index === 0 || index === 4 ? 260 : 280
+                  }
+                  height={400}
+                  className={`object-cover rounded-[35px] mt-10 ${
+                    index === 2 ? "z-20" : "z-10"
+                  } ${index === 2 ? "" : "shadow-lg"}`}
+                />
+              ))}
+            </div>
 
-                return (
-                  <Image
-                    key={index}
-                    src={image}
-                    alt={`리뷰 ${index + 1}`}
-                    width={width}
-                    height={400}
-                    className="object-cover rounded-[35px] mt-10"
-                    style={{
-                      zIndex: index === 2 ? 20 : 10,
-                      boxShadow:
-                        index === 2 ? "none" : "0 0 10px 0 rgba(0, 0, 0, 0.1)",
-                    }}
-                  />
-                );
-              })
-            ) : (
-              // 모바일에서는 가운데 하나만 표시
+            {/* 모바일/태블릿에서는 가운데 하나만 표시 */}
+            <div className="lg:hidden">
               <Image
                 src={reviewImages[currentIndex]}
                 alt={`리뷰 ${currentIndex + 1}`}
                 width={400}
                 height={200}
-                className="object-cover rounded-[15px] sm:rounded-[20px] mt-2 sm:mt-4"
-                style={{
-                  zIndex: 20,
-                  boxShadow: "none",
-                }}
+                className="object-cover rounded-[15px] sm:rounded-[20px] mt-2 sm:mt-4 z-20"
               />
-            )}
+            </div>
           </div>
 
           {/* iPhone 프레임 */}
