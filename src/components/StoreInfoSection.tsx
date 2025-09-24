@@ -2,10 +2,22 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { storeInfoData } from "@/mock/storeInfoData";
 import { ownerData } from "@/mock/ownerData";
 
 const StoreInfoSection = () => {
+  const [isImage1, setIsImage1] = useState(true);
+
+  // 첫 번째 카드 이미지 자동 교체 (image <-> image2)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsImage1((prev) => !prev);
+    }, 2000); // 2초마다 교체
+
+    return () => clearInterval(interval);
+  }, []);
+
   // 애니메이션 variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,18 +102,84 @@ const StoreInfoSection = () => {
 
       {/* 점주님 다점포 운영 섹션 */}
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20 lg:mt-24">
-        {/* Grid 카드 컨테이너 - 4개씩 배치 */}
+        {/* 첫 번째 카드 - PC/태블릿에서 1줄에 1개 */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+          className="w-full mb-8 sm:mb-12 lg:mb-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {ownerData.map((owner, index) => (
+          {ownerData.slice(0, 1).map((owner, index) => (
             <motion.div
               key={owner.id}
-              className="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden"
+              className="bg-[#efe8dc] border border-gray-200 rounded-lg overflow-hidden w-full lg:w-[1400px] lg:h-[395px] mx-auto"
+              transition={{ delay: index * 0.1 }}
+            >
+              <div className="flex flex-col lg:flex-row h-full">
+                {/* 이미지 영역 */}
+                <div className="relative w-full lg:w-[700px] h-[150px] sm:h-[180px] lg:h-full">
+                  <Image
+                    width={700}
+                    height={395}
+                    src={isImage1 ? owner.image : owner.image2}
+                    alt={`${owner.mainStore} 이미지`}
+                    className="w-full h-full object-cover"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </div>
+
+                {/* 텍스트 영역 */}
+                <div className="w-full lg:w-[700px] p-4 sm:p-5 lg:p-8 flex flex-col justify-center text-center lg:text-left">
+                  {/* 총 매장 운영 점주님 - 특별한 스타일 */}
+                  <div className="bg-[#033914] text-white rounded-2xl h-8 flex items-center justify-center mb-4">
+                    <span className="text-[16px font-bold">
+                      총 {owner.totalStores}개의 매장 운영 점주님
+                    </span>
+                  </div>
+
+                  <motion.p
+                    className="text-[12px] sm:text-[14px] lg:text-base font-semibold text-gray-800 mb-3 sm:mb-4"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.1 + 0.3 }}
+                    viewport={{ once: true }}
+                    style={{ fontSize: "24px", fontWeight: 900 }}
+                    dangerouslySetInnerHTML={{ __html: owner.description }}
+                  />
+
+                  {/* 매장 목록 - 가로 배치 */}
+                  <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                    {owner.stores.map((store, storeIndex) => {
+                      // "점"을 제거
+                      return (
+                        <div
+                          key={storeIndex}
+                          className="bg-[#e18c12] text-white rounded-full w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] lg:w-[80px] lg:h-[80px] flex items-center justify-center text-[10px] sm:text-[10px] lg:text-[14px] font-extrabold"
+                        >
+                          {store}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* 나머지 카드들 - PC/태블릿에서 4개씩, 모바일에서 1개씩 */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+          variants={containerVariants}
+        >
+          {ownerData.slice(1).map((owner, index) => (
+            <motion.div
+              key={owner.id}
+              className="bg-[#efe8dc] border border-gray-200 rounded-lg overflow-hidden"
               transition={{ delay: index * 0.1 }}
             >
               {/* 이미지 영역 */}
@@ -109,7 +187,7 @@ const StoreInfoSection = () => {
                 <Image
                   width={300}
                   height={200}
-                  src={owner.image}
+                  src={isImage1 ? owner.image : owner.image2}
                   alt={`${owner.mainStore} 이미지`}
                   className="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover"
                   style={{ width: "100%", height: "auto" }}
@@ -117,16 +195,13 @@ const StoreInfoSection = () => {
               </div>
 
               {/* 텍스트 영역 */}
-              <div className="p-4 sm:p-5 lg:p-6">
-                <motion.h3
-                  className="text-[14px] sm:text-[16px] lg:text-lg font-bold text-gray-900 mb-3 sm:mb-4"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  총 {owner.totalStores}개의 매장 운영 점주님
-                </motion.h3>
+              <div className="p-4 sm:p-5 lg:p-6 text-center sm:text-left">
+                {/* 총 매장 운영 점주님 - 특별한 스타일 */}
+                <div className="bg-[#033914] text-white rounded-2xl h-8 flex items-center justify-center mb-4">
+                  <span className="text-[16px] font-bold">
+                    총 {owner.totalStores}개의 매장 운영 점주님
+                  </span>
+                </div>
 
                 <motion.p
                   className="text-[12px] sm:text-[14px] lg:text-base font-semibold text-gray-800 mb-3 sm:mb-4"
@@ -134,27 +209,28 @@ const StoreInfoSection = () => {
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
                   viewport={{ once: true }}
+                  style={{
+                    textAlign: "center",
+                    fontSize: "24px",
+                    fontWeight: 900,
+                  }}
                   dangerouslySetInnerHTML={{ __html: owner.description }}
                 />
 
-                {/* 매장 목록 */}
-                <motion.ul
-                  className="space-y-1 sm:space-y-2"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  {owner.stores.map((store, storeIndex) => (
-                    <li
-                      key={storeIndex}
-                      className="text-[10px] sm:text-[12px] lg:text-sm text-gray-600 flex items-center"
-                    >
-                      <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
-                      {store}
-                    </li>
-                  ))}
-                </motion.ul>
+                {/* 매장 목록 - 가로 배치 */}
+                <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                  {owner.stores.map((store, storeIndex) => {
+                    // "점"을 제거
+                    return (
+                      <div
+                        key={storeIndex}
+                        className="bg-[#e18c12] text-white rounded-full w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] lg:w-[80px] lg:h-[80px] flex items-center justify-center text-[10px] sm:text-[10px] lg:text-[14px] font-extrabold"
+                      >
+                        {store}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </motion.div>
           ))}

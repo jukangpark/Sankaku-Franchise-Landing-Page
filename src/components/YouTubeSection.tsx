@@ -12,8 +12,8 @@ const YouTubeSection = () => {
       <div className="w-full max-w-[1460px] mx-auto px-[30px] relative z-10 min-h-[600px] lg:min-h-[800px] pt-20">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 w-full items-center">
           <div className="space-y-4 lg:space-y-6 text-center lg:text-left">
-            <div className="text-gray-500 text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-bold">
-              대한민국 라멘 & 오니기리 NO.1
+            <div className="text-[#e18c12] text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-extrabold tracking-tighter">
+              대한민국 라멘 NO.1
             </div>
             <div className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[110px] font-bold text-gray-900 mb-4 lg:mb-6 leading-none">
               산카쿠

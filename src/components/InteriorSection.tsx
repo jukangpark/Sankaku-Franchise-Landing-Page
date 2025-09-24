@@ -12,7 +12,7 @@ const InteriorSection = () => {
             산카쿠만의 트렌디한 인테리어
           </h3>
           <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] leading-[1.25em] mb-6 sm:mb-8 lg:mb-[55px] text-white font-extrabold">
-            산카쿠의 인테리어는
+            산카쿠의 <span className="text-[#e18c12]">인테리어</span>는
             <br />
             10년이 지나도 <br />
             편안함을 드립니다.

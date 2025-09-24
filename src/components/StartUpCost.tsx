@@ -27,34 +27,41 @@ const StartUpCost = () => {
           </h1>
 
           {/* 가맹절차 카드들 - 반응형 배치 */}
-          <div className="flex flex-col gap-4 sm:gap-3 lg:gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
             {franchiseSteps.map((step, index) => (
               <motion.div
                 key={index}
-                className="w-full bg-white border border-gray-200 rounded-lg shadow-lg p-4 sm:p-6 lg:p-8"
+                className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 sm:p-6 lg:p-8 text-center"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
-                  {/* 번호 */}
-                  <div className="flex-shrink-0">
-                    <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900">
-                      {step.number}
-                    </span>
-                  </div>
-
-                  {/* 제목과 설명 */}
-                  <div className="flex-1">
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
+                {/* 아이콘 */}
+                <div className="mb-4">
+                  <img
+                    src={`/가맹절차/${index + 1}.png`}
+                    alt={`Step ${index + 1} 아이콘`}
+                    className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto object-contain"
+                  />
                 </div>
+
+                {/* STEP 번호 */}
+                <div className="mb-3">
+                  <span className="text-xs sm:text-sm lg:text-base font-extrabold text-gray-500">
+                    STEP {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* 제목 */}
+                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-2">
+                  {step.title}
+                </h3>
+
+                {/* 설명 */}
+                <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">
+                  {step.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -78,12 +85,12 @@ const StartUpCost = () => {
 
         {/* 탭 버튼들 */}
         <div className="flex justify-center mb-8 sm:mb-10 lg:mb-12">
-          <div className="bg-gray-100 rounded-lg p-1 sm:p-2 flex flex-col sm:flex-row gap-1 sm:gap-2 w-full sm:w-auto">
+          <div className="bg-gray-100 rounded-lg p-1 sm:p-2 flex flex-row gap-1 sm:gap-2 w-full sm:w-auto">
             {costData.map((data, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 cursor-pointer ${
+                className={`flex-1 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 cursor-pointer ${
                   activeTab === index
                     ? "bg-white text-gray-900 shadow-lg"
                     : "text-gray-600 hover:text-gray-900"
@@ -108,13 +115,13 @@ const StartUpCost = () => {
             <table className="w-full">
               <thead className="bg-gray-100">
                 <tr>
-                  <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-center text-sm sm:text-base lg:text-lg font-bold text-gray-900">
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
                     구분
                   </th>
-                  <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-center text-sm sm:text-base lg:text-lg font-bold text-gray-900">
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
                     세부내역
                   </th>
-                  <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-center text-sm sm:text-base lg:text-lg font-bold text-gray-900">
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
                     개설비용
                   </th>
                 </tr>
@@ -126,15 +133,25 @@ const StartUpCost = () => {
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: index * 0.1 }}
-                    className="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200"
+                    className="border-b border-gray-200"
                   >
-                    <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold text-gray-900 text-center">
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-base lg:text-lg font-semibold text-gray-900 text-center whitespace-nowrap">
                       {item.category}
                     </td>
-                    <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm lg:text-base text-gray-700 text-center">
-                      {item.description}
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-sm lg:text-base text-gray-700 text-center">
+                      <div
+                        className="whitespace-nowrap"
+                        dangerouslySetInnerHTML={{
+                          __html: item.description.replace(/\*.*/, ""),
+                        }}
+                      />
+                      {item.description.includes("*") && (
+                        <div className="text-xs text-gray-500 mt-1 whitespace-nowrap">
+                          {item.description.match(/\*.*/)?.[0]}
+                        </div>
+                      )}
                     </td>
-                    <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-center text-sm sm:text-base lg:text-lg font-bold text-gray-900">
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900 whitespace-nowrap">
                       {item.cost}
                     </td>
                   </motion.tr>
@@ -144,12 +161,12 @@ const StartUpCost = () => {
           </div>
 
           {/* 총계 */}
-          <div className="bg-gray-900 px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6">
+          <div className="bg-gray-900 px-2 sm:px-6 lg:px-8 py-3 sm:py-5 lg:py-6">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
-              <span className="text-base sm:text-lg lg:text-2xl font-bold text-white text-center sm:text-left">
+              <span className="text-xs sm:text-lg lg:text-2xl font-bold text-white text-center sm:text-left">
                 {costData[activeTab].size} 매장 기준 개설비용 총계
               </span>
-              <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white">
+              <span className="text-sm sm:text-2xl lg:text-3xl font-extrabold text-white">
                 {costData[activeTab].total}
               </span>
             </div>
