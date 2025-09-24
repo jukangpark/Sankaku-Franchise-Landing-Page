@@ -1,143 +1,67 @@
+import Image from "next/image";
+import { salesReceiptData } from "@/mock/salesReceiptData";
+
 const SalesReceiptSection = () => {
   return (
     <section className="bg-gray-50 flex items-center pb-12 sm:pb-16 lg:pb-24">
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* 중앙 타이틀 */}
-        <h2 className="text-[32px] sm:text-[48px] lg:text-6xl font-bold text-gray-900 text-center mb-8 sm:mb-12 lg:mb-16 mt-15 sm:mt-20 lg:mt-30">
-          산카쿠 매출전표
+        <h2 className="text-[32px] sm:text-[48px] lg:text-6xl font-extrabold text-gray-900 text-center mb-8 sm:mb-12 lg:mb-16 mt-15 sm:mt-20 lg:mt-30">
+          산카쿠 전대본점 매출전표
         </h2>
 
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-0">
           {/* 왼쪽 영역 */}
-          <div className="w-full lg:w-[740px] flex flex-col items-center lg:items-start">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 shadow-lg w-full">
-              <h3 className="text-[24px] sm:text-[32px] lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 text-center lg:text-left">
-                전대본점
-              </h3>
-              <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-2 sm:gap-4">
-                <span className="text-[16px] sm:text-[20px] lg:text-2xl font-semibold text-gray-700">
-                  영업이익 :
-                </span>
-                <div className="flex items-baseline gap-1 sm:gap-2">
-                  <span className="text-[28px] sm:text-[40px] lg:text-5xl font-bold text-[#222222]">
-                    25,847,490
-                  </span>
-                  <span className="text-[16px] sm:text-[20px] lg:text-2xl font-semibold text-gray-700">
-                    원
-                  </span>
-                </div>
-              </div>
+          <div className="w-full lg:w-[740px] flex flex-col items-center lg:items-start mr-[110px]">
+            <div className="flex justify-center items-center w-full">
+              <Image
+                src="/매출전표/안양본점.png"
+                alt="안양본점 매출전표"
+                width={468}
+                height={582}
+                className="w-[468px] h-[582px] object-contain"
+                style={{ width: "468px", height: "582px" }}
+              />
             </div>
           </div>
 
           {/* 오른쪽 영역 - 매출 데이터 */}
-          <div className="w-full lg:w-[740px] flex flex-col items-center lg:items-end">
-            <div className="bg-white rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg w-full">
-              <div className="space-y-4">
-                {/* 매출 데이터 항목들 */}
-                <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-200">
-                  <span className="text-[14px] sm:text-[18px] lg:text-xl font-semibold text-gray-900">
-                    매출
-                  </span>
-                  <div className="text-right">
-                    <div className="text-[16px] sm:text-[20px] lg:text-2xl font-bold text-gray-900">
-                      83,312,800
+          <div className="min-w-[689px]">
+            <div className="space-y-4">
+              {salesReceiptData.map((item, index) => (
+                <div key={index}>
+                  {/* 광고비 위에 생략 표시 */}
+                  {item.category === "광고비" && (
+                    <div className="flex mb-4">
+                      <div className="flex-1 h-[45px] flex items-center justify-center">
+                        <div className="text-black text-2xl flex flex-col leading-[1] font-extrabold mr-[-120px]">
+                          <div>·</div>
+                          <div>·</div>
+                          <div>·</div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-[12px] sm:text-[14px] lg:text-lg font-medium text-[#888888]">
-                      100%
+                  )}
+
+                  <div className="flex">
+                    <div className="w-[103px] mr-[30px] text-center flex items-center text-[clamp(0.9375rem,0.7895rem+0.5921vw,1.5rem)] font-extrabold text-black tracking-[0.02em] leading-[1.2em] whitespace-nowrap">
+                      {item.category}
+                    </div>
+                    <div className="flex flex-1 justify-between bg-[#0c2d00] text-white h-[45px] items-center px-[30px]">
+                      <div className="text-[clamp(1.125rem,1.0263rem+0.4115vw,1.625rem)] font-bold text-white">
+                        {item.amount}
+                      </div>
+                      <div className="text-[clamp(0.875rem,0.7763rem+0.3947vw,1.25rem)] opacity-60 w-[50px] text-center">
+                        {item.percentage}
+                      </div>
                     </div>
                   </div>
                 </div>
+              ))}
 
-                <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-200">
-                  <span className="text-[14px] sm:text-[18px] lg:text-xl font-semibold text-gray-900">
-                    재료비
-                  </span>
-                  <div className="text-right">
-                    <div className="text-[16px] sm:text-[20px] lg:text-2xl font-bold text-gray-900">
-                      28,326,352
-                    </div>
-                    <div className="text-[12px] sm:text-[14px] lg:text-lg font-medium text-[#888888]">
-                      34%
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-200">
-                  <span className="text-[14px] sm:text-[18px] lg:text-xl font-semibold text-gray-900">
-                    인건비
-                  </span>
-                  <div className="text-right">
-                    <div className="text-[16px] sm:text-[20px] lg:text-2xl font-bold text-gray-900">
-                      16,365,000
-                    </div>
-                    <div className="text-[12px] sm:text-[14px] lg:text-lg font-medium text-[#888888]">
-                      19.6%
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-200">
-                  <span className="text-[14px] sm:text-[18px] lg:text-xl font-semibold text-gray-900">
-                    판매관리비
-                  </span>
-                  <div className="text-right">
-                    <div className="text-[16px] sm:text-[20px] lg:text-2xl font-bold text-gray-900">
-                      9,808,775
-                    </div>
-                    <div className="text-[12px] sm:text-[14px] lg:text-lg font-medium text-[#888888]">
-                      11.8%
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-200">
-                  <span className="text-[14px] sm:text-[18px] lg:text-xl font-semibold text-gray-900">
-                    로열티
-                  </span>
-                  <div className="text-right">
-                    <div className="text-[16px] sm:text-[20px] lg:text-2xl font-bold text-gray-900">
-                      2,499,384
-                    </div>
-                    <div className="text-[12px] sm:text-[14px] lg:text-lg font-medium text-[#888888]">
-                      3.0%
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-200">
-                  <span className="text-[14px] sm:text-[18px] lg:text-xl font-semibold text-gray-900">
-                    광고비
-                  </span>
-                  <div className="text-right">
-                    <div className="text-[16px] sm:text-[20px] lg:text-2xl font-bold text-gray-900">
-                      465,799
-                    </div>
-                    <div className="text-[12px] sm:text-[14px] lg:text-lg font-medium text-[#888888]">
-                      0.6%
-                    </div>
-                  </div>
-                </div>
-
-                {/* 영업이익 - 강조 */}
-                <div className="flex justify-between items-center py-4 sm:py-6 bg-black bg-opacity-10 rounded-lg px-3 sm:px-4">
-                  <span className="text-[14px] sm:text-[18px] lg:text-xl font-bold text-white">
-                    영업이익
-                  </span>
-                  <div className="text-right">
-                    <div className="text-[20px] sm:text-[28px] lg:text-3xl font-bold text-white">
-                      25,847,490
-                    </div>
-                    <div className="text-[12px] sm:text-[14px] lg:text-lg font-bold text-white">
-                      31.0%
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 하단 설명 */}
-              <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200">
-                <p className="text-[10px] sm:text-[12px] lg:text-sm text-gray-600 leading-relaxed">
+              {/* 하단 설명 텍스트 */}
+              <div className="mt-8">
+                <p className="text-[#666666] text-[16px] leading-[1.3] text-right">
                   산카쿠 전대본점의 실제 매출전표(24년 3월)에 근거한
                   손익자료입니다.
                   <br />
