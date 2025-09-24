@@ -45,13 +45,13 @@ const BrandPowerSection = () => {
         {/* 좌우 이미지 배치 */}
         <div className="flex flex-col lg:flex-row justify-between items-center h-full min-h-[600px] lg:min-h-screen gap-8 lg:gap-0">
           {/* 왼쪽 이미지, 텍스트, 차트 */}
-          <div className="flex-shrink-0 flex flex-col items-start w-full lg:w-[740px]">
+          <div className="flex-shrink-0 flex flex-col items-start w-1/2">
             <Image
               src="/brand_power/brand_power.png"
               alt="브랜드 파워"
               width={455}
               height={333}
-              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-20 sm:mt-32 lg:mt-150 w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[455px] h-auto"
+              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-20 sm:mt-32 lg:mt-150 w-[219px] h-[160px] sm:w-full sm:h-auto"
               style={{ width: "100%", height: "auto" }}
             />
             <div className="text-white text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.54em] font-semibold text-left max-w-md mb-4 sm:mb-6 lg:mb-8">
@@ -72,19 +72,19 @@ const BrandPowerSection = () => {
               alt="타브랜드 대비 평균 매출"
               width={606}
               height={453}
-              className="object-contain w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[606px] h-auto"
+              className="object-contain w-full h-auto"
               style={{ width: "100%", height: "auto" }}
             />
           </div>
 
           {/* 오른쪽 이미지, 텍스트, 차트 */}
-          <div className="flex-shrink-0 flex flex-col items-center lg:items-end w-full lg:w-[740px]">
+          <div className="flex-shrink-0 flex flex-col items-center lg:items-end w-1/2">
             <Image
               src="/brand_power/꾸준한 성장.png"
               alt="꾸준한 성장"
               width={455}
               height={333}
-              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-20 sm:mt-32 lg:mt-150 w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[455px] h-auto"
+              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-20 sm:mt-32 lg:mt-150 w-[219px] h-[160px] sm:w-full sm:h-auto"
               style={{ width: "100%", height: "auto" }}
             />
             <div className="text-white text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.54em] font-semibold text-center lg:text-right max-w-md mb-4 sm:mb-6 lg:mb-8">
@@ -105,7 +105,7 @@ const BrandPowerSection = () => {
               alt="성장 차트"
               width={606}
               height={453}
-              className="object-contain w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[606px] h-auto"
+              className="object-contain w-full h-auto"
               style={{ width: "100%", height: "auto" }}
             />
           </div>

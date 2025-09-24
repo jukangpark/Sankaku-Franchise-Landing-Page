@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const YouTubeSection = () => {
   return (
     <section
@@ -31,6 +33,17 @@ const YouTubeSection = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
+              {/* 오른쪽 상단 이미지 */}
+              <div className="absolute top-0 right-[-40px] z-20">
+                <Image
+                  src="/행복한창업_성공사례.png"
+                  alt="행복한 창업 성공사례"
+                  width={24}
+                  height={234}
+                  className="w-[24px] h-[234px] object-contain"
+                  style={{ width: "24px", height: "234px" }}
+                />
+              </div>
             </div>
           </div>
         </div>
