@@ -17,7 +17,7 @@ const DifferentiationSection = () => {
   return (
     <section
       id="differentiation"
-      className="py-12 sm:py-16 lg:py-24 bg-white bg-no-repeat bg-cover bg-center"
+      className="py-12 sm:py-16 lg:py-24 bg-white bg-no-repeat bg-cover bg-center overflow-hidden"
       style={{
         backgroundImage: "url(/책임창업bg.jpg)",
       }}
