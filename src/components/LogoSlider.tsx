@@ -4,26 +4,27 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const LogoSlider = () => {
-  // 로고 아이템 생성 (각 로고: 64px + 96px margin = 160px)
+  // 로고 아이템 생성 (원본 해상도 1581×658 적용)
   const logoItems = Array.from({ length: 80 }, (_, index) => (
     <div
       key={index}
       className="flex-shrink-0 mx-12 flex items-center justify-center"
     >
-      <div className="relative w-16 h-16">
+      <div className="relative w-[150px] h-[62px] sm:w-[200px] sm:h-[83px] lg:w-[300px] lg:h-[125px]">
         <Image
-          src="/SANKAKU_LOGO.jpg"
+          src="/logo_slider.png"
           alt="산카쿠 로고"
-          fill
-          className="object-cover rounded-lg shadow-lg"
-          sizes="64px"
+          width={1581}
+          height={658}
+          className="object-contain"
+          style={{ width: "100%", height: "auto" }}
         />
       </div>
     </div>
   ));
 
   return (
-    <div className="bg-gray-100 py-5 overflow-hidden">
+    <div className="overflow-hidden" style={{ backgroundColor: "#f7f2e8" }}>
       <motion.div
         className="flex items-center"
         animate={{
