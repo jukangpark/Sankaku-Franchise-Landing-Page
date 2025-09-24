@@ -27,7 +27,7 @@ const StartUpCost = () => {
           </h1>
 
           {/* 가맹절차 카드들 - 반응형 배치 */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-3 lg:gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 sm:gap-3 lg:gap-4 justify-center">
             {franchiseSteps.map((step, index) => (
               <motion.div
                 key={index}
