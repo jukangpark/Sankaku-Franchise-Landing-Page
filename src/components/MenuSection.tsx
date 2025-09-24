@@ -42,10 +42,7 @@ const MenuSection = () => {
   }, []);
 
   return (
-    <section
-      id="menu-guide"
-      className="py-8 sm:py-12 lg:py-16 bg-gray-50 overflow-hidden"
-    >
+    <section id="menu-guide" className="py-8 sm:py-12 lg:py-16 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <h1 className="font-extrabold text-gray-800 mb-4 text-[32px] sm:text-[48px] lg:text-[80px] leading-[1]">

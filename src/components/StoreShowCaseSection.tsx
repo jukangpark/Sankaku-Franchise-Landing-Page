@@ -19,7 +19,7 @@ const StoreShowCaseSection = ({
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-white overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-24 overflow-hidden">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div>
           <motion.div
