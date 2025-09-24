@@ -16,18 +16,16 @@ const BrandPowerSection = () => {
   }, []);
   return (
     <section
-      className="relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-screen"
+      className="relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-[600px] lg:min-h-screen"
       style={{
-        padding: "0 0 120px",
+        padding: "0 0 60px",
         backgroundImage: "url(/brand_power/sec3_bg.jpg)",
       }}
     >
       {/* 회전하는 이미지 - 섹션 정중앙 위쪽 */}
       <div
-        className="absolute top-[-250px] left-1/2 transform -translate-x-1/2 z-[10] animate-spin"
+        className="absolute top-[-150px] sm:top-[-200px] lg:top-[-250px] left-1/2 transform -translate-x-1/2 z-[10] animate-spin w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] lg:w-[985px] lg:h-[985px]"
         style={{
-          width: "985px",
-          height: "985px",
           opacity: showRotation ? 1 : 0,
           transition: "opacity 800ms",
           animationDuration: "12s", // 20초에 한 바퀴 회전
@@ -38,25 +36,25 @@ const BrandPowerSection = () => {
         <Image
           src="/brand_power/brand_power_rotation.png"
           alt="브랜드 파워 회전"
-          width={985}
-          height={985}
+          fill
           className="object-contain"
         />
       </div>
 
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 h-full">
         {/* 좌우 이미지 배치 */}
-        <div className="flex justify-between items-center h-full min-h-screen">
+        <div className="flex flex-col lg:flex-row justify-between items-center h-full min-h-[600px] lg:min-h-screen gap-8 lg:gap-0">
           {/* 왼쪽 이미지, 텍스트, 차트 */}
-          <div className="flex-shrink-0 flex flex-col items-start w-[740px]">
+          <div className="flex-shrink-0 flex flex-col items-start w-full lg:w-[740px]">
             <Image
               src="/brand_power/brand_power.png"
               alt="브랜드 파워"
               width={455}
               height={333}
-              className="object-contain mb-8 mt-150"
+              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-20 sm:mt-32 lg:mt-150 w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[455px] h-auto"
+              style={{ width: "100%", height: "auto" }}
             />
-            <div className="text-white text-[25px] leading-[1.54em] font-semibold text-left max-w-md mb-8">
+            <div className="text-white text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.54em] font-semibold text-left max-w-md mb-4 sm:mb-6 lg:mb-8">
               <p className="mb-[40px]">
                 소비자가 선택한 1등! 상권을 만들어내는 힘!
                 <br />
@@ -74,20 +72,22 @@ const BrandPowerSection = () => {
               alt="타브랜드 대비 평균 매출"
               width={606}
               height={453}
-              className="object-contain"
+              className="object-contain w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[606px] h-auto"
+              style={{ width: "100%", height: "auto" }}
             />
           </div>
 
           {/* 오른쪽 이미지, 텍스트, 차트 */}
-          <div className="flex-shrink-0 flex flex-col items-end w-[740px]">
+          <div className="flex-shrink-0 flex flex-col items-center lg:items-end w-full lg:w-[740px]">
             <Image
               src="/brand_power/꾸준한 성장.png"
               alt="꾸준한 성장"
               width={455}
               height={333}
-              className="object-contain mb-8 mt-150"
+              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-20 sm:mt-32 lg:mt-150 w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[455px] h-auto"
+              style={{ width: "100%", height: "auto" }}
             />
-            <div className="text-white text-[25px] leading-[1.54em] font-semibold text-right max-w-md mb-8">
+            <div className="text-white text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.54em] font-semibold text-center lg:text-right max-w-md mb-4 sm:mb-6 lg:mb-8">
               <p className="mb-[40px]">
                 점주님들의 만족감과 본사에 대한
                 <br />
@@ -105,7 +105,8 @@ const BrandPowerSection = () => {
               alt="성장 차트"
               width={606}
               height={453}
-              className="object-contain"
+              className="object-contain w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[606px] h-auto"
+              style={{ width: "100%", height: "auto" }}
             />
           </div>
         </div>

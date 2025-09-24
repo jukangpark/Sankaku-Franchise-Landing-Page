@@ -9,9 +9,9 @@ const PerformanceTable = ({
   itemVariants: any;
 }) => {
   return (
-    <div className="flex items-center gap-8 text-4xl font-bold text-gray-900 mb-6 mt-16">
+    <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 text-4xl font-bold text-gray-900 mb-6 mt-16">
       <motion.div
-        className="w-[600px] h-[553px] text-center flex flex-col justify-center items-center text-white space-y-4"
+        className="w-full lg:w-[600px] h-[300px] sm:h-[400px] lg:h-[553px] text-center flex flex-col justify-center items-center text-white space-y-2 lg:space-y-4"
         style={{
           background:
             "url(/images/수치로말하는산카쿠.jpg) no-repeat 50% 50% / cover",
@@ -22,7 +22,7 @@ const PerformanceTable = ({
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h2
-          className="text-center text-[30px] text-white font-bold"
+          className="text-center text-[18px] sm:text-[24px] lg:text-[30px] text-white font-bold"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -30,7 +30,7 @@ const PerformanceTable = ({
           한치의 의심없는 성공의 혁신
         </motion.h2>
         <motion.h1
-          className="text-center text-white font-bold text-7xl"
+          className="text-center text-white font-bold text-[40px] sm:text-[50px] lg:text-7xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -40,12 +40,12 @@ const PerformanceTable = ({
         </motion.h1>
       </motion.div>
       <motion.div
-        className="h-[553px] flex-1"
+        className="w-full lg:w-auto lg:flex-1 lg:h-[553px]"
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
       >
-        <div className="grid grid-cols-2 gap-1 h-full">
+        <div className="grid grid-cols-2 gap-1 w-full lg:w-full lg:h-full">
           {[
             {
               number: 17,
@@ -74,7 +74,7 @@ const PerformanceTable = ({
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="border-2 border-black p-6 bg-white flex flex-col justify-between items-start relative"
+              className="border-2 border-black p-6 bg-white flex flex-col justify-between items-start relative w-full"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}

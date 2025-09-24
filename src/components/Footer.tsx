@@ -11,14 +11,14 @@ const Footer = () => {
   return (
     <>
       {/* 탭 섹션 */}
-      <section className="py-6" style={{ backgroundColor: "#353535" }}>
+      <section className="py-4 sm:py-6" style={{ backgroundColor: "#353535" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 lg:gap-8">
             {/* 입점 제안하기 탭 */}
             <button
-              className="px-8 rounded-lg transition-colors duration-20 cursor-pointer"
+              className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-lg transition-colors duration-20 cursor-pointer"
               style={{
-                fontSize: "22px",
+                fontSize: "16px",
                 color: "#e7e7e7",
               }}
             >
@@ -27,9 +27,9 @@ const Footer = () => {
 
             {/* 식품 제안하기 탭 */}
             <button
-              className="px-8 rounded-lg transition-colors duration-20 cursor-pointer"
+              className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-lg transition-colors duration-20 cursor-pointer"
               style={{
-                fontSize: "22px",
+                fontSize: "16px",
                 color: "#e7e7e7",
               }}
             >
@@ -38,9 +38,9 @@ const Footer = () => {
 
             {/* 마케팅 제안하기 탭 */}
             <button
-              className="px-8 rounded-lg transition-colors duration-20 cursor-pointer"
+              className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-lg transition-colors duration-20 cursor-pointer"
               style={{
-                fontSize: "22px",
+                fontSize: "16px",
                 color: "#e7e7e7",
               }}
             >

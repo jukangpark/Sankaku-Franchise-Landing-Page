@@ -1,0 +1,169 @@
+# 반응형 웹 개발 규칙 (Responsive Web Development Rules)
+
+## 1. 반응형 레이아웃 규칙
+
+### 1.1 Flexbox 레이아웃
+
+- **모바일/태블릿**: `flex-col` (세로 배치)
+- **PC (lg 이상)**: `flex-row` (가로 배치)
+- **예시**: `flex flex-col lg:flex-row`
+
+### 1.2 Grid 레이아웃
+
+- **모바일**: `grid-cols-1` (1열)
+- **태블릿**: `sm:grid-cols-2` (2열)
+- **PC**: `lg:grid-cols-2` (2열 유지)
+
+## 2. 반응형 이미지 규칙
+
+### 2.1 Next.js Image 컴포넌트 반응형 처리
+
+```tsx
+// ❌ 잘못된 방법 - 고정 크기
+<Image
+  src="/image.png"
+  width={400}
+  height={300}
+  className="w-full"
+/>
+
+// ✅ 올바른 방법 - 반응형 크기
+<Image
+  src="/image.png"
+  width={400}
+  height={300}
+  className="w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[500px] h-auto"
+  style={{ width: "100%", height: "auto" }}
+/>
+```
+
+### 2.2 이미지 크기 규칙
+
+- **모바일**: `max-w-[200px] ~ max-w-[300px]`
+- **태블릿**: `sm:max-w-[300px] ~ sm:max-w-[400px]`
+- **PC**: `lg:max-w-[400px] ~ lg:max-w-[500px]`
+
+## 3. 반응형 텍스트 규칙
+
+### 3.1 텍스트 크기
+
+```tsx
+// 반응형 텍스트 크기
+className="text-[14px] sm:text-[18px] lg:text-[24px]"
+
+// 또는 clamp() 함수 사용
+style={{ fontSize: "clamp(14px, 3vw, 24px)" }}
+```
+
+### 3.2 텍스트 정렬
+
+- **모바일**: `text-center` (중앙 정렬)
+- **PC**: `lg:text-left` 또는 `lg:text-right` (기존 정렬 유지)
+
+## 4. 반응형 간격 규칙
+
+### 4.1 패딩/마진
+
+```tsx
+// 반응형 간격
+className = "p-3 sm:p-4 lg:p-6";
+className = "mb-4 sm:mb-6 lg:mb-8";
+className = "gap-4 lg:gap-8";
+```
+
+### 4.2 섹션 높이
+
+```tsx
+// 반응형 섹션 높이
+className = "min-h-[600px] lg:min-h-screen";
+```
+
+## 5. 반응형 위치 규칙
+
+### 5.1 절대 위치 요소
+
+```tsx
+// 반응형 위치
+className = "top-[-100px] sm:top-[-150px] lg:top-[-250px]";
+```
+
+### 5.2 컨테이너 너비
+
+```tsx
+// 반응형 너비
+className = "w-full lg:w-[600px]";
+className = "w-full lg:flex-1";
+```
+
+## 6. 반응형 애니메이션 규칙
+
+### 6.1 회전 애니메이션
+
+```tsx
+// 반응형 회전 요소 크기
+className =
+  "w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] lg:w-[985px] lg:h-[985px]";
+```
+
+## 7. 반응형 개발 체크리스트
+
+### 7.1 필수 확인사항
+
+- [ ] 모든 이미지에 `style={{ width: "100%", height: "auto" }}` 적용
+- [ ] 고정 width/height 값 제거하고 반응형 클래스 사용
+- [ ] 모바일에서 세로 배치, PC에서 가로 배치 확인
+- [ ] 텍스트 크기가 화면 크기에 따라 조정되는지 확인
+- [ ] 이미지가 화면 크기에 따라 적절히 줄어드는지 확인
+- [ ] 간격이 화면 크기에 따라 조정되는지 확인
+
+### 7.2 반응형 브레이크포인트
+
+- **모바일**: 기본 (0px ~ 639px)
+- **태블릿**: `sm:` (640px ~ 1023px)
+- **PC**: `lg:` (1024px 이상)
+
+## 8. 주의사항
+
+### 8.1 Next.js Image 컴포넌트
+
+- `width`와 `height` 속성은 필수이지만, 실제 크기는 CSS로 제어
+- `fill` 속성 사용 시 부모 요소에 `relative` 클래스 필요
+- `style` 속성으로 강제 반응형 적용
+
+### 8.2 성능 고려사항
+
+- 이미지 최적화를 위해 적절한 `sizes` 속성 사용
+- 불필요한 애니메이션은 모바일에서 제거 고려
+- 큰 이미지는 lazy loading 적용
+
+## 9. 예시 코드
+
+### 9.1 완전한 반응형 컴포넌트 예시
+
+```tsx
+const ResponsiveComponent = () => {
+  return (
+    <section className="min-h-[600px] lg:min-h-screen">
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+        <div className="w-full lg:w-1/2">
+          <Image
+            src="/image.png"
+            width={400}
+            height={300}
+            className="w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[500px] h-auto"
+            style={{ width: "100%", height: "auto" }}
+          />
+          <h2 className="text-[20px] sm:text-[24px] lg:text-[28px] text-center lg:text-left">
+            제목
+          </h2>
+        </div>
+        <div className="w-full lg:w-1/2">
+          <p className="text-[14px] sm:text-[16px] lg:text-[18px]">내용</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+```
+
+이 규칙들을 따라 반응형 웹 개발을 진행하면 모든 화면 크기에서 최적화된 사용자 경험을 제공할 수 있습니다.

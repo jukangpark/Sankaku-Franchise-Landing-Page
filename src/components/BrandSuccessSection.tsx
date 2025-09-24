@@ -4,16 +4,16 @@ const BrandSuccessSection = () => {
   return (
     <section
       id="success-brand"
-      className="h-[1228px] relative bg-cover bg-center bg-no-repeat"
+      className="h-[610px] lg:h-[1228px] relative bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url(/images/success_brand.jpg)" }}
     >
       <div className="container mx-auto px-4 h-full">
         {/* 왼쪽 상단 텍스트 영역 */}
-        <div className="pt-20 text-left">
+        <div className="pt-8 sm:pt-12 lg:pt-20 text-left">
           <h2
-            className="font-bold text-white mb-[15px]"
+            className="font-bold text-white mb-[10px] sm:mb-[15px]"
             style={{
-              fontSize: "94px",
+              fontSize: "clamp(32px, 8vw, 94px)",
               lineHeight: "1em",
               color: "#fff",
             }}
@@ -23,7 +23,7 @@ const BrandSuccessSection = () => {
           <p
             className="font-semibold"
             style={{
-              fontSize: "26px",
+              fontSize: "clamp(14px, 3vw, 26px)",
               lineHeight: "1.54em",
               color: "#a8a8a8",
               fontWeight: "600",
@@ -33,19 +33,20 @@ const BrandSuccessSection = () => {
           </p>
 
           {/* 브랜드 이미지 */}
-          <div className="mt-8">
+          <div className="mt-4 sm:mt-6 lg:mt-8">
             <Image
               src="/images/growth.png"
               alt="산카쿠 성공 브랜드"
               width={343}
               height={252}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[343px] h-auto"
+              style={{ width: "100%", height: "auto" }}
             />
           </div>
         </div>
 
         {/* 성장 차트 */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-5xl">
+        <div className="absolute bottom-4 sm:bottom-8 lg:bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-5xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"

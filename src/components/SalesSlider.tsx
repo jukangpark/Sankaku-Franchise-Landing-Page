@@ -7,6 +7,20 @@ import SalesCard from "./SalesCard";
 const SalesSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(1024); // 기본값 설정
+
+  // 윈도우 크기 감지
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // 초기 설정
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // 자동 슬라이드 (5초마다)
   useEffect(() => {
@@ -34,14 +48,17 @@ const SalesSlider = () => {
   };
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-4">
       {/* 슬라이드 컨테이너 */}
-      <div className="relative w-[600px] h-[940px] overflow-hidden">
+      <div className="relative w-full max-w-[350px] sm:max-w-[500px] lg:w-[600px] h-[600px] sm:h-[600px] lg:h-[940px] overflow-hidden">
         {/* 카드 컨테이너 */}
         <div
-          className="flex flex-col gap-4 transition-transform duration-400 ease-in-out"
+          className="flex flex-col gap-2 sm:gap-3 lg:gap-4 transition-transform duration-400 ease-in-out"
           style={{
-            transform: `translateY(-${currentIndex * 316}px)`, // 카드 높이(300px) + 간격(16px)
+            transform: `translateY(-${
+              currentIndex *
+              (windowWidth < 640 ? 220 : windowWidth < 1024 ? 300 : 316)
+            }px)`, // 반응형 거리
           }}
         >
           {/* 모든 카드 렌더링 (3개씩 보이도록) */}
@@ -61,13 +78,13 @@ const SalesSlider = () => {
       </div>
 
       {/* 화살표 버튼 */}
-      <div className="flex flex-col gap-2 self-start">
+      <div className="flex flex-row lg:flex-col gap-2 lg:gap-2 self-center lg:self-start">
         <button
           onClick={handlePrev}
-          className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
+          className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
         >
           <svg
-            className="w-6 h-6 text-gray-600"
+            className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -82,10 +99,10 @@ const SalesSlider = () => {
         </button>
         <button
           onClick={handleNext}
-          className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
+          className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
         >
           <svg
-            className="w-6 h-6 text-gray-600"
+            className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
