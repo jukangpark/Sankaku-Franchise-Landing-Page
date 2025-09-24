@@ -29,7 +29,8 @@ const StoreInfoSection = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 mb-4">
-            직원들도 오픈하는 브랜드
+            <span className="text-[#033914]">직원들도 오픈하는</span>
+            <span className="text-[#9c5f07]">브랜드</span>
           </motion.h1>
           <motion.p className="text-[16px] sm:text-[20px] lg:text-[28px] font-semibold text-gray-700">
             믿을 수 있는 성공 방법과 깊은 신뢰를 바탕으로 운영하는 산카쿠입니다.
@@ -38,7 +39,7 @@ const StoreInfoSection = () => {
 
         {/* Grid 카드 컨테이너 */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 gap-y-16 sm:gap-y-20 lg:gap-y-32"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -58,15 +59,17 @@ const StoreInfoSection = () => {
                 className="w-full h-auto"
                 style={{ width: "100%", height: "auto" }}
               />
-              {/* 매장 이름 */}
+              {/* 매장 이름 - 동그란 원 */}
               <motion.div
-                className="absolute bottom-0 left-0 right-0 bg-black p-3 sm:p-4"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
+                className={`absolute -bottom-10 sm:-bottom-12 md:-bottom-14 lg:-bottom-15 left-4 sm:left-5 md:left-6 lg:left-6 w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] rounded-full flex items-center justify-center shadow-lg ${
+                  index % 2 === 0 ? "bg-[#033914]" : "bg-[#9c5f07]"
+                }`}
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
                 viewport={{ once: true }}
               >
-                <p className="text-white text-center font-extrabold text-[16px] sm:text-[18px] lg:text-xl">
+                <p className="text-white text-center font-extrabold text-[14px] sm:text-[16px] md:text-[16px] lg:text-[20px] leading-tight">
                   {store.name}
                 </p>
               </motion.div>
@@ -76,8 +79,9 @@ const StoreInfoSection = () => {
       </div>
 
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 mt-8 sm:mt-12 lg:mt-16">
-          증명된 브랜드로 다점포 운영
+        <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 mt-16 sm:mt-20 lg:mt-24">
+          <span className="text-[#033914]">증명된 브랜드로 </span>
+          <span className="text-[#9c5f07]">다점포 운영</span>
         </h1>
         <h2 className="text-[16px] sm:text-[20px] lg:text-[28px] font-semibold text-gray-700 mt-4">
           산카쿠만의 탄탄한 메뉴들로 수익성을 높여갑니다.
@@ -85,7 +89,7 @@ const StoreInfoSection = () => {
       </div>
 
       {/* 점주님 다점포 운영 섹션 */}
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16 lg:mt-20">
+      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20 lg:mt-24">
         {/* Grid 카드 컨테이너 - 4개씩 배치 */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
