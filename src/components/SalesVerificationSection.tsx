@@ -70,7 +70,7 @@ const SalesVerificationSection = () => {
                 alt="매출 증명"
                 width={700}
                 height={400}
-                className="object-contain w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[700px] h-auto"
+                className="object-contain w-full min-w-[500.98px] sm:min-w-[500.98px] lg:min-w-[658px] h-auto"
                 style={{ width: "100%", height: "auto" }}
               />
             </div>
