@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 import SalesSlider from "./SalesSlider";
 
 const SalesVerificationSection = () => {
@@ -8,10 +9,29 @@ const SalesVerificationSection = () => {
       className="py-12 sm:py-16 lg:py-24 bg-white bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: "url(/sales_verification_bg.jpg)" }}
     >
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <motion.div
+        className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+      >
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           {/* 왼쪽 섹션 - 텍스트 */}
-          <div className="w-full lg:w-[740px] flex flex-col items-center lg:items-start">
+          <motion.div
+            className="w-full lg:w-[740px] flex flex-col items-center lg:items-start"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: 0.2,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             {/* 메인 타이틀 */}
             <h2 className="text-[32px] sm:text-[48px] lg:text-6xl font-bold text-white mb-4 sm:mb-6 text-center lg:text-left">
               25년 월매출 TOP20
@@ -54,14 +74,24 @@ const SalesVerificationSection = () => {
                 style={{ width: "100%", height: "auto" }}
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* 오른쪽 섹션 - 매출 슬라이더 */}
-          <div className="w-full lg:w-[740px] flex flex-col items-center justify-center">
+          <motion.div
+            className="w-full lg:w-[740px] flex flex-col items-center justify-center"
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: 0.4,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             <SalesSlider />
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

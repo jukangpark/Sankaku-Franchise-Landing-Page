@@ -1,24 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import supervisingCard from "@/mock/supervisingCard";
 
 const DifferentiationSection = () => {
-  const [windowWidth, setWindowWidth] = useState(1024);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    // 초기 설정
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -28,8 +13,6 @@ const DifferentiationSection = () => {
       },
     },
   };
-
-  console.log("windowWidth", windowWidth);
 
   return (
     <section
@@ -92,8 +75,8 @@ const DifferentiationSection = () => {
           <motion.h1 className="text-[32px] sm:text-[48px] lg:text-[88px] font-extrabold text-white mb-4 sm:mb-6 lg:mb-8">
             왜 산카쿠를 선택할까요?
           </motion.h1>
-          <motion.h2 className="text-[18px] sm:text-[28px] lg:text-[48px] font-extrabold text-black mb-4 sm:mb-6 lg:mb-8 rounded-full bg-white p-2 sm:p-3 lg:p-4">
-            차별화된 슈퍼바이징 시스템
+          <motion.h2 className="text-[18px] sm:text-[28px] lg:text-[64px] font-medium text-black mb-4 sm:mb-6 lg:mb-8 rounded-full bg-white p-2 sm:p-3 lg:p-4">
+            차별화된 <span className="font-extrabold">슈퍼바이징</span> 시스템
           </motion.h2>
           <motion.p className="text-[16px] sm:text-[20px] lg:text-[32px] font-bold text-white">
             산카쿠만의 철저한 3C 슈퍼바이징 시스템을 소개합니다.
@@ -111,106 +94,62 @@ const DifferentiationSection = () => {
           {supervisingCard.map((card, index) => (
             <motion.div
               key={index}
-              className={`relative text-white shadow-lg w-full lg:min-w-[573.33px] ${
-                index === 1 ? "lg:z-30" : "lg:z-10"
+              className={`relative text-white shadow-lg w-full lg:min-w-[573.33px] lg:h-[810px] rounded-[24px] lg:rounded-[48px] p-5 lg:p-[60px_50px] flex flex-col justify-start ${
+                index === 0
+                  ? "lg:items-start lg:text-left"
+                  : index === 2
+                  ? "lg:items-end lg:text-right"
+                  : "lg:items-center lg:text-center"
+              } ${index === 1 ? "lg:z-30 lg:-mt-[50px]" : "lg:z-10"} ${
+                index === 0
+                  ? "lg:ml-[100px] lg:mr-[-100px]"
+                  : index === 2
+                  ? "lg:ml-[-100px] lg:mr-[100px]"
+                  : "lg:ml-0 lg:mr-0"
               }`}
               style={{
                 backgroundImage: `url(/슈퍼바이징/${card.number.toLowerCase()}.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                borderRadius: windowWidth >= 1024 ? "48px" : "24px",
-                minHeight: windowWidth >= 1024 ? "810px" : "400px",
-                padding: windowWidth >= 1024 ? "60px 50px" : "20px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                alignItems:
-                  index === 0
-                    ? "flex-start"
-                    : index === 2
-                    ? "flex-end"
-                    : "center",
-                paddingTop: windowWidth >= 1024 ? "80px" : "40px",
-                textAlign:
-                  index === 0 ? "left" : index === 2 ? "right" : "center",
-                marginLeft:
-                  windowWidth >= 1024
-                    ? index === 0
-                      ? "100px"
-                      : index === 2
-                      ? "-100px"
-                      : "0px"
-                    : "0px",
-                marginRight:
-                  windowWidth >= 1024
-                    ? index === 0
-                      ? "-100px"
-                      : index === 2
-                      ? "100px"
-                      : "0px"
-                    : "0px",
-                marginTop:
-                  windowWidth >= 1024 ? (index === 1 ? "-50px" : "0px") : "0px",
+                minHeight: "400px",
+                paddingTop: "40px",
               }}
-              transition={{ delay: index * 0.1 }}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: index * 0.2,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
             >
               {/* 배경 오버레이 */}
-              <div
-                className={`absolute inset-0 bg-black/30 ${
-                  windowWidth >= 1024 ? "rounded-[48px]" : "rounded-[24px]"
-                }`}
-              ></div>
+              <div className="absolute inset-0 bg-black/30 rounded-[24px] lg:rounded-[48px]"></div>
 
               {/* 콘텐츠 */}
               <div className="relative z-10 w-full">
                 {/* 번호 */}
-                <div className={`mb-8 sm:mb-12 lg:mb-20`}>
-                  <span
-                    className="text-white font-bold"
-                    style={{
-                      fontSize: windowWidth >= 1024 ? "72px" : "32px",
-                      lineHeight: "1.2em",
-                      opacity: 0.5,
-                      fontWeight: 700,
-                      marginBottom: windowWidth >= 1024 ? "80px" : "20px",
-                    }}
-                  >
+                <div className="mb-5 lg:mb-20">
+                  <span className="text-white text-[32px] lg:text-[72px] leading-[1.2em] opacity-50 font-[700] mb-5 lg:mb-20">
                     {card.number}
                   </span>
                 </div>
 
                 {/* 제목 */}
                 <h3
-                  className={`mb-1 font-extrabold`}
-                  style={{
-                    fontSize: windowWidth >= 1024 ? "43px" : "18px",
-                    lineHeight: "1.3em",
-                    color: "#ea8a00",
-                  }}
+                  className="mb-1 font-extrabold text-[18px] lg:text-[43px] leading-[1.3em] text-[#ea8a00]"
                   dangerouslySetInnerHTML={{ __html: card.title }}
                 />
 
                 {/* 부제목 */}
-                <h4
-                  className={`mb-3 sm:mb-4 lg:mb-6`}
-                  style={{
-                    fontSize: windowWidth >= 1024 ? "43px" : "18px",
-                    lineHeight: "1.3em",
-                    fontWeight: 600,
-                    color: "white",
-                  }}
-                >
+                <h4 className="mb-3 lg:mb-25 text-[18px] lg:text-[43px] leading-[1.3em] font-semibold text-white">
                   {card.subtitle}
                 </h4>
 
                 {/* 설명 */}
                 <p
-                  className={`text-white leading-relaxed`}
-                  style={{
-                    fontSize: windowWidth >= 1024 ? "26px" : "12px",
-                    lineHeight: "1.54em",
-                  }}
+                  className="text-white text-[12px] lg:text-[26px] leading-[1.54em] font-bold"
                   dangerouslySetInnerHTML={{ __html: card.description }}
                 />
               </div>

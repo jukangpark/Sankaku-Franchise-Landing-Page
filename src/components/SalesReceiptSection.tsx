@@ -1,18 +1,48 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { salesReceiptData } from "@/mock/salesReceiptData";
 
 const SalesReceiptSection = () => {
   return (
     <section className=" flex items-center pb-12 sm:pb-16 lg:pb-24">
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <motion.div
+        className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 w-full"
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+      >
         {/* 중앙 타이틀 */}
-        <h2 className="text-[32px] sm:text-[48px] lg:text-6xl font-extrabold text-gray-900 text-center mb-8 sm:mb-12 lg:mb-16 mt-15 sm:mt-20 lg:mt-30">
+        <motion.h2
+          className="text-[32px] sm:text-[48px] lg:text-6xl font-extrabold text-gray-900 text-center mb-8 sm:mb-12 lg:mb-16 mt-15 sm:mt-20 lg:mt-30"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            delay: 0.2,
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+        >
           산카쿠 전대본점 매출전표
-        </h2>
+        </motion.h2>
 
         <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-8">
           {/* 왼쪽 영역 */}
-          <div className="flex flex-col items-center lg:w-[40%]">
+          <motion.div
+            className="flex flex-col items-center lg:w-[40%]"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: 0.4,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             <div className="flex justify-center items-center">
               <Image
                 src="/매출전표/안양본점.png"
@@ -22,10 +52,20 @@ const SalesReceiptSection = () => {
                 className="w-[200px] h-[249px] sm:w-[300px] sm:h-[373px] lg:w-[468px] lg:h-[582px] object-contain"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* 오른쪽 영역 - 매출 데이터 */}
-          <div className="w-full lg:w-[60%] lg:flex-1 lg:min-w-0">
+          <motion.div
+            className="w-full lg:w-[60%] lg:flex-1 lg:min-w-0"
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: 0.6,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             <div className="space-y-4 max-w-[600px] mx-auto lg:mx-0 lg:max-w-none">
               {salesReceiptData.map((item, index) => (
                 <div key={index}>
@@ -43,14 +83,40 @@ const SalesReceiptSection = () => {
                   )}
 
                   <div className="flex">
-                    <div className="w-[80px] sm:w-[90px] lg:w-[103px] mr-[20px] sm:mr-[25px] lg:mr-[30px] text-center flex items-center text-[clamp(0.75rem,0.6rem+0.5vw,1.5rem)] font-extrabold text-black tracking-[0.02em] leading-[1.2em] whitespace-nowrap">
+                    <div
+                      className="w-[80px] sm:w-[90px] lg:w-[103px] mr-[20px] sm:mr-[25px] lg:mr-[30px] text-center flex items-center text-[clamp(0.75rem,0.6rem+0.5vw,1.5rem)] font-extrabold tracking-[0.02em] leading-[1.2em] whitespace-nowrap"
+                      style={{
+                        color:
+                          item.category === "영업이익"
+                            ? "#5dc41a"
+                            : item.bgColor,
+                      }}
+                    >
                       {item.category}
                     </div>
-                    <div className="flex flex-1 justify-between bg-[#0c2d00] text-white h-[40px] sm:h-[42px] lg:h-[45px] items-center px-[20px] sm:px-[25px] lg:px-[30px]">
-                      <div className="text-[clamp(0.9rem,0.8rem+0.4vw,1.625rem)] font-bold text-white">
+                    <div
+                      className="flex flex-1 justify-between h-[40px] sm:h-[42px] lg:h-[45px] items-center px-[20px] sm:px-[25px] lg:px-[30px]"
+                      style={{
+                        backgroundColor: item.bgColor,
+                        color: item.textColor,
+                      }}
+                    >
+                      <div
+                        className="text-[clamp(0.9rem,0.8rem+0.4vw,1.625rem)] font-bold"
+                        style={{ color: item.textColor }}
+                      >
                         {item.amount}
                       </div>
-                      <div className="text-[clamp(0.7rem,0.6rem+0.3vw,1.25rem)] opacity-60 w-[40px] sm:w-[45px] lg:w-[50px] text-center">
+                      <div
+                        className="text-[clamp(0.7rem,0.6rem+0.3vw,1.25rem)] w-[40px] sm:w-[45px] lg:w-[50px] text-center"
+                        style={{
+                          color:
+                            item.category === "영업이익"
+                              ? "#222222"
+                              : item.textColor,
+                          opacity: item.category === "영업이익" ? 1 : 0.6,
+                        }}
+                      >
                         {item.percentage}
                       </div>
                     </div>
@@ -71,9 +137,9 @@ const SalesReceiptSection = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

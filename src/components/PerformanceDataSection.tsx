@@ -12,7 +12,16 @@ const PerformanceDataSection = ({
 }) => {
   return (
     <section className="py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+      >
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-8"
           variants={containerVariants}
@@ -53,6 +62,14 @@ const PerformanceDataSection = ({
               key={index}
               className="text-center p-6 sm:p-8"
               variants={itemVariants}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
             >
               <div className="flex justify-center mb-4">
                 <Image
@@ -77,11 +94,22 @@ const PerformanceDataSection = ({
           ))}
         </motion.div>
 
-        <PerformanceTable
-          containerVariants={containerVariants}
-          itemVariants={itemVariants}
-        />
-      </div>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            delay: 0.5,
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+        >
+          <PerformanceTable
+            containerVariants={containerVariants}
+            itemVariants={itemVariants}
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

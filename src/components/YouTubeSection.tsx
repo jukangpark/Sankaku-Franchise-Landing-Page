@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const YouTubeSection = () => {
   return (
@@ -10,9 +11,28 @@ const YouTubeSection = () => {
         overflow: "hidden",
       }}
     >
-      <div className="w-full max-w-[1460px] mx-auto px-[30px] relative z-10 min-h-[600px] lg:min-h-[800px] pt-20">
+      <motion.div
+        className="w-full max-w-[1460px] mx-auto px-[30px] relative z-10 min-h-[600px] lg:min-h-[800px] pt-20"
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+      >
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 w-full items-center">
-          <div className="space-y-4 lg:space-y-6 text-center lg:text-left">
+          <motion.div
+            className="space-y-4 lg:space-y-6 text-center lg:text-left"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: 0.2,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             <div className="text-[#e18c12] text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-extrabold tracking-tighter">
               대한민국 라멘 NO.1
             </div>
@@ -23,8 +43,18 @@ const YouTubeSection = () => {
               한치의 의심없는 성공의 혁신, <br />
               모두에게 검증된 브랜드로 성공하세요.
             </div>
-          </div>
-          <div className="relative w-full lg:w-auto lg:flex-1">
+          </motion.div>
+          <motion.div
+            className="relative w-full lg:w-auto lg:flex-1"
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: 0.4,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             <div className="relative w-full max-w-[350px] sm:max-w-[600px] lg:max-w-[800px] aspect-video mx-auto">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
@@ -35,7 +65,17 @@ const YouTubeSection = () => {
                 allowFullScreen
               />
               {/* 오른쪽 상단 이미지 */}
-              <div className="absolute top-0 right-[-40px] z-20">
+              <motion.div
+                className="absolute top-0 right-[-40px] z-20"
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  delay: 0.6,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+              >
                 <Image
                   src="/행복한창업_성공사례.png"
                   alt="행복한 창업 성공사례"
@@ -44,11 +84,11 @@ const YouTubeSection = () => {
                   className="w-[24px] h-[234px] object-contain"
                   style={{ width: "24px", height: "234px" }}
                 />
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

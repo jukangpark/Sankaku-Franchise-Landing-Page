@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const BrandPowerSection = () => {
   const [showRotation, setShowRotation] = useState(false);
@@ -41,11 +42,30 @@ const BrandPowerSection = () => {
         />
       </div>
 
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <motion.div
+        className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 h-full"
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+      >
         {/* 좌우 이미지 배치 */}
         <div className="flex flex-col lg:flex-row justify-between items-center h-full min-h-[600px] lg:min-h-screen gap-8 lg:gap-0">
           {/* 왼쪽 이미지, 텍스트, 차트 */}
-          <div className="flex-shrink-0 flex flex-col items-start w-1/2">
+          <motion.div
+            className="flex-shrink-0 flex flex-col items-start w-1/2"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: 0.2,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             <Image
               src="/brand_power/brand_power.png"
               alt="브랜드 파워"
@@ -75,10 +95,20 @@ const BrandPowerSection = () => {
               className="object-contain w-full h-auto"
               style={{ width: "100%", height: "auto" }}
             />
-          </div>
+          </motion.div>
 
           {/* 오른쪽 이미지, 텍스트, 차트 */}
-          <div className="flex-shrink-0 flex flex-col items-center lg:items-end w-1/2">
+          <motion.div
+            className="flex-shrink-0 flex flex-col items-center lg:items-end w-1/2"
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: 0.4,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             <Image
               src="/brand_power/꾸준한 성장.png"
               alt="꾸준한 성장"
@@ -108,9 +138,9 @@ const BrandPowerSection = () => {
               className="object-contain w-full h-auto"
               style={{ width: "100%", height: "auto" }}
             />
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -89,10 +89,20 @@ const StartUpCost = () => {
         </motion.div>
 
         {/* 탭 버튼들 */}
-        <div className="flex justify-center mb-8 sm:mb-10 lg:mb-12">
+        <motion.div
+          className="flex justify-center mb-8 sm:mb-10 lg:mb-12"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            delay: 0.2,
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+        >
           <div className="bg-gray-100 rounded-lg p-1 sm:p-2 flex flex-row gap-1 sm:gap-2 w-full sm:w-auto">
             {costData.map((data, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={() => setActiveTab(index)}
                 className={`flex-1 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 cursor-pointer ${
@@ -100,12 +110,22 @@ const StartUpCost = () => {
                     ? "bg-white text-gray-900 shadow-lg"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  delay: 0.4 + index * 0.1,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {data.size}
-              </button>
+              </motion.button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* 테이블 컨테이너 */}
         <motion.div

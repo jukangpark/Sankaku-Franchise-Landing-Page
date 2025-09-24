@@ -20,7 +20,16 @@ const StoreShowCaseSection = ({
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 overflow-hidden">
-      <div className="mx-auto">
+      <motion.div
+        className="mx-auto"
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+      >
         <div>
           <motion.div
             className="text-center lg:text-left mb-8 sm:mb-12 lg:mb-16 max-w-[1400px] mx-auto"
@@ -63,7 +72,17 @@ const StoreShowCaseSection = ({
         </div>
 
         {/* Infinite Slider */}
-        <div className="relative overflow-hidden">
+        <motion.div
+          className="relative overflow-hidden"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+        >
           <motion.div
             className="flex"
             animate={{
@@ -105,8 +124,8 @@ const StoreShowCaseSection = ({
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

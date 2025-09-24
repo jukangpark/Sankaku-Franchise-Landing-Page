@@ -61,7 +61,14 @@ const StoreInfoSection = () => {
             <motion.div
               key={store.id}
               className="bg-white border border-gray-200 relative"
-              transition={{ delay: index * 0.1 }}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
             >
               <Image
                 width={453.33}
@@ -72,19 +79,15 @@ const StoreInfoSection = () => {
                 style={{ width: "100%", height: "auto" }}
               />
               {/* 매장 이름 - 동그란 원 */}
-              <motion.div
+              <div
                 className={`absolute -bottom-10 sm:-bottom-12 md:-bottom-14 lg:-bottom-15 left-4 sm:left-5 md:left-6 lg:left-6 w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] rounded-full flex items-center justify-center shadow-lg ${
                   index % 2 === 0 ? "bg-[#033914]" : "bg-[#9c5f07]"
                 }`}
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ delay: index * 0.1 + 0.3 }}
-                viewport={{ once: true }}
               >
                 <p className="text-white text-center font-extrabold text-[14px] sm:text-[16px] md:text-[16px] lg:text-[20px] leading-tight">
                   {store.name}
                 </p>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -114,7 +117,14 @@ const StoreInfoSection = () => {
             <motion.div
               key={owner.id}
               className="bg-[#efe8dc] border border-gray-200 rounded-lg overflow-hidden w-full lg:h-[395px]"
-              transition={{ delay: index * 0.1 }}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
             >
               <div className="flex flex-col lg:flex-row h-full">
                 {/* 이미지 영역 */}
@@ -141,12 +151,8 @@ const StoreInfoSection = () => {
                     </span>
                   </div>
 
-                  <motion.p
+                  <p
                     className="text-[12px] sm:text-[14px] lg:text-base font-semibold text-gray-800 mb-3 sm:mb-4"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
-                    viewport={{ once: true }}
                     style={{ fontSize: "24px", fontWeight: 900 }}
                     dangerouslySetInnerHTML={{ __html: owner.description }}
                   />
@@ -180,7 +186,14 @@ const StoreInfoSection = () => {
             <motion.div
               key={owner.id}
               className="bg-[#efe8dc] border border-gray-200 rounded-lg overflow-hidden"
-              transition={{ delay: index * 0.1 }}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
             >
               {/* 이미지 영역 */}
               <div className="relative">
@@ -203,12 +216,8 @@ const StoreInfoSection = () => {
                   </span>
                 </div>
 
-                <motion.p
+                <p
                   className="text-[12px] sm:text-[14px] lg:text-base font-semibold text-gray-800 mb-3 sm:mb-4"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                  viewport={{ once: true }}
                   style={{
                     textAlign: "center",
                     fontSize: "24px",
