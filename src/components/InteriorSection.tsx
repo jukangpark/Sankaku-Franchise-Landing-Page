@@ -3,7 +3,7 @@ import Image from "next/image";
 const InteriorSection = () => {
   return (
     <section
-      className="min-h-[600px] sm:min-h-[700px] lg:h-[978px] bg-cover bg-center bg-no-repeat relative flex items-center"
+      className="min-h-[600px] sm:min-h-[700px] lg:h-[978px] bg-cover bg-center bg-no-repeat relative flex items-center py-12 sm:py-16 lg:py-24"
       style={{ backgroundImage: "url(/인테리어/인테리어bg.jpg)" }}
     >
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 w-full">
@@ -23,7 +23,7 @@ const InteriorSection = () => {
             즐길 수 있도록 고안된 '산카쿠' 인테리어
           </p>
         </div>
-        <div className="w-full max-w-[350px] sm:max-w-[500px] lg:w-[780px] lg:h-[530px] bg-gray-500">
+        <div className="w-full lg:w-[780px] lg:h-[530px]">
           <Image
             src="/인테리어/interior_1.jpg"
             alt="인테리어"
