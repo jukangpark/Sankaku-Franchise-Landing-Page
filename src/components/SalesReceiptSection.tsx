@@ -12,7 +12,7 @@ const SalesReceiptSection = () => {
 
         <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-8">
           {/* 왼쪽 영역 */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center lg:w-[40%]">
             <div className="flex justify-center items-center">
               <Image
                 src="/매출전표/안양본점.png"
@@ -25,8 +25,8 @@ const SalesReceiptSection = () => {
           </div>
 
           {/* 오른쪽 영역 - 매출 데이터 */}
-          <div className="w-full lg:flex-1 lg:min-w-0">
-            <div className="space-y-4 max-w-[600px] mx-auto lg:mx-0">
+          <div className="w-full lg:w-[60%] lg:flex-1 lg:min-w-0">
+            <div className="space-y-4 max-w-[600px] mx-auto lg:mx-0 lg:max-w-none">
               {salesReceiptData.map((item, index) => (
                 <div key={index}>
                   {/* 광고비 위에 생략 표시 */}
