@@ -20,7 +20,7 @@ const StoreShowCaseSection = ({
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 overflow-hidden">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto">
         <div>
           <motion.div
             className="text-center lg:text-left mb-8 sm:mb-12 lg:mb-16 max-w-[1400px] mx-auto"
@@ -89,7 +89,7 @@ const StoreShowCaseSection = ({
                     width={680}
                     height={362}
                     className="object-cover w-full h-full"
-                    style={{ width: "100%", height: "auto" }}
+                    style={{ width: "100%", height: "100%" }}
                   />
                   <motion.div
                     className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white p-2 sm:p-3 lg:p-4"

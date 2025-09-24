@@ -12,7 +12,7 @@ const MenuSection = () => {
     if (!slider) return;
 
     let animationId: number;
-    const speed = 1.5; // 슬라이드 속도 (픽셀/프레임)
+    const speed = 1.2; // 슬라이드 속도 (픽셀/프레임)
 
     // 초기 위치를 화면 너비만큼 왼쪽으로 설정하여 왼쪽이 비어있지 않게 함
     const containerWidth =

@@ -16,7 +16,7 @@ const SalesCard = ({
       <div className="flex items-start gap-4">
         {/* TOP 원 - 왼쪽 상단 */}
         <div
-          className={`w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] rounded-full flex flex-col text-center items-center justify-center text-white font-bold text-lg ${"bg-black"}`}
+          className={`w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] rounded-full flex flex-col text-center items-center justify-center text-white font-bold text-lg bg-[#033914]`}
         >
           <div className="text-[10px] sm:text-[14px] lg:text-[18px] leading-none">
             TOP
@@ -40,7 +40,7 @@ const SalesCard = ({
       {/* 매출액 - 오른쪽 하단 */}
       <div className="absolute bottom-4 sm:bottom-5 lg:bottom-6 right-4 sm:right-8 lg:right-15 text-left">
         <div className="flex gap-1 sm:gap-2 items-center">
-          <div className="text-[12px] sm:text-[16px] lg:text-xl font-bold text-gray-600">
+          <div className="text-[12px] sm:text-[16px] lg:text-xl font-extrabold text-[#9c5f07]">
             매출액
           </div>
           <div

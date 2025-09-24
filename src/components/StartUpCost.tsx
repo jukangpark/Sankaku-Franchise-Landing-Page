@@ -31,7 +31,7 @@ const StartUpCost = () => {
             {franchiseSteps.map((step, index) => (
               <motion.div
                 key={index}
-                className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 sm:p-6 lg:p-8 text-center"
+                className="text-center"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -42,26 +42,31 @@ const StartUpCost = () => {
                   <img
                     src={`/가맹절차/${index + 1}.png`}
                     alt={`Step ${index + 1} 아이콘`}
-                    className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto object-contain"
+                    className="w-[196px] h-[180px] mx-auto object-contain"
                   />
                 </div>
 
                 {/* STEP 번호 */}
-                <div className="mb-3">
-                  <span className="text-xs sm:text-sm lg:text-base font-extrabold text-gray-500">
+                <div className="mb-[10px]">
+                  <span
+                    className="text-[14px] font-bold leading-[1.2em]"
+                    style={{ color: step.stepColor }}
+                  >
                     STEP {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* 제목 */}
-                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-2">
-                  {step.title}
-                </h3>
+                <h3
+                  className="text-sm sm:text-base lg:text-[22px] font-extrabold text-[#2c2c2c] mb-[10px] lg:leading-[1.36em]"
+                  dangerouslySetInnerHTML={{ __html: step.title }}
+                />
 
                 {/* 설명 */}
-                <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
+                <p
+                  className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: step.description }}
+                />
               </motion.div>
             ))}
           </div>

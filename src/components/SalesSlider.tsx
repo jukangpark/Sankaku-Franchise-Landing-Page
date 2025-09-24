@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import salesData from "@/mock/salesData";
 import SalesCard from "./SalesCard";
 
@@ -81,39 +82,27 @@ const SalesSlider = () => {
       <div className="flex flex-row lg:flex-col gap-2 lg:gap-2 self-center lg:self-start">
         <button
           onClick={handlePrev}
-          className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
+          className="w-[40px] h-[70px] bg-white rounded-[20px] shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
         >
-          <svg
-            className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 15l7-7 7 7"
-            />
-          </svg>
+          <Image
+            src="/sales_slider/up_button.png"
+            alt="이전 버튼"
+            width={15}
+            height={15}
+            className="w-[15px] h-[15px] object-contain"
+          />
         </button>
         <button
           onClick={handleNext}
-          className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
+          className="w-[40px] h-[70px] bg-white rounded-[20px] shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
         >
-          <svg
-            className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+          <Image
+            src="/sales_slider/down_button.png"
+            alt="다음 버튼"
+            width={15}
+            height={15}
+            className="w-[15px] h-[15px] object-contain"
+          />
         </button>
       </div>
     </div>
