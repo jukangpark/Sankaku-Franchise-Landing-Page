@@ -29,6 +29,8 @@ const DifferentiationSection = () => {
     },
   };
 
+  console.log("windowWidth", windowWidth);
+
   return (
     <section
       id="differentiation"
@@ -100,7 +102,7 @@ const DifferentiationSection = () => {
 
         {/* 3C 카드들 */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-start"
+          className="relative flex flex-col lg:flex-row items-center justify-center lg:items-start gap-4 sm:gap-6 lg:gap-0"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -109,22 +111,47 @@ const DifferentiationSection = () => {
           {supervisingCard.map((card, index) => (
             <motion.div
               key={index}
-              className={`relative text-white shadow-lg w-full text-center`}
+              className={`relative text-white shadow-lg w-full lg:min-w-[573.33px] ${
+                index === 1 ? "lg:z-30" : "lg:z-10"
+              }`}
               style={{
                 backgroundImage: `url(/슈퍼바이징/${card.number.toLowerCase()}.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                marginTop: index === 1 ? "0px" : "0px",
-                zIndex: index === 1 ? 30 : 10,
                 borderRadius: windowWidth >= 1024 ? "48px" : "24px",
                 minHeight: windowWidth >= 1024 ? "810px" : "400px",
                 padding: windowWidth >= 1024 ? "60px 50px" : "20px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
-                alignItems: "center",
+                alignItems:
+                  index === 0
+                    ? "flex-start"
+                    : index === 2
+                    ? "flex-end"
+                    : "center",
                 paddingTop: windowWidth >= 1024 ? "80px" : "40px",
+                textAlign:
+                  index === 0 ? "left" : index === 2 ? "right" : "center",
+                marginLeft:
+                  windowWidth >= 1024
+                    ? index === 0
+                      ? "100px"
+                      : index === 2
+                      ? "-100px"
+                      : "0px"
+                    : "0px",
+                marginRight:
+                  windowWidth >= 1024
+                    ? index === 0
+                      ? "-100px"
+                      : index === 2
+                      ? "100px"
+                      : "0px"
+                    : "0px",
+                marginTop:
+                  windowWidth >= 1024 ? (index === 1 ? "-50px" : "0px") : "0px",
               }}
               transition={{ delay: index * 0.1 }}
             >
@@ -136,9 +163,9 @@ const DifferentiationSection = () => {
               ></div>
 
               {/* 콘텐츠 */}
-              <div className="relative z-10">
+              <div className="relative z-10 w-full">
                 {/* 번호 */}
-                <div className={`mb-8 sm:mb-12 lg:mb-20 text-center`}>
+                <div className={`mb-8 sm:mb-12 lg:mb-20`}>
                   <span
                     className="text-white font-bold"
                     style={{
@@ -155,7 +182,7 @@ const DifferentiationSection = () => {
 
                 {/* 제목 */}
                 <h3
-                  className={`mb-1 font-extrabold text-center`}
+                  className={`mb-1 font-extrabold`}
                   style={{
                     fontSize: windowWidth >= 1024 ? "43px" : "18px",
                     lineHeight: "1.3em",
@@ -166,7 +193,7 @@ const DifferentiationSection = () => {
 
                 {/* 부제목 */}
                 <h4
-                  className={`mb-3 sm:mb-4 lg:mb-6 text-center`}
+                  className={`mb-3 sm:mb-4 lg:mb-6`}
                   style={{
                     fontSize: windowWidth >= 1024 ? "43px" : "18px",
                     lineHeight: "1.3em",
@@ -179,7 +206,7 @@ const DifferentiationSection = () => {
 
                 {/* 설명 */}
                 <p
-                  className={`text-white leading-relaxed text-center`}
+                  className={`text-white leading-relaxed`}
                   style={{
                     fontSize: windowWidth >= 1024 ? "26px" : "12px",
                     lineHeight: "1.54em",
