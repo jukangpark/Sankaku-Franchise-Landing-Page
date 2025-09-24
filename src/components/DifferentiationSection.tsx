@@ -94,25 +94,20 @@ const DifferentiationSection = () => {
           {supervisingCard.map((card, index) => (
             <motion.div
               key={index}
-              className={`relative text-white shadow-lg w-full lg:min-w-[573.33px] lg:h-[810px] rounded-[24px] lg:rounded-[48px] p-5 lg:p-[60px_50px] flex flex-col justify-start ${
+              className={`relative text-white shadow-lg w-full lg:min-w-[573.33px] lg:h-[810px] max-h-[174px] lg:max-h-none rounded-[24px] lg:rounded-[48px] p-5 lg:p-[60px_50px] flex flex-col justify-center lg:justify-start text-center items-center ${
+                index === 1 ? "lg:z-30 lg:-mt-[50px]" : "lg:z-10"
+              } ${
                 index === 0
-                  ? "lg:items-start lg:text-left"
+                  ? "lg:ml-[100px] lg:mr-[-100px] lg:items-start lg:text-left"
                   : index === 2
-                  ? "lg:items-end lg:text-right"
-                  : "lg:items-center lg:text-center"
-              } ${index === 1 ? "lg:z-30 lg:-mt-[50px]" : "lg:z-10"} ${
-                index === 0
-                  ? "lg:ml-[100px] lg:mr-[-100px]"
-                  : index === 2
-                  ? "lg:ml-[-100px] lg:mr-[100px]"
-                  : "lg:ml-0 lg:mr-0"
+                  ? "lg:ml-[-100px] lg:mr-[100px] lg:items-end lg:text-right"
+                  : "lg:ml-0 lg:mr-0 lg:items-center lg:text-center"
               }`}
               style={{
                 backgroundImage: `url(/슈퍼바이징/${card.number.toLowerCase()}.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                minHeight: "400px",
                 paddingTop: "40px",
               }}
               initial={{ y: 50, opacity: 0 }}
@@ -130,26 +125,26 @@ const DifferentiationSection = () => {
               {/* 콘텐츠 */}
               <div className="relative z-10 w-full">
                 {/* 번호 */}
-                <div className="mb-5 lg:mb-20">
-                  <span className="text-white text-[32px] lg:text-[72px] leading-[1.2em] opacity-50 font-[700] mb-5 lg:mb-20">
+                <div className="mb-[15px] lg:mb-20">
+                  <span className="text-white text-[32px] lg:text-[72px] leading-[1.2em] opacity-50 font-[700] mb-[15px] lg:mb-20">
                     {card.number}
                   </span>
                 </div>
 
-                {/* 제목 */}
-                <h3
-                  className="mb-1 font-extrabold text-[18px] lg:text-[43px] leading-[1.3em] text-[#ea8a00]"
-                  dangerouslySetInnerHTML={{ __html: card.title }}
-                />
-
-                {/* 부제목 */}
-                <h4 className="mb-3 lg:mb-25 text-[18px] lg:text-[43px] leading-[1.3em] font-semibold text-white">
-                  {card.subtitle}
-                </h4>
+                {/* 제목과 부제목을 모바일에서 flex로 붙여서 배치 */}
+                <div className="flex flex-row justify-center items-center lg:block mb-3 lg:mb-25 w-full">
+                  <h3
+                    className="mb-0 lg:mb-1 font-extrabold text-[18px] lg:text-[43px] leading-[1.3em] text-[#ea8a00]"
+                    dangerouslySetInnerHTML={{ __html: card.title }}
+                  />
+                  <h4 className="text-[18px] lg:text-[43px] leading-[1.3em] font-semibold text-white">
+                    {card.subtitle}
+                  </h4>
+                </div>
 
                 {/* 설명 */}
                 <p
-                  className="text-white text-[12px] lg:text-[26px] leading-[1.54em] font-bold"
+                  className="text-white text-[12px] lg:text-[26px] leading-[1.54em] font-bold [&_br]:hidden lg:[&_br]:block"
                   dangerouslySetInnerHTML={{ __html: card.description }}
                 />
               </div>

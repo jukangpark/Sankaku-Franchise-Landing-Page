@@ -5,14 +5,14 @@ const YouTubeSection = () => {
   return (
     <section
       id="success-stories"
-      className="text-white min-h-screen w-full flex items-center justify-center pt-20 relative"
+      className="text-white w-full flex items-center justify-center pt-20 relative min-h-[375px] lg:min-h-screen"
       style={{
         background: "url(/images/vis_bg.jpg) no-repeat 50% 50% / contain",
         overflow: "hidden",
       }}
     >
       <motion.div
-        className="w-full max-w-[1460px] mx-auto px-[30px] relative z-10 min-h-[600px] lg:min-h-[800px] pt-20"
+        className="w-full max-w-[1460px] mx-auto px-[30px] relative z-10 min-h-[600px] lg:min-h-[800px] pt-20 pb-16 md:pb-20 lg:pb-24"
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -55,7 +55,7 @@ const YouTubeSection = () => {
               ease: "easeOut",
             }}
           >
-            <div className="relative w-full max-w-[350px] sm:max-w-[600px] lg:max-w-[800px] aspect-video mx-auto">
+            <div className="relative w-full max-w-[527px] sm:max-w-[600px] lg:max-w-[800px] aspect-video mx-auto">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
                 src="https://www.youtube.com/embed/Cek_FQ05O64?autoplay=1&mute=1&loop=1&playlist=Cek_FQ05O64&controls=1&showinfo=0&rel=0"
@@ -66,7 +66,7 @@ const YouTubeSection = () => {
               />
               {/* 오른쪽 상단 이미지 */}
               <motion.div
-                className="absolute top-0 right-[-40px] z-20"
+                className="absolute top-0 right-[-40px] z-20 hidden lg:block"
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -81,7 +81,7 @@ const YouTubeSection = () => {
                   alt="행복한 창업 성공사례"
                   width={24}
                   height={234}
-                  className="w-[24px] h-[234px] object-contain"
+                  className="w-[24px] h-[234px] object-contain hidden lg:block"
                   style={{ width: "24px", height: "234px" }}
                 />
               </motion.div>
