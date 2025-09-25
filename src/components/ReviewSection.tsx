@@ -25,7 +25,7 @@ const ReviewSection = () => {
   }, [reviewImages.length]);
   return (
     <section
-      className="bg-cover bg-center bg-no-repeat relative py-8 sm:py-12 lg:py-20"
+      className="bg-cover bg-center bg-no-repeat relative py-8 sm:py-12 lg:py-20 overflow-hidden"
       style={{ backgroundImage: "url(/images/고객이인정한백소정bg.jpg)" }}
     >
       {/* 상단 섹션 */}

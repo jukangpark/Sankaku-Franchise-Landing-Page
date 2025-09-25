@@ -38,7 +38,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fef9f2]">
+    <div className="min-h-screen bg-[#fef9f2] overflow-x-hidden">
       <Navigation />
 
       {/* 창업성공사례 Section */}

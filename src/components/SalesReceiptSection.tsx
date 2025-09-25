@@ -66,14 +66,14 @@ const SalesReceiptSection = () => {
               ease: "easeOut",
             }}
           >
-            <div className="space-y-4 max-w-[600px] mx-auto lg:mx-0 lg:max-w-none">
+            <div className="space-y-4 max-w-[600px] mx-auto lg:mx-0 lg:max-w-none overflow-hidden">
               {salesReceiptData.map((item, index) => (
                 <div key={index}>
                   {/* 광고비 위에 생략 표시 */}
                   {item.category === "광고비" && (
-                    <div className="flex mb-4">
+                    <div className="flex mb-4 overflow-hidden">
                       <div className="flex-1 h-[45px] flex items-center justify-center">
-                        <div className="text-black text-2xl flex flex-col leading-[1] font-extrabold mr-[-120px]">
+                        <div className="text-black text-2xl flex flex-col leading-[1] font-extrabold mr-[-60px] sm:mr-[-80px] lg:mr-[-120px]">
                           <div>·</div>
                           <div>·</div>
                           <div>·</div>
