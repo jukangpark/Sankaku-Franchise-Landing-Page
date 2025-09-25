@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import { motion } from "framer-motion";
+import PrivacyPolicyModal from "./PrivacyPolicyModal";
 
 const FranchiseContactForm = ({
   containerVariants,
@@ -7,6 +11,8 @@ const FranchiseContactForm = ({
   containerVariants: any;
   itemVariants: any;
 }) => {
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
+  const [privacyAgreed, setPrivacyAgreed] = useState(false);
   return (
     <section
       id="franchise-contact"
@@ -55,96 +61,114 @@ const FranchiseContactForm = ({
             창업 문의하기
           </h3>
           <form className="space-y-4 sm:space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              <div>
-                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                  이름 *
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
-                  placeholder="이름을 입력하세요"
-                />
-              </div>
-              <div>
-                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                  연락처 *
-                </label>
-                <input
-                  type="tel"
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
-                  placeholder="전화번호를 입력하세요"
-                />
-              </div>
-            </div>
-
             <div>
               <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                이메일
-              </label>
-              <input
-                type="email"
-                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
-                placeholder="이메일을 입력하세요"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                희망 지역 *
+                이름 *
               </label>
               <input
                 type="text"
                 required
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
-                placeholder="창업을 희망하는 지역을 입력하세요"
+                placeholder="이름을 입력해주세요"
               />
             </div>
 
             <div>
               <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                창업 예정 시기
+                나이 *
               </label>
-              <select className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base">
-                <option>시기를 선택하세요</option>
-                <option>3개월 이내</option>
-                <option>6개월 이내</option>
-                <option>1년 이내</option>
-                <option>1년 이상</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                창업 자금 규모
-              </label>
-              <select className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base">
-                <option>자금 규모를 선택하세요</option>
-                <option>1억원 이하</option>
-                <option>1억원 ~ 2억원</option>
-                <option>2억원 ~ 3억원</option>
-                <option>3억원 이상</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                문의 내용 *
-              </label>
-              <textarea
-                rows={4}
+              <input
+                type="number"
                 required
-                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black resize-none text-sm sm:text-base"
-                placeholder="궁금한 점이나 문의사항을 자유롭게 작성해주세요"
-              ></textarea>
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
+                placeholder="나이를 입력해주세요"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                연락처 *
+              </label>
+              <input
+                type="tel"
+                required
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
+                placeholder="연락 가능한 전화번호를 입력해주세요"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                오픈 희망 지역 *
+              </label>
+              <input
+                type="text"
+                required
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
+                placeholder="ex) 천호동"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                창업 예산 (부동산 포함) *
+              </label>
+              <input
+                type="text"
+                required
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
+                placeholder="ex) 2억"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                유입경로 *
+              </label>
+              <select
+                required
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
+              >
+                <option value="">유입경로를 선택하세요</option>
+                <option value="구글">구글</option>
+                <option value="SNS">SNS (페이스북, 인스타그램)</option>
+                <option value="유튜브">유튜브</option>
+                <option value="기사">기사</option>
+                <option value="지인소개">지인소개</option>
+              </select>
+            </div>
+
+            {/* 개인정보처리방침 동의 */}
+            <div className="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="privacy-agreement"
+                checked={privacyAgreed}
+                onChange={(e) => setPrivacyAgreed(e.target.checked)}
+                className="mt-1 h-4 w-4 text-black focus:ring-black border-gray-300 rounded"
+              />
+              <div className="flex-1">
+                <label
+                  htmlFor="privacy-agreement"
+                  className="text-xs sm:text-sm text-gray-700"
+                >
+                  개인정보처리방침을 읽었으며 이에 동의합니다.{" "}
+                  <button
+                    type="button"
+                    onClick={() => setIsPrivacyModalOpen(true)}
+                    className="text-black underline hover:text-gray-600 cursor-pointer"
+                  >
+                    전문보기
+                  </button>
+                </label>
+              </div>
             </div>
 
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-black text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-gray-800 transition-colors font-semibold text-sm sm:text-base"
+                disabled={!privacyAgreed}
+                className="bg-black text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-gray-800 transition-colors font-semibold text-sm sm:text-base disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer"
               >
                 문의하기
               </button>
@@ -152,6 +176,12 @@ const FranchiseContactForm = ({
           </form>
         </motion.div>
       </div>
+
+      {/* 개인정보처리방침 모달 */}
+      <PrivacyPolicyModal
+        isOpen={isPrivacyModalOpen}
+        onClose={() => setIsPrivacyModalOpen(false)}
+      />
     </section>
   );
 };
