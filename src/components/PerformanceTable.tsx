@@ -22,7 +22,7 @@ const PerformanceTable = ({
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h2
-          className="text-center text-[18px] sm:text-[24px] lg:text-[30px] text-white font-bold"
+          className="text-center text-[14px] sm:text-[18px] md:text-[22px] lg:text-[30px] text-white font-bold"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -30,7 +30,7 @@ const PerformanceTable = ({
           한치의 의심없는 성공의 혁신
         </motion.h2>
         <motion.h1
-          className="text-center text-white font-bold text-[40px] sm:text-[50px] lg:text-7xl"
+          className="text-center text-white font-bold text-[28px] sm:text-[36px] md:text-[44px] lg:text-7xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -86,14 +86,14 @@ const PerformanceTable = ({
               />
               <div className="mt-10">
                 <div className="flex items-baseline justify-start mt-16 mb-2">
-                  <span className="text-7xl font-bold text-gray-900">
+                  <span className="text-[32px] sm:text-[48px] md:text-[56px] lg:text-7xl font-bold text-[#033914]">
                     <CountUpAnimation endValue={item.number} duration={2} />
                   </span>
-                  <span className="text-2xl font-extrabold text-gray-600 ml-1">
+                  <span className="text-[14px] sm:text-[18px] md:text-[20px] lg:text-2xl font-extrabold text-[#033914] ml-1">
                     {item.unit}
                   </span>
                 </div>
-                <p className="text-[24px] font-bold text-gray-800">
+                <p className="text-[14px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-bold text-gray-800">
                   {item.label}
                 </p>
               </div>
