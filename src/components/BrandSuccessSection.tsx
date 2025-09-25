@@ -50,8 +50,9 @@ const BrandSuccessSection = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 1377 647"
+            viewBox="0 -50 1377 697"
             className="w-full h-auto"
+            style={{ minHeight: "400px" }}
           >
             <path
               className="g2"
