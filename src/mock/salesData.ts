@@ -9,6 +9,14 @@ interface SalesData {
 
 const salesData: SalesData[] = [
   {
+    id: 7,
+    rank: 7,
+    size: "55평",
+    date: "25년 6월",
+    location: "L지점",
+    amount: "1억 799만원",
+  },
+  {
     id: 1,
     rank: 1,
     size: "70평",
