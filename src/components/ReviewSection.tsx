@@ -102,7 +102,7 @@ const ReviewSection = () => {
           {/* iPhone 화면 안의 컨텐츠 */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* PC에서는 모든 이미지 표시 */}
-            <div className="hidden lg:flex items-center justify-center">
+            <div className="hidden lg:flex items-center justify-center relative z-30">
               {reviewImages.map((image, index) => (
                 <Image
                   key={index}
@@ -113,20 +113,20 @@ const ReviewSection = () => {
                   }
                   height={400}
                   className={`object-cover rounded-[35px] mt-10 ${
-                    index === 2 ? "z-20" : "z-10"
+                    index === 2 ? "z-40" : "z-30"
                   } ${index === 2 ? "" : "shadow-lg"}`}
                 />
               ))}
             </div>
 
             {/* 모바일/태블릿에서는 가운데 하나만 표시 */}
-            <div className="lg:hidden">
+            <div className="lg:hidden relative z-30">
               <Image
                 src={reviewImages[currentIndex]}
                 alt={`리뷰 ${currentIndex + 1}`}
-                width={400}
-                height={200}
-                className="object-cover rounded-[15px] sm:rounded-[20px] mt-2 sm:mt-4 z-20"
+                width={140}
+                height={280}
+                className="object-cover rounded-[8px] sm:rounded-[12px] w-[160px] h-[320px] sm:w-[200px] sm:h-[400px] mt-8"
               />
             </div>
           </div>
@@ -235,7 +235,7 @@ const ReviewSection = () => {
           </motion.p>
 
           <motion.div
-            className="flex justify-center"
+            className="w-full"
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -245,7 +245,7 @@ const ReviewSection = () => {
               ease: "easeOut",
             }}
           >
-            <div className="relative w-full max-w-[300px] sm:max-w-[500px] lg:max-w-[1400px] aspect-video">
+            <div className="relative w-full aspect-video">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/SA5k2XlEalM?autoplay=1&mute=1"
