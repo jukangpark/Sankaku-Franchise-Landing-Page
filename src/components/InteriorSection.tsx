@@ -85,8 +85,11 @@ const InteriorSection = () => {
             즐길 수 있도록 고안된 '산카쿠' 인테리어
           </p>
         </div>
-        <div className="w-full lg:w-[780px] lg:h-[530px] relative">
-          <AnimatePresence mode="wait">
+        <div
+          className="w-full lg:w-[780px] lg:h-[530px] relative grid"
+          style={{ gridTemplateAreas: '"overlay"' }}
+        >
+          <AnimatePresence mode="sync">
             <motion.div
               key={currentIndex}
               initial={{ opacity: 0 }}
@@ -94,6 +97,7 @@ const InteriorSection = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="w-full h-full"
+              style={{ gridArea: "overlay" }}
             >
               <Image
                 src={interiorImages[currentIndex]}
