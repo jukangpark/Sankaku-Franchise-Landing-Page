@@ -54,7 +54,7 @@ const DifferentiationSection = () => {
         >
           <div className="relative w-full max-w-[350px] sm:max-w-[600px] lg:max-w-[1400px] aspect-video">
             <iframe
-              className="w-full h-full rounded-lg shadow-2xl"
+              className="w-full h-full shadow-2xl"
               src="https://www.youtube.com/embed/1ky16LQH-zo?autoplay=1&mute=1"
               title="산카쿠 책임창업 영상"
               frameBorder="0"

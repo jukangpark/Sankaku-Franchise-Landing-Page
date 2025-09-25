@@ -247,7 +247,7 @@ const ReviewSection = () => {
           >
             <div className="relative w-full max-w-[300px] sm:max-w-[500px] lg:max-w-[1400px] aspect-video">
               <iframe
-                className="w-full h-full rounded-lg"
+                className="w-full h-full"
                 src="https://www.youtube.com/embed/SA5k2XlEalM?autoplay=1&mute=1"
                 title="산카쿠 브랜드 소개 영상"
                 frameBorder="0"

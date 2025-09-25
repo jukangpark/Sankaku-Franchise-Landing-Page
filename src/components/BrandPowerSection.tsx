@@ -53,10 +53,10 @@ const BrandPowerSection = () => {
         }}
       >
         {/* 좌우 이미지 배치 */}
-        <div className="flex flex-col lg:flex-row justify-between items-center h-full min-h-[600px] lg:min-h-screen gap-8 lg:gap-0">
+        <div className="flex flex-col md:flex-row justify-between items-center h-full min-h-[600px] lg:min-h-screen gap-8 md:gap-0">
           {/* 왼쪽 이미지, 텍스트, 차트 */}
           <motion.div
-            className="flex-shrink-0 flex flex-col items-center lg:items-start w-full lg:w-1/2"
+            className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/2"
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -71,14 +71,14 @@ const BrandPowerSection = () => {
               alt="브랜드 파워"
               width={455}
               height={333}
-              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-20 sm:mt-32 lg:mt-150 w-[150px] h-[110px] sm:w-full sm:h-auto"
+              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-20 sm:mt-32 lg:mt-150 w-[150px] h-[110px] sm:w-[218.61px] sm:h-[160px] md:w-[218.61px] md:h-[160px] lg:w-full lg:h-auto"
               style={{
                 height: "auto",
                 maxWidth: "455px",
                 maxHeight: "333px",
               }}
             />
-            <div className="text-white text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.54em] font-semibold text-center lg:text-left w-full mb-4 sm:mb-6 lg:mb-8">
+            <div className="text-white text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.54em] font-semibold text-center md:text-left w-full mb-4 sm:mb-6 lg:mb-8">
               <p className="mb-[15px] sm:mb-[40px] font-extrabold">
                 소비자가 선택한 1등! 상권을 만들어내는 힘!
                 <br />
@@ -108,7 +108,7 @@ const BrandPowerSection = () => {
 
           {/* 오른쪽 이미지, 텍스트, 차트 */}
           <motion.div
-            className="flex-shrink-0 flex flex-col items-center lg:items-end w-full lg:w-1/2"
+            className="flex-shrink-0 flex flex-col items-center md:items-end w-full md:w-1/2"
             initial={{ x: 50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -123,14 +123,14 @@ const BrandPowerSection = () => {
               alt="꾸준한 성장"
               width={455}
               height={333}
-              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-80 sm:mt-32 lg:mt-150 w-[150px] h-[110px] sm:w-full sm:h-auto"
+              className="object-contain mb-4 sm:mb-6 lg:mb-8 mt-80 sm:mt-32 lg:mt-150 w-[150px] h-[110px] sm:w-[218.61px] sm:h-[160px] md:w-[218.61px] md:h-[160px] lg:w-full lg:h-auto"
               style={{
                 height: "auto",
                 maxWidth: "455px",
                 maxHeight: "333px",
               }}
             />
-            <div className="text-white text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.54em] font-semibold text-center lg:text-right w-full mb-4 sm:mb-6 lg:mb-8">
+            <div className="text-white text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.54em] font-semibold text-center md:text-right w-full mb-4 sm:mb-6 lg:mb-8">
               <p className="mb-[15px] sm:mb-[40px] font-extrabold">
                 점주님들의 만족감과 본사에 대한
                 <br />
