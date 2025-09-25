@@ -42,7 +42,7 @@ const StartUpCost = () => {
                   <img
                     src={`/가맹절차/${index + 1}.png`}
                     alt={`Step ${index + 1} 아이콘`}
-                    className="w-[196px] h-[180px] mx-auto object-contain"
+                    className="w-[102px] h-[102px] sm:w-[196px] sm:h-[180px] mx-auto object-contain"
                   />
                 </div>
 
