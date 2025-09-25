@@ -8,6 +8,13 @@ import { useState } from "react";
 const Footer = () => {
   const [isInquiryVisible, setIsInquiryVisible] = useState(true);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {/* 탭 섹션 */}
@@ -143,6 +150,21 @@ const Footer = () => {
         isVisible={isInquiryVisible}
         onClose={() => setIsInquiryVisible(false)}
       />
+
+      {/* 맨 위로 가기 버튼 */}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-5 right-4 sm:bottom-8 sm:right-8 lg:bottom-12 lg:right-12 w-[40px] h-[40px] sm:w-[55px] sm:h-[55px] lg:w-[60px] lg:h-[60px] bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 hover:scale-110 cursor-pointer"
+        aria-label="맨 위로 가기"
+      >
+        <Image
+          src="/top_button.png"
+          alt="맨 위로 가기"
+          width={18}
+          height={18}
+          className="w-[12px] h-[12px] sm:w-[16px] sm:h-[16px] lg:w-[18px] lg:h-[18px]"
+        />
+      </button>
     </>
   );
 };
