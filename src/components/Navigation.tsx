@@ -10,7 +10,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: "창업성공사례", href: "#success-stories" },
-    { name: "성공브랜드", href: "#success-brand" },
+    // { name: "성공브랜드", href: "#success-brand" },
     { name: "매출증명", href: "#revenue-proof" },
     { name: "메뉴안내", href: "#menu-guide" },
     { name: "차별화시스템", href: "#differentiation" },
