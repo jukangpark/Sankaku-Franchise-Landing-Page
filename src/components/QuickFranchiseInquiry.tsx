@@ -20,6 +20,7 @@ const QuickFranchiseInquiry = ({
   });
 
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -29,10 +30,68 @@ const QuickFranchiseInquiry = ({
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // 폼 제출 로직 (추후 구현)
-    console.log("가맹 문의 제출:", formData);
+    if (!formData.agreeToPrivacy) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_WEB_HOOK_URL ?? "";
+
+      const embed = {
+        title: "빠른 가맹 문의",
+        color: 0x00ff00,
+        fields: [
+          {
+            name: "이름",
+            value: formData.name,
+            inline: false,
+          },
+          {
+            name: "연락처",
+            value: formData.phone,
+            inline: false,
+          },
+          {
+            name: "희망 지역",
+            value: formData.region,
+            inline: false,
+          },
+        ],
+        timestamp: new Date().toISOString(),
+        footer: {
+          text: "산카쿠 빠른 가맹 문의 시스템",
+        },
+      };
+
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          embeds: [embed],
+        }),
+      });
+
+      if (response.ok) {
+        alert("빠른 가맹 문의가 성공적으로 전송되었습니다!");
+        setFormData({
+          name: "",
+          phone: "",
+          region: "",
+          agreeToPrivacy: false,
+        });
+      } else {
+        throw new Error("전송 실패");
+      }
+    } catch (error) {
+      console.error("Error sending webhook:", error);
+      alert("빠른 가맹 문의 전송에 실패했습니다. 다시 시도해주세요.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isVisible) return null;
@@ -92,9 +151,14 @@ const QuickFranchiseInquiry = ({
           {/* 제출 버튼 - 화면 너비 전체 */}
           <button
             type="submit"
-            className="w-full bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors text-sm font-medium mb-3"
+            disabled={!formData.agreeToPrivacy || isSubmitting}
+            className={`w-full px-6 py-2 rounded-md transition-colors text-sm font-medium mb-3 ${
+              !formData.agreeToPrivacy || isSubmitting
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-black text-white hover:bg-gray-800"
+            }`}
           >
-            문의하기
+            {isSubmitting ? "전송 중..." : "문의하기"}
           </button>
 
           {/* 개인정보처리방침 동의 */}
@@ -168,9 +232,14 @@ const QuickFranchiseInquiry = ({
           {/* 제출 버튼 - 화면 너비 전체 */}
           <button
             type="submit"
-            className="w-full bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors text-sm font-medium mb-3"
+            disabled={!formData.agreeToPrivacy || isSubmitting}
+            className={`w-full px-6 py-2 rounded-md transition-colors text-sm font-medium mb-3 ${
+              !formData.agreeToPrivacy || isSubmitting
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-black text-white hover:bg-gray-800"
+            }`}
           >
-            문의하기
+            {isSubmitting ? "전송 중..." : "문의하기"}
           </button>
 
           {/* 개인정보처리방침 동의 */}
@@ -250,9 +319,14 @@ const QuickFranchiseInquiry = ({
             {/* 제출 버튼 */}
             <button
               type="submit"
-              className="w-full bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors text-sm font-medium mb-3"
+              disabled={!formData.agreeToPrivacy || isSubmitting}
+              className={`w-full px-6 py-2 rounded-md transition-colors text-sm font-medium mb-3 ${
+                !formData.agreeToPrivacy || isSubmitting
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-black text-white hover:bg-gray-800"
+              }`}
             >
-              문의하기
+              {isSubmitting ? "전송 중..." : "문의하기"}
             </button>
 
             {/* 개인정보처리방침 동의 */}

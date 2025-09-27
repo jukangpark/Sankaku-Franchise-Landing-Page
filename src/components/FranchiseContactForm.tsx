@@ -13,6 +13,107 @@ const FranchiseContactForm = ({
 }) => {
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
   const [privacyAgreed, setPrivacyAgreed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    age: "",
+    phone: "",
+    location: "",
+    budget: "",
+    source: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!privacyAgreed) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_WEB_HOOK_URL ?? "";
+
+      const embed = {
+        title: "산카쿠 가맹점 문의",
+        color: 0x00ff00,
+        fields: [
+          {
+            name: "이름",
+            value: formData.name,
+            inline: false,
+          },
+          {
+            name: "나이",
+            value: formData.age,
+            inline: false,
+          },
+          {
+            name: "연락처",
+            value: formData.phone,
+            inline: false,
+          },
+          {
+            name: "희망 지역",
+            value: formData.location,
+            inline: false,
+          },
+          {
+            name: "창업 예산",
+            value: formData.budget,
+            inline: false,
+          },
+          {
+            name: "유입경로",
+            value: formData.source,
+            inline: false,
+          },
+        ],
+        timestamp: new Date().toISOString(),
+        footer: {
+          text: "산카쿠 가맹점 문의 시스템",
+        },
+      };
+
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          embeds: [embed],
+        }),
+      });
+
+      if (response.ok) {
+        alert("문의가 성공적으로 전송되었습니다!");
+        setFormData({
+          name: "",
+          age: "",
+          phone: "",
+          location: "",
+          budget: "",
+          source: "",
+        });
+        setPrivacyAgreed(false);
+      } else {
+        throw new Error("전송 실패");
+      }
+    } catch (error) {
+      console.error("Error sending webhook:", error);
+      alert("문의 전송에 실패했습니다. 다시 시도해주세요.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section
       id="franchise-contact"
@@ -60,13 +161,16 @@ const FranchiseContactForm = ({
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
             창업 문의하기
           </h3>
-          <form className="space-y-4 sm:space-y-6">
+          <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                 이름 *
               </label>
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 required
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
                 placeholder="이름을 입력해주세요"
@@ -79,6 +183,9 @@ const FranchiseContactForm = ({
               </label>
               <input
                 type="number"
+                name="age"
+                value={formData.age}
+                onChange={handleInputChange}
                 required
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
                 placeholder="나이를 입력해주세요"
@@ -91,6 +198,9 @@ const FranchiseContactForm = ({
               </label>
               <input
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
                 required
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
                 placeholder="연락 가능한 전화번호를 입력해주세요"
@@ -103,6 +213,9 @@ const FranchiseContactForm = ({
               </label>
               <input
                 type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleInputChange}
                 required
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
                 placeholder="ex) 천호동"
@@ -115,6 +228,9 @@ const FranchiseContactForm = ({
               </label>
               <input
                 type="text"
+                name="budget"
+                value={formData.budget}
+                onChange={handleInputChange}
                 required
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
                 placeholder="ex) 2억"
@@ -126,6 +242,9 @@ const FranchiseContactForm = ({
                 유입경로 *
               </label>
               <select
+                name="source"
+                value={formData.source}
+                onChange={handleInputChange}
                 required
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-black text-sm sm:text-base"
               >
@@ -167,10 +286,10 @@ const FranchiseContactForm = ({
             <div className="text-center">
               <button
                 type="submit"
-                disabled={!privacyAgreed}
+                disabled={!privacyAgreed || isSubmitting}
                 className="bg-black text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-gray-800 transition-colors font-semibold text-sm sm:text-base disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer"
               >
-                문의하기
+                {isSubmitting ? "전송 중..." : "문의하기"}
               </button>
             </div>
           </form>
