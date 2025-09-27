@@ -1,163 +1,84 @@
-const costData = [
-  {
-    size: "20평 기준",
-    total: "8,710만원",
-    items: [
-      {
-        category: "가맹비",
-        description: "관련 지적 재산권 (상표권, 저작권, 특허권) 사용",
-        cost: "1,000만원",
-      },
-      {
-        category: "교육비",
-        description: "매장 교육, 조리매뉴얼 교육, 운영 매뉴얼 교육",
-        cost: "500만원",
-      },
-      {
-        category: "보증금",
-        description: "가맹계약 이행보증금 * 보증보험으로 대체 가능",
-        cost: "1,000만원 →0원",
-      },
-      {
-        category: "인테리어",
-        description: "(20평 기준) 실내 디자인 매뉴얼 공사",
-        cost: "3,700만원",
-      },
-      {
-        category: "간판",
-        description:
-          "외부 LED채널 문자사인, 내/외부 실사 사인공사 외 * 평수나 상황에 따라 변동이 있을 수 있음",
-        cost: "600만원",
-      },
-      {
-        category: "주방설비",
-        description:
-          "냉장고, 해면기, 튀김기, 작업대, 선반, 식기세척기 <br/> 기름정수기 외 다수",
-        cost: "1,400만원",
-      },
-      {
-        category: "주방집기",
-        description: "도자기 그릇 류 및 주방 조리기구 일체",
-        cost: "1,000만원",
-      },
-      {
-        category: "가구",
-        description: "테이블, 의자, 붙박이 소파",
-        cost: "250만원",
-      },
-      {
-        category: "오픈판촉물",
-        description: "메뉴판, 홀 소모품, 유니폼, 홍보물 인쇄 외 다수",
-        cost: "260만원",
-      },
-    ],
-  },
-  {
-    size: "25평 기준",
-    total: "10,135만원",
-    items: [
-      {
-        category: "가맹비",
-        description: "관련 지적 재산권 (상표권, 저작권, 특허권) 사용",
-        cost: "1,000만원",
-      },
-      {
-        category: "교육비",
-        description: "매장 교육, 조리매뉴얼 교육, 운영 매뉴얼 교육",
-        cost: "500만원",
-      },
-      {
-        category: "보증금",
-        description: "가맹계약 이행보증금 * 보증보험으로 대체 가능",
-        cost: "1,000만원 →0원",
-      },
-      {
-        category: "인테리어",
-        description: "(25평 기준) 실내 디자인 매뉴얼 공사",
-        cost: "4,625만원",
-      },
-      {
-        category: "간판",
-        description:
-          "외부 LED채널 문자사인, 내/외부 실사 사인공사 외 * 평수나 상황에 따라 변동이 있을 수 있음",
-        cost: "750만원",
-      },
-      {
-        category: "주방설비",
-        description:
-          "냉장고, 해면기, 튀김기, 작업대, 선반, 식기세척기, <br/>기름정수기 외 다수",
-        cost: "1,500만원",
-      },
-      {
-        category: "주방집기",
-        description: "도자기 그릇 류 및 주방 조리기구 일체",
-        cost: "1,200만원",
-      },
-      {
-        category: "가구",
-        description: "테이블, 의자, 붙박이 소파",
-        cost: "300만원",
-      },
-      {
-        category: "오픈판촉물",
-        description: "메뉴판, 홀 소모품, 유니폼, 홍보물 인쇄 외 다수",
-        cost: "260만원",
-      },
-    ],
-  },
-  {
-    size: "30평 기준",
-    total: "11,010만원",
-    items: [
-      {
-        category: "가맹비",
-        description: "관련 지적 재산권 (상표권, 저작권, 특허권) 사용",
-        cost: "1,000만원",
-      },
-      {
-        category: "교육비",
-        description: "매장 교육, 조리매뉴얼 교육, 운영 매뉴얼 교육",
-        cost: "500만원",
-      },
-      {
-        category: "보증금",
-        description: "가맹계약 이행보증금 * 보증보험으로 대체 가능",
-        cost: "1,000만원 →0원",
-      },
-      {
-        category: "인테리어",
-        description: "(30평 기준) 실내 디자인 매뉴얼 공사",
-        cost: "5,250만원",
-      },
-      {
-        category: "간판",
-        description:
-          "외부 LED채널 문자사인, 내/외부 실사 사인공사 외 * 평수나 상황에 따라 변동이 있을 수 있음",
-        cost: "900만원",
-      },
-      {
-        category: "주방설비",
-        description:
-          "냉장고, 해면기, 튀김기, 작업대, 선반, 식기세척기 <br/> 기름정수기 외 다수",
-        cost: "1,500만원",
-      },
-      {
-        category: "주방집기",
-        description: "도자기 그릇 류 및 주방 조리기구 일체",
-        cost: "1,250만원",
-      },
-      {
-        category: "가구",
-        description: "테이블, 의자, 붙박이 소파",
-        cost: "350만원",
-      },
-      {
-        category: "오픈판촉물",
-        description: "메뉴판, 홀 소모품, 유니폼, 홍보물 인쇄 외 다수",
-        cost: "260만원",
-      },
-    ],
-  },
-];
+const costData = {
+  size: "10평 기준",
+  total: "4,500만원",
+  items: [
+    {
+      category: "가맹비",
+      description: "상호·상표사용권, 경영노하우 전수, 영업권보장 비용",
+      cost: "1,000만원",
+      originalCost: "1,000만원",
+      discountCost: "면제",
+      discount: "한시적 할인",
+    },
+    {
+      category: "교육비",
+      description:
+        "개점교육프로그램, 개점행사지원, 조리메뉴얼 제공 매장운영교육, 서비스교육, 위생교육, 세무교육 찾아가는 오픈교육 서비스 (교육시간 총 3일 소요)",
+      cost: "500만원",
+      originalCost: "700만원",
+      discountCost: "500만원",
+      discount: "한시적 할인",
+    },
+    {
+      category: "보증금",
+      description: "계약이행보증금(VAT없음) * 보증보험으로 대체 가능",
+      cost: "0원",
+      originalCost: "1,000만원",
+      discountCost: "0원",
+      discount: "",
+    },
+    {
+      category: "주방 설비",
+      description:
+        "45BOX냉장고 1대, 강정조리판매대 1SET, 린나이튀김기(428G) 1대, 2구 인덕션렌지, 씽크대, 싱크선반, 소스선반, 밧드작업대, 주방작업대 외",
+      cost: "1,000만원",
+      originalCost: "1,000만원",
+      discountCost: "",
+      discount: "",
+    },
+    {
+      category: "주방 집기",
+      description: "주방용품, 집기류 등 50여 종",
+      cost: "1500만원",
+      originalCost: "1500만원",
+      discountCost: "",
+      discount: "",
+    },
+    {
+      category: "인테리어",
+      description: "(10평 기준) 실내 디자인 매뉴얼 공사",
+      cost: "1,800만원",
+      originalCost: "1,800만원",
+      discountCost: "",
+      discount: "",
+    },
+    {
+      category: "간판 및 사인",
+      description:
+        "전면 메인 간판(피나플렉스) 1개, 메뉴간판(라이트 패널), 백릿 1개, 매장내부 액자, 실사작업(출입문, 폴딩도어, 매대하단) 일체",
+      cost: "500만원",
+      originalCost: "500만원",
+      discountCost: "",
+      discount: "",
+    },
+    {
+      category: "홍보 및 마케팅",
+      description:
+        "인스타그램 인플루언서 컨택 및 홍보진행 네이버 seo 최적화 블로그 체험단 10팀 오픈 이벤트 식자재 지원",
+      cost: "200만원",
+      originalCost: "500만원",
+      discountCost: "200만원",
+      discount: "한시적 할인",
+    },
+    {
+      category: "오픈 판촉물",
+      description: "메뉴판, 배너, 유니폼, 홍보물 인쇄 외 다수",
+      cost: "50만원",
+      originalCost: "200만원",
+      discountCost: "50만원",
+      discount: "한시적 할인",
+    },
+  ],
+};
 
 export default costData;

@@ -16,6 +16,7 @@ import InteriorSection from "@/components/InteriorSection";
 import StoreInfoSection from "@/components/StoreInfoSection";
 import StartUpCost from "@/components/StartUpCost";
 import DifferentiationSection from "@/components/DifferentiationSection";
+import PopupModal from "@/components/PopupModal";
 
 export default function Home() {
   const containerVariants = {
@@ -39,6 +40,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#fef9f2] overflow-x-hidden">
+      <PopupModal />
       <Navigation />
 
       {/* 창업성공사례 Section */}

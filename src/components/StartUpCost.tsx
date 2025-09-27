@@ -1,13 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import costData from "@/mock/costData";
 import franchiseSteps from "@/mock/franchiseSteps";
 
 const StartUpCost = () => {
-  const [activeTab, setActiveTab] = useState(0);
-
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-white">
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,50 +85,11 @@ const StartUpCost = () => {
           </p>
         </motion.div>
 
-        {/* 탭 버튼들 */}
-        <motion.div
-          className="flex justify-center mb-8 sm:mb-10 lg:mb-12"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            delay: 0.2,
-            duration: 0.6,
-            ease: "easeOut",
-          }}
-        >
-          <div className="bg-gray-100 rounded-lg p-1 sm:p-2 flex flex-row gap-1 sm:gap-2 w-full sm:w-auto">
-            {costData.map((data, index) => (
-              <motion.button
-                key={index}
-                onClick={() => setActiveTab(index)}
-                className={`flex-1 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 cursor-pointer ${
-                  activeTab === index
-                    ? "bg-white text-gray-900 shadow-lg"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{
-                  delay: 0.4 + index * 0.1,
-                  duration: 0.6,
-                  ease: "easeOut",
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {data.size}
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
-
         {/* 테이블 컨테이너 */}
         <motion.div
-          key={activeTab}
           initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="bg-white rounded-lg shadow-lg overflow-hidden"
         >
@@ -144,40 +102,59 @@ const StartUpCost = () => {
                     구분
                   </th>
                   <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
-                    세부내역
+                    내용
                   </th>
                   <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
-                    개설비용
+                    기존금액
+                  </th>
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
+                    할인
+                  </th>
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
+                    비고
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {costData[activeTab].items.map((item, index) => (
+                {costData.items.map((item, index) => (
                   <motion.tr
                     key={index}
                     initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     className="border-b border-gray-200"
                   >
                     <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-base lg:text-lg font-semibold text-gray-900 text-center whitespace-nowrap">
                       {item.category}
                     </td>
-                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-sm lg:text-base text-gray-700 text-center">
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-sm lg:text-base text-gray-700 text-left">
                       <div
-                        className="whitespace-nowrap"
+                        className="whitespace-pre-wrap"
                         dangerouslySetInnerHTML={{
                           __html: item.description.replace(/\*.*/, ""),
                         }}
                       />
                       {item.description.includes("*") && (
-                        <div className="text-xs text-gray-500 mt-1 whitespace-nowrap">
+                        <div className="text-xs text-gray-500 mt-1">
                           {item.description.match(/\*.*/)?.[0]}
                         </div>
                       )}
                     </td>
                     <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900 whitespace-nowrap">
-                      {item.cost}
+                      {item.discount ? (
+                        <span className="line-through text-gray-500">
+                          {item.originalCost}
+                        </span>
+                      ) : (
+                        item.originalCost
+                      )}
+                    </td>
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-red-600 whitespace-nowrap">
+                      {item.discountCost}
+                    </td>
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-sm lg:text-base text-gray-600 whitespace-nowrap">
+                      {item.discount}
                     </td>
                   </motion.tr>
                 ))}
@@ -189,10 +166,10 @@ const StartUpCost = () => {
           <div className="bg-gray-900 px-2 sm:px-6 lg:px-8 py-3 sm:py-5 lg:py-6">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
               <span className="text-xs sm:text-lg lg:text-2xl font-bold text-white text-center sm:text-left">
-                {costData[activeTab].size} 매장 기준 개설비용 총계
+                {costData.size} 매장 기준
               </span>
               <span className="text-sm sm:text-2xl lg:text-3xl font-extrabold text-white">
-                {costData[activeTab].total}
+                총계 : {costData.total}
               </span>
             </div>
           </div>
