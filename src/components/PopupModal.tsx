@@ -71,13 +71,13 @@ const PopupModal = () => {
               key={popup.id}
               className="relative bg-white rounded-lg shadow-lg md:static absolute"
               style={{
-                top: index === 0 ? "0px" : "0px",
-                left: index === 0 ? "0px" : "0px",
+                top: "0px",
+                left: "0px",
                 zIndex: 50 - index,
               }}
             >
               {/* 이미지 */}
-              <div className="relative w-[400px] h-[400px]">
+              <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
                 <Image
                   src={popup.image}
                   alt={popup.alt}
@@ -92,10 +92,10 @@ const PopupModal = () => {
                 className="rounded-b-lg overflow-hidden"
                 style={{ backgroundColor: "#f7f7f7" }}
               >
-                <div className="flex w-[400px]">
+                <div className="flex w-[300px] md:w-[400px]">
                   <button
                     onClick={() => handleClose(popup.id)}
-                    className="flex-1 h-[30px] font-medium border-r border-r-gray-300"
+                    className="flex-1 h-[30px] font-medium border-r border-r-gray-300 cursor-pointer"
                     style={{
                       backgroundColor: "#f7f7f7",
                       color: "#666666",
@@ -106,7 +106,7 @@ const PopupModal = () => {
                   </button>
                   <button
                     onClick={handleCloseAll}
-                    className="flex-1 h-[30px] font-medium border-r border-r-gray-300"
+                    className="flex-1 h-[30px] font-medium border-r border-r-gray-300 cursor-pointer"
                     style={{
                       backgroundColor: "#f7f7f7",
                       color: "#666666",
@@ -117,7 +117,7 @@ const PopupModal = () => {
                   </button>
                   <button
                     onClick={handleCloseToday}
-                    className="flex-1 h-[30px] font-medium"
+                    className="flex-1 h-[30px] font-medium cursor-pointer"
                     style={{
                       backgroundColor: "#f7f7f7",
                       color: "#666666",
