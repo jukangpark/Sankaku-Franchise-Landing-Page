@@ -4,7 +4,7 @@ import LogoSlider from "@/components/LogoSlider";
 import Navigation from "@/components/Navigation";
 import YouTubeSection from "@/components/YouTubeSection";
 import PerformanceDataSection from "@/components/PerformanceDataSection";
-import BrandSuccessSection from "@/components/BrandSuccessSection";
+// import BrandSuccessSection from "@/components/BrandSuccessSection";
 import StoreShowCaseSection from "@/components/StoreShowCaseSection";
 import FranchiseContactForm from "@/components/FranchiseContactForm";
 import BrandPowerSection from "@/components/BrandPowerSection";
@@ -51,7 +51,8 @@ export default function Home() {
         itemVariants={itemVariants}
       />
 
-      <BrandSuccessSection />
+      {/* 임의 제거 */}
+      {/* <BrandSuccessSection /> */}
 
       <BrandPowerSection />
 

@@ -48,27 +48,27 @@ const PerformanceTable = ({
         <div className="grid grid-cols-2 gap-1 w-full lg:w-full lg:h-full">
           {[
             {
-              number: 17,
+              number: 11,
               unit: "회전",
               label: "테이블 회전율",
               icon: "/icons/테이블_아이콘.png",
             },
             {
-              number: 682,
+              number: 314,
               unit: "만원",
               label: "일 매출",
               icon: "/icons/일매출_아이콘.png",
             },
             {
-              number: 42.4,
+              number: 30.7,
               unit: "%",
-              label: "평균 재방문율",
+              label: "평균 수익률",
               icon: "/icons/재방문율_아이콘.png",
             },
             {
-              number: 31.7,
+              number: 240,
               unit: "%",
-              label: "평균 수익률",
+              label: "타 브랜드 대비 마진율",
               icon: "/icons/평균수익률_아이콘.png",
             },
           ].map((item, index) => (
