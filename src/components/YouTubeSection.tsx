@@ -37,13 +37,13 @@ const YouTubeSection = () => {
               대한민국 최초 <br />
               라멘&오니기리 전문점
             </div>
-            <div className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[110px] font-bold text-gray-900 mb-4 lg:mb-6 leading-none">
+            <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[110px] font-bold text-gray-900 mb-4 lg:mb-6 leading-none">
               산카쿠
-            </div>
-            <div className="text-[14px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold text-gray-800">
+            </h1>
+            <h2 className="text-[14px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-medium text-gray-800">
               확신으로 완성하는 성장의 공식, <br />
               검증된 브랜드 힘으로 키우세요.
-            </div>
+            </h2>
           </motion.div>
           <motion.div
             className="relative w-full lg:w-auto lg:flex-1"

@@ -98,9 +98,9 @@ const StoreInfoSection = () => {
           <span className="text-[#033914]">증명된 브랜드로 </span>
           <span className="text-[#9c5f07]">다점포 운영</span>
         </h1>
-        <h2 className="text-[16px] sm:text-[20px] lg:text-[28px] font-semibold text-gray-700 mt-4">
+        <p className="text-[16px] sm:text-[20px] lg:text-[28px] font-semibold text-gray-700 mt-4">
           산카쿠만의 탄탄한 메뉴들로 수익성을 높여갑니다.
-        </h2>
+        </p>
       </div>
 
       {/* 점주님 다점포 운영 섹션 */}

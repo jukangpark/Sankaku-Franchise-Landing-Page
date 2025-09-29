@@ -46,7 +46,8 @@ const MenuSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <h1 className="font-extrabold text-gray-800 mb-4 text-[32px] sm:text-[48px] lg:text-[80px] leading-[1]">
-            산카쿠만의 <br />
+            <span className="text-[#e18c12]">산카쿠</span>만의
+            <br />
             다양하고 특색있는 메뉴
           </h1>
           <p className="text-[16px] sm:text-[20px] lg:text-[28px] font-bold text-gray-600 max-w-2xl mx-auto leading-[1.3]">
