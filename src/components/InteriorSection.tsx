@@ -73,16 +73,12 @@ const InteriorSection = () => {
           <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] font-semibold text-gray-400 mb-4 sm:mb-6 lg:mb-8">
             산카쿠 인테리어 철학
           </h3>
-          <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] leading-[1.25em] mb-6 sm:mb-8 lg:mb-[55px] text-white font-extrabold">
-            산카쿠의 <br />
-            <span className="text-[#e18c12]">인테리어</span>는
-            <br />
-            10년이 지나도 <br />
-            편안함을 드립니다.
+          <h1 className="text-[32px] sm:text-[48px] lg:text-[58px] leading-[1.25em] mb-6 sm:mb-8 lg:mb-[55px] text-white font-extrabold">
+            시간이 흐를수록
+            <br /> 고급스러워지는
+            <br /> 디자인을 추구 합니다. <br />
           </h1>
           <p className="text-[16px] sm:text-[20px] lg:text-[28px] font-bold text-white mb-6 sm:mb-8">
-            시간이 흐를수록 고급스러워 지는
-            <br /> 디자인을 추구 합니다. <br />
             서사가 진행될수록 <br />
             더욱 편안해지는 느낌을 안겨드립니다.
           </p>
