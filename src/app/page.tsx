@@ -16,6 +16,7 @@ import InteriorSection from "@/components/InteriorSection";
 import StoreInfoSection from "@/components/StoreInfoSection";
 import StartUpCost from "@/components/StartUpCost";
 import DifferentiationSection from "@/components/DifferentiationSection";
+import FullAutoSystemSection from "@/components/FullAutoSystemSection";
 import PopupModal from "@/components/PopupModal";
 
 export default function Home() {
@@ -74,6 +75,8 @@ export default function Home() {
       <StoreInfoSection />
 
       <DifferentiationSection />
+
+      <FullAutoSystemSection />
 
       <StartUpCost />
 

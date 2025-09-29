@@ -50,8 +50,8 @@ const MenuSection = () => {
             다양하고 특색있는 메뉴
           </h1>
           <p className="text-[16px] sm:text-[20px] lg:text-[28px] font-bold text-gray-600 max-w-2xl mx-auto leading-[1.3]">
-            항상 신선하고 건강한 먹거리를 합리적인 가격으로 <br />
-            풍성하게 준비하여 고객님께 행복과 만족감을 선사합니다.
+            알찬 구성과, 푸짐한 양과 함께 <br />
+            따듯한 한 끼를 전달 합니다.
           </p>
         </div>
 

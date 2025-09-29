@@ -51,7 +51,7 @@ const ReviewSection = () => {
               ease: "easeOut",
             }}
           >
-            오로지 손님이 감탄할 수 있도록 기본에 충실하였습니다
+            한 그릇의 감동, 기본에서 시작했습니다
           </motion.p>
           <motion.div
             className="flex justify-center mt-4 sm:mt-6 lg:mt-8"

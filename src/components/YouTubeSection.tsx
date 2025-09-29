@@ -34,14 +34,15 @@ const YouTubeSection = () => {
             }}
           >
             <div className="text-[#e18c12] text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-extrabold tracking-tighter">
-              대한민국 라멘 NO.1
+              대한민국 최초 <br />
+              라멘&오니기리 전문점
             </div>
             <div className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[110px] font-bold text-gray-900 mb-4 lg:mb-6 leading-none">
               산카쿠
             </div>
             <div className="text-[14px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold text-gray-800">
-              한치의 의심없는 성공의 혁신, <br />
-              모두에게 검증된 브랜드로 성공하세요.
+              확신으로 완성하는 성장의 공식, <br />
+              검증된 브랜드 힘으로 키우세요.
             </div>
           </motion.div>
           <motion.div

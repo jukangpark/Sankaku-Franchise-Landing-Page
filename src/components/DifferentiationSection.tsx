@@ -73,13 +73,13 @@ const DifferentiationSection = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.h1 className="text-[32px] sm:text-[48px] lg:text-[88px] font-extrabold text-white mb-4 sm:mb-6 lg:mb-8">
-            왜 산카쿠를 선택할까요?
+            인건비 부담되세요?
           </motion.h1>
           <motion.h2 className="text-[18px] sm:text-[28px] lg:text-[64px] font-medium text-black mb-4 sm:mb-6 lg:mb-8 rounded-full bg-white p-2 sm:p-3 lg:p-4">
-            차별화된 <span className="font-extrabold">슈퍼바이징</span> 시스템
+            자체 <span className="font-extrabold">가공장</span> 운영으로 해결
           </motion.h2>
           <motion.p className="text-[16px] sm:text-[20px] lg:text-[32px] font-bold text-white">
-            산카쿠만의 철저한 3C 슈퍼바이징 시스템을 소개합니다.
+            요식업 최대난제 인건비, 해결해드립니다.
           </motion.p>
         </motion.div>
 

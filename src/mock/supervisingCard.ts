@@ -1,24 +1,24 @@
 const supervisingCard = [
   {
     number: "1C",
-    title: "월 1회 정기 방문",
-    subtitle: "Coaching",
+    title: "식자재 대량매입",
+    subtitle: "원가 절감",
     description:
-      "점포의 QSC 및 전반적인 운영현황<br/>을 파악하고 미흡사항을 개선할 수<br/> 있도록 주도적인 교육을 진행하여<br/> 각 점포의 경영활동이 <span style='color: #71fc67'>가장 효과적</span><br/> 으로 이루어질 수 있도록 합니다.",
+      "식자재 대량 매입을 통한 <br/> 원가절감 <br/> 있도록 주도적인 교육을 처리하여 <br/> 각점포의 경영 활동이 <span style='color: #71fc67'>가장 잘</span> <br/> 로저어질 수 있도록 합니다.",
   },
   {
     number: "2C",
-    title: "점포 상황에 맞는",
-    subtitle: "Counseling",
+    title: "원팩 납품",
+    subtitle: "인건비 절감",
     description:
-      "점포의 상황 및 상권에 적합한<br/> 해결 방안 제시를 통해 점포에 발생한<br/> 현상을 스스로 해결하고,<br/> 실력을 향상시킬 수 있도록<br/> <span style='color: #71fc67'>든든한 조력자의 역할을 수행</span>합니다.",
+      "소스 및 재료 원팩 납품 <br/>맛과 품질 표준화 <br/> 유연한 소량 맞춤 생산 가능 <br/> 간편한 재고관리 <br/> <span style='color: #71fc67'>쉽고 빠른 조리로 인해 인건비 감소</span> .",
   },
   {
     number: "3C",
-    title: "점포와의 원활한",
-    subtitle: "Communication",
+    title: "직배송 시스템",
+    subtitle: "배송비 절감",
     description:
-      "본부와 점포 간 유기적인<br/>정보의사 전달뿐만 아니라 <br/><span style='color: #71fc67'>열린 자세로 긴밀하게 소통</span>해<br/> 점포의 다양한 애로사항과 제안을<br/> 연결할 수 있도록 일합니다.",
+      "유연한 스케줄 조정 가능 <br/> 체계적 유통기한 관리 <br/> <span style='color: #71fc67'>배송 수수료 절감</span> <br/> 24시간 본사와 소통구조 <br/> 매장 로스율 감소",
   },
 ];
 

@@ -41,11 +41,11 @@ const StoreInfoSection = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 mb-4">
-            <span className="text-[#033914]">직원들도 오픈하는</span>
-            <span className="text-[#9c5f07]">브랜드</span>
+            <span className="text-[#033914]">성공은 타이밍</span> <br />
+            <span className="text-[#9c5f07]">바로 지금입니다.</span>
           </motion.h1>
           <motion.p className="text-[16px] sm:text-[20px] lg:text-[28px] font-semibold text-gray-700">
-            믿을 수 있는 성공 방법과 깊은 신뢰를 바탕으로 운영하는 산카쿠입니다.
+            망설임은 기회를 놓칠 뿐, 무료상담 후 고민해도 늦지 않습니다.
           </motion.p>
         </motion.div>
 

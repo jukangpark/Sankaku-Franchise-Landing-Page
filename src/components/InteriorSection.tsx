@@ -71,18 +71,20 @@ const InteriorSection = () => {
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 w-full">
         <div className="text-center lg:text-left w-full lg:w-auto">
           <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] font-semibold text-gray-400 mb-4 sm:mb-6 lg:mb-8">
-            산카쿠만의 트렌디한 인테리어
+            산카쿠 인테리어 철학
           </h3>
           <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] leading-[1.25em] mb-6 sm:mb-8 lg:mb-[55px] text-white font-extrabold">
-            산카쿠의 <span className="text-[#e18c12]">인테리어</span>는
+            산카쿠의 <br />
+            <span className="text-[#e18c12]">인테리어</span>는
             <br />
             10년이 지나도 <br />
             편안함을 드립니다.
           </h1>
           <p className="text-[16px] sm:text-[20px] lg:text-[28px] font-bold text-white mb-6 sm:mb-8">
-            언제나 편안한 분위기에서
-            <br />
-            즐길 수 있도록 고안된 '산카쿠' 인테리어
+            시간이 흐를수록 고급스러워 지는
+            <br /> 디자인을 추구 합니다. <br />
+            서사가 진행될수록 <br />
+            더욱 편안해지는 느낌을 안겨드립니다.
           </p>
         </div>
         <div
