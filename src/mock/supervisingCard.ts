@@ -4,7 +4,7 @@ const supervisingCard = [
     title: "식자재 대량매입",
     subtitle: "원가 절감",
     description:
-      "식자재 대량 매입을 통한 <br/> 원가절감 <br/> 있도록 주도적인 교육을 처리하여 <br/> 각점포의 경영 활동이 <span style='color: #71fc67'>가장 잘</span> <br/> 로저어질 수 있도록 합니다.",
+      "식자재 대량 매입하여 <br/> <span style='color: #71fc67'>재료비 원가</span>를 낮췄습니다.",
   },
   {
     number: "2C",

@@ -93,8 +93,90 @@ const StartUpCost = () => {
           transition={{ duration: 0.5 }}
           className="bg-white rounded-lg shadow-lg overflow-hidden"
         >
-          {/* 테이블 */}
-          <div className="overflow-x-auto">
+          {/* 모바일 카드 레이아웃 (sm 미만) */}
+          <div className="block sm:hidden">
+            {costData.items.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ x: -20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="border-b border-gray-200 p-4 last:border-b-0"
+              >
+                <div className="space-y-3">
+                  {/* 구분 */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-bold text-gray-900">
+                      구분
+                    </span>
+                    <span className="text-sm font-semibold text-gray-900">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  {/* 내용 */}
+                  <div>
+                    <span className="text-sm font-bold text-gray-900 block mb-1">
+                      내용
+                    </span>
+                    <div className="text-sm text-gray-700">
+                      <div
+                        className="whitespace-pre-wrap"
+                        dangerouslySetInnerHTML={{
+                          __html: item.description.replace(/\*.*/, ""),
+                        }}
+                      />
+                      {item.description.includes("*") && (
+                        <div className="text-xs text-gray-500 mt-1">
+                          {item.description.match(/\*.*/)?.[0]}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* 금액 정보 */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-bold text-gray-900">
+                      기존금액
+                    </span>
+                    <span className="text-sm font-bold text-gray-900">
+                      {item.discount ? (
+                        <span className="line-through text-gray-500">
+                          {item.originalCost}
+                        </span>
+                      ) : (
+                        item.originalCost
+                      )}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-bold text-gray-900">
+                      할인금액
+                    </span>
+                    <span className="text-sm font-bold text-red-600">
+                      {item.discountCost}
+                    </span>
+                  </div>
+
+                  {item.discount && (
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-bold text-gray-900">
+                        비고
+                      </span>
+                      <span className="text-sm text-gray-600">
+                        {item.discount}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* 데스크톱 테이블 레이아웃 (sm 이상) */}
+          <div className="hidden sm:block overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-100">
                 <tr>
@@ -163,12 +245,12 @@ const StartUpCost = () => {
           </div>
 
           {/* 총계 */}
-          <div className="bg-gray-900 px-2 sm:px-6 lg:px-8 py-3 sm:py-5 lg:py-6">
+          <div className="bg-gray-900 px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
-              <span className="text-xs sm:text-lg lg:text-2xl font-bold text-white text-center sm:text-left">
+              <span className="text-sm sm:text-lg lg:text-2xl font-bold text-white text-center sm:text-left">
                 {costData.size} 매장 기준
               </span>
-              <span className="text-sm sm:text-2xl lg:text-3xl font-extrabold text-white">
+              <span className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-white">
                 총계 : {costData.total}
               </span>
             </div>
