@@ -105,11 +105,8 @@ const StartUpCost = () => {
                 className="border-b border-gray-200 p-4 last:border-b-0"
               >
                 <div className="space-y-3">
-                  {/* 구분 */}
+                  {/* 카테고리 - 구분 라벨 없이 바로 표시 */}
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-gray-900">
-                      구분
-                    </span>
                     <span className="text-sm font-semibold text-gray-900">
                       {item.category}
                     </span>
