@@ -53,7 +53,7 @@ const FullAutoSystemSection = () => {
   ];
 
   return (
-    <section className="w-full bg-white py-16 md:py-24">
+    <section className="w-full bg-white py-16 md:py-24" id="full-auto-system">
       <div className="mx-auto">
         {/* 헤더 */}
         <motion.div

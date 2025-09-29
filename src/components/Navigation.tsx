@@ -8,12 +8,15 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  console.log("isScrolled", isScrolled);
+
   const navItems = [
     { name: "창업성공사례", href: "#success-stories" },
     // { name: "성공브랜드", href: "#success-brand" },
     { name: "매출증명", href: "#revenue-proof" },
     { name: "메뉴안내", href: "#menu-guide" },
     { name: "차별화시스템", href: "#differentiation" },
+    { name: "풀오토시스템", href: "#full-auto-system" },
     { name: "창업안내", href: "#startup-guide" },
     { name: "가맹점 문의", href: "#franchise-contact" },
     { name: "브랜드", href: "https://sankaku-steel.vercel.app/" },
@@ -56,18 +59,15 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-12 h-12">
+            <div className="relative h-16 w-auto">
               <Image
-                src="/SANKAKU_LOGO.jpg"
+                src="/산카쿠_헤더_로고.png"
                 alt="산카쿠 로고"
-                fill
-                className="object-cover rounded-lg"
-                sizes="48px"
+                width={138}
+                height={64}
+                className="object-contain"
+                sizes="(max-width: 768px) 100px, 138px"
               />
-            </div>
-            <div>
-              <h1 className="text-lg font-bold text-gray-900">산카쿠</h1>
-              <p className="text-xs text-gray-600">SANKAKU</p>
             </div>
           </Link>
 
@@ -113,7 +113,11 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200">
+          <div
+            className={`lg:hidden border-t border-gray-200 transition-all duration-300 ${
+              isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg" : "bg-white"
+            }`}
+          >
             <nav className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
                 <div
