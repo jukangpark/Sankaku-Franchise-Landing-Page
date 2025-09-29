@@ -80,14 +80,14 @@ const MenuSection = () => {
 const MenuCard = ({ item }: { item: MenuItem }) => {
   return (
     <div className="flex-shrink-0 duration-300 relative w-[200px] sm:w-[300px] lg:w-[431px]">
-      <div className="relative">
+      <div className="relative w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[431px] lg:h-[431px] rounded-full overflow-hidden">
         <Image
           src={item.image}
           alt={item.name}
           width={431}
-          height={385}
-          className="object-cover w-full h-auto"
-          style={{ width: "100%", height: "auto" }}
+          height={431}
+          className="w-full h-full object-cover"
+          style={{ width: "100%", height: "100%" }}
         />
       </div>
       <div className="flex justify-center items-center text-center text-[16px] sm:text-[20px] lg:text-3xl font-semibold text-white leading-tight max-w-[150px] sm:max-w-[250px] lg:max-w-[387px] w-full h-[30px] sm:h-[70px] lg:h-[90px] rounded-[30px] sm:rounded-[35px] lg:rounded-[45px] bg-black -mt-6 sm:-mt-7 lg:-mt-9 mx-auto relative z-10">

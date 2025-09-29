@@ -104,7 +104,7 @@ const DifferentiationSection = () => {
                   : "lg:ml-0 lg:mr-0 lg:items-center lg:text-center"
               }`}
               style={{
-                backgroundImage: `url(/슈퍼바이징/${card.number.toLowerCase()}.jpg)`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/슈퍼바이징/${card.number.toLowerCase()}.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -119,9 +119,6 @@ const DifferentiationSection = () => {
                 ease: "easeOut",
               }}
             >
-              {/* 배경 오버레이 */}
-              <div className="absolute inset-0 bg-black/30 rounded-[24px] lg:rounded-[48px]"></div>
-
               {/* 콘텐츠 */}
               <div className="relative z-10 w-full">
                 {/* 번호 */}

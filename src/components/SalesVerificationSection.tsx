@@ -7,8 +7,17 @@ const SalesVerificationSection = () => {
     <section
       id="revenue-proof"
       className="py-12 sm:py-16 lg:py-24 bg-white bg-cover bg-center bg-no-repeat relative overflow-hidden"
-      style={{ backgroundImage: "url(/sales_verification_bg.jpg)" }}
+      style={{
+        backgroundImage: "url(/sales_verification_bg.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        height: "100%",
+        width: "100%",
+      }}
     >
+      {/* 어두운 오버레이 */}
+      <div className="absolute inset-0 bg-black/70 z-0"></div>
       <motion.div
         className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
         initial={{ y: 50, opacity: 0 }}

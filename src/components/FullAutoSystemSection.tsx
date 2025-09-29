@@ -13,7 +13,7 @@ const FullAutoSystemSection = () => {
         "식자재 관리",
         "점주와의 꾸준한 소통 및 피드백 제공",
       ],
-      bgImage: "/full_auto/full_auto_1.jpg",
+      bgImage: "/슈퍼바이징/1c.jpg",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const FullAutoSystemSection = () => {
         "대리 홍보, 마케팅 진행",
         "분석자료 및 추후 진행방향 제안",
       ],
-      bgImage: "/full_auto/full_auto_2.jpg",
+      bgImage: "/슈퍼바이징/2c.jpg",
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ const FullAutoSystemSection = () => {
         "문제점 파악 및 해결 진행",
         "점주, 관리자, 본사의 끈끈한 상생관계",
       ],
-      bgImage: "/full_auto/full_auto_3.jpg",
+      bgImage: "/슈퍼바이징/3c.jpg",
     },
     {
       id: 4,
@@ -48,7 +48,7 @@ const FullAutoSystemSection = () => {
         "해당매장을 이끌어 나갈것",
         "안정적인 운영 가능",
       ],
-      bgImage: "/full_auto/full_auto_4.jpg",
+      bgImage: "/슈퍼바이징/4c.jpg",
     },
   ];
 
@@ -85,9 +85,7 @@ const FullAutoSystemSection = () => {
           {sections.map((section, index) => (
             <motion.div
               key={section.id}
-              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="relative group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 w-full md:w-1/4 h-[250px] md:h-[1080px]"
             >
@@ -95,7 +93,7 @@ const FullAutoSystemSection = () => {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                  backgroundImage: `url(${section.bgImage})`,
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(${section.bgImage})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -105,7 +103,13 @@ const FullAutoSystemSection = () => {
               ></div>
 
               {/* 콘텐츠 */}
-              <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
+              <motion.div
+                className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
                 {/* 제목 */}
                 <div className="mb-6">
                   <h4 className="text-[18px] sm:text-[28px] lg:text-[43px] font-extrabold text-white mb-4 leading-tight">
@@ -124,7 +128,7 @@ const FullAutoSystemSection = () => {
                     </p>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               {/* 호버 효과 */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

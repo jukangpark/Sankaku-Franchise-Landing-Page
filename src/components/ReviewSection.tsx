@@ -240,7 +240,7 @@ const ReviewSection = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{
-              delay: 1.8,
+              delay: 1,
               duration: 0.6,
               ease: "easeOut",
             }}

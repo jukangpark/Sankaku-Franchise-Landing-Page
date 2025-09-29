@@ -70,14 +70,16 @@ const StoreInfoSection = () => {
                 ease: "easeOut",
               }}
             >
-              <Image
-                width={453.33}
-                height={324}
-                src={store.image}
-                alt={store.alt}
-                className="w-full h-auto"
-                style={{ width: "100%", height: "auto" }}
-              />
+              <div className="relative w-full h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden">
+                <Image
+                  width={453.33}
+                  height={324}
+                  src={store.image}
+                  alt={store.alt}
+                  className="w-full h-full object-cover"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
               {/* 매장 이름 - 동그란 원 */}
               <div
                 className={`absolute -bottom-10 sm:-bottom-12 md:-bottom-14 lg:-bottom-15 left-4 sm:left-5 md:left-6 lg:left-6 w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] rounded-full flex items-center justify-center shadow-lg ${
@@ -93,7 +95,7 @@ const StoreInfoSection = () => {
         </motion.div>
       </div>
 
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 mt-16 sm:mt-20 lg:mt-24">
           <span className="text-[#033914]">증명된 브랜드로 </span>
           <span className="text-[#9c5f07]">다점포 운영</span>
@@ -101,11 +103,10 @@ const StoreInfoSection = () => {
         <p className="text-[16px] sm:text-[20px] lg:text-[28px] font-semibold text-gray-700 mt-4">
           산카쿠만의 탄탄한 메뉴들로 수익성을 높여갑니다.
         </p>
-      </div>
+      </div> */}
 
       {/* 점주님 다점포 운영 섹션 */}
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20 lg:mt-24">
-        {/* 첫 번째 카드 - PC/태블릿에서 1줄에 1개 */}
+      {/* <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20 lg:mt-24">
         <motion.div
           className="w-full mb-8 sm:mb-12 lg:mb-16"
           variants={containerVariants}
@@ -127,7 +128,6 @@ const StoreInfoSection = () => {
               }}
             >
               <div className="flex flex-col lg:flex-row h-full">
-                {/* 이미지 영역 */}
                 <div className="relative w-full lg:w-[700px] h-[150px] sm:h-[180px] lg:h-full">
                   <Image
                     width={700}
@@ -142,9 +142,7 @@ const StoreInfoSection = () => {
                   />
                 </div>
 
-                {/* 텍스트 영역 */}
                 <div className="w-full lg:w-[700px] p-4 sm:p-5 lg:p-8 flex flex-col justify-center text-center lg:text-left">
-                  {/* 총 매장 운영 점주님 - 특별한 스타일 */}
                   <div className="bg-[#033914] text-white rounded-2xl h-8 flex items-center justify-center mb-4">
                     <span className="text-[16px font-bold">
                       총 {owner.totalStores}개의 매장 운영 점주님
@@ -157,10 +155,8 @@ const StoreInfoSection = () => {
                     dangerouslySetInnerHTML={{ __html: owner.description }}
                   />
 
-                  {/* 매장 목록 - 가로 배치 */}
                   <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                     {owner.stores.map((store, storeIndex) => {
-                      // "점"을 제거
                       return (
                         <div
                           key={storeIndex}
@@ -177,7 +173,6 @@ const StoreInfoSection = () => {
           ))}
         </motion.div>
 
-        {/* 나머지 카드들 - PC/태블릿에서 4개씩, 모바일에서 1개씩 */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
           variants={containerVariants}
@@ -195,7 +190,6 @@ const StoreInfoSection = () => {
                 ease: "easeOut",
               }}
             >
-              {/* 이미지 영역 */}
               <div className="relative">
                 <Image
                   width={300}
@@ -207,9 +201,7 @@ const StoreInfoSection = () => {
                 />
               </div>
 
-              {/* 텍스트 영역 */}
               <div className="p-4 sm:p-5 lg:p-6 text-center sm:text-left">
-                {/* 총 매장 운영 점주님 - 특별한 스타일 */}
                 <div className="bg-[#033914] text-white rounded-2xl h-8 flex items-center justify-center mb-4">
                   <span className="text-[16px] font-bold">
                     총 {owner.totalStores}개의 매장 운영 점주님
@@ -226,10 +218,8 @@ const StoreInfoSection = () => {
                   dangerouslySetInnerHTML={{ __html: owner.description }}
                 />
 
-                {/* 매장 목록 - 가로 배치 */}
                 <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                   {owner.stores.map((store, storeIndex) => {
-                    // "점"을 제거
                     return (
                       <div
                         key={storeIndex}
@@ -244,7 +234,7 @@ const StoreInfoSection = () => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </div> */}
     </section>
   );
 };

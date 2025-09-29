@@ -65,8 +65,16 @@ const InteriorSection = () => {
   };
   return (
     <section
-      className="min-h-[600px] sm:min-h-[700px] lg:h-[978px] bg-cover bg-center bg-no-repeat relative flex items-center py-12 sm:py-16 lg:py-24 pb-20 sm:pb-16 lg:pb-24"
-      style={{ backgroundImage: "url(/인테리어/인테리어bg.jpg)" }}
+      className="min-h-[800px] max-h-[800px] sm:min-h-[900px] lg:h-[978px] bg-cover bg-center bg-no-repeat relative flex items-center py-12 sm:py-16 lg:py-24 pb-20 sm:pb-16 lg:pb-24"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/인테리어/interior_4.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        height: "100%",
+        width: "100%",
+      }}
     >
       <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 w-full">
         <div className="text-center lg:text-left w-full lg:w-auto">
@@ -83,30 +91,33 @@ const InteriorSection = () => {
             더욱 편안해지는 느낌을 안겨드립니다.
           </p>
         </div>
-        <div
-          className="w-full lg:w-[780px] lg:h-[530px] relative grid"
-          style={{ gridTemplateAreas: '"overlay"' }}
-        >
-          <AnimatePresence mode="sync">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="w-full h-full"
-              style={{ gridArea: "overlay" }}
-            >
-              <Image
-                src={interiorImages[currentIndex]}
-                alt={`인테리어 ${currentIndex + 1}`}
-                width={780}
-                height={530}
-                className="w-full h-auto object-cover"
-                style={{ width: "100%", height: "auto" }}
-              />
-            </motion.div>
-          </AnimatePresence>
+        <div className="w-full lg:w-[780px] relative">
+          {/* 이미지 컨테이너 */}
+          <div
+            className="w-full h-[300px] sm:h-[400px] lg:h-[530px] relative grid overflow-hidden"
+            style={{ gridTemplateAreas: '"overlay"' }}
+          >
+            <AnimatePresence mode="sync">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-full h-full"
+                style={{ gridArea: "overlay" }}
+              >
+                <Image
+                  src={interiorImages[currentIndex]}
+                  alt={`인테리어 ${currentIndex + 1}`}
+                  width={780}
+                  height={530}
+                  className="w-full h-full object-cover"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           {/* 이미지 바로 아래 네비게이션 */}
           <div className="absolute -bottom-13 left-0 right-0 flex items-center justify-between w-full px-4">

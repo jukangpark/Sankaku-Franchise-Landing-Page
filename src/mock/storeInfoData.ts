@@ -9,37 +9,19 @@ export const storeInfoData: StoreInfo[] = [
   {
     id: 1,
     name: "전대본점",
-    image: "/store_info/store_info_1.jpg",
+    image: "/store_info/전대본점 외관.jpg",
     alt: "store-info-1",
   },
   {
     id: 2,
     name: "충대점",
-    image: "/store_info/store_info_2.jpg",
+    image: "/store_info/충대점 외관.jpg",
     alt: "store-info-2",
   },
   {
     id: 3,
     name: "인계점",
-    image: "/store_info/store_info_3.jpg",
+    image: "/store_info/인계점 외관.jpg",
     alt: "store-info-3",
-  },
-  {
-    id: 4,
-    name: "천안점",
-    image: "/store_info/store_info_4.jpg",
-    alt: "store-info-4",
-  },
-  {
-    id: 5,
-    name: "제주점(예정)",
-    image: "/store_info/store_info_5.jpg",
-    alt: "store-info-5",
-  },
-  {
-    id: 6,
-    name: "수완점(에정)",
-    image: "/store_info/store_info_6.jpg",
-    alt: "store-info-6",
   },
 ];

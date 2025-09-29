@@ -14,7 +14,7 @@ const PerformanceTable = ({
         className="w-full lg:w-[600px] h-[300px] sm:h-[400px] lg:h-[553px] text-center flex flex-col justify-center items-center text-white space-y-2 lg:space-y-4"
         style={{
           background:
-            "url(/images/수치로말하는산카쿠.jpg) no-repeat 50% 50% / cover",
+            "linear-gradient(rgba(201, 60, 32, 0.5), rgba(201, 60, 32, 0.8)), url(/인테리어/interior_5.jpg) no-repeat 50% 50% / cover",
           display: "flex",
         }}
         initial={{ opacity: 0, y: 60 }}
