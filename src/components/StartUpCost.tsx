@@ -18,7 +18,7 @@ const StartUpCost = () => {
         >
           <h1
             id="startup-guide"
-            className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-white text-center mb-8 sm:mb-12 lg:mb-16"
+            className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 text-center mb-8 sm:mb-12 lg:mb-16"
           >
             가맹절차
           </h1>
@@ -77,7 +77,7 @@ const StartUpCost = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-white mb-4 sm:mb-6 lg:mb-8">
+          <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 mb-4 sm:mb-6 lg:mb-8">
             창업비용
           </h1>
           <p className="text-[16px] sm:text-[20px] lg:text-[28px] font-semibold text-gray-700">
