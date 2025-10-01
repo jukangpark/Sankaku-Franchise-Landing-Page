@@ -18,7 +18,7 @@ const StartUpCost = () => {
         >
           <h1
             id="startup-guide"
-            className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 text-center mb-8 sm:mb-12 lg:mb-16"
+            className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-white text-center mb-8 sm:mb-12 lg:mb-16"
           >
             가맹절차
           </h1>
@@ -77,7 +77,7 @@ const StartUpCost = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-gray-900 mb-4 sm:mb-6 lg:mb-8">
+          <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold text-white mb-4 sm:mb-6 lg:mb-8">
             창업비용
           </h1>
           <p className="text-[16px] sm:text-[20px] lg:text-[28px] font-semibold text-gray-700">
@@ -96,18 +96,18 @@ const StartUpCost = () => {
           {/* 모바일 테이블 레이아웃 (sm 미만) */}
           <div className="block sm:hidden overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-100">
+              <thead className="bg-gray-900">
                 <tr>
-                  <th className="px-2 py-2 text-center text-xs font-bold text-gray-900">
+                  <th className="px-2 py-2 text-center text-xs font-bold text-white">
                     구분
                   </th>
-                  <th className="px-2 py-2 text-center text-xs font-bold text-gray-900">
+                  <th className="px-2 py-2 text-center text-xs font-bold text-white">
                     내용
                   </th>
-                  <th className="px-2 py-2 text-center text-xs font-bold text-gray-900">
+                  <th className="px-2 py-2 text-center text-xs font-bold text-white">
                     금액
                   </th>
-                  <th className="px-2 py-2 text-center text-xs font-bold text-gray-900">
+                  <th className="px-2 py-2 text-center text-xs font-bold text-white">
                     비고
                   </th>
                 </tr>
@@ -120,7 +120,9 @@ const StartUpCost = () => {
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="border-b border-gray-200"
+                    className={`border-b border-gray-200 ${
+                      index % 2 === 1 ? "bg-gray-50" : "bg-white"
+                    }`}
                   >
                     <td className="px-2 py-3 text-xs font-semibold text-gray-900 text-center whitespace-nowrap">
                       {item.category}
@@ -164,18 +166,18 @@ const StartUpCost = () => {
           {/* 데스크톱 테이블 레이아웃 (sm 이상) */}
           <div className="hidden sm:block overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-100">
+              <thead className="bg-gray-900">
                 <tr>
-                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-white">
                     구분
                   </th>
-                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-white">
                     내용
                   </th>
-                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-white">
                     금액
                   </th>
-                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
+                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-white">
                     비고
                   </th>
                 </tr>
@@ -188,7 +190,9 @@ const StartUpCost = () => {
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="border-b border-gray-200"
+                    className={`border-b border-gray-200 ${
+                      index % 2 === 1 ? "bg-gray-50" : "bg-white"
+                    }`}
                   >
                     <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-base lg:text-lg font-semibold text-gray-900 text-center whitespace-nowrap">
                       {item.category}
