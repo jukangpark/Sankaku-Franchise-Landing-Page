@@ -93,33 +93,41 @@ const StartUpCost = () => {
           transition={{ duration: 0.5 }}
           className="bg-white rounded-lg shadow-lg overflow-hidden"
         >
-          {/* 모바일 카드 레이아웃 (sm 미만) */}
-          <div className="block sm:hidden">
-            {costData.items.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="border-b border-gray-200 p-4 last:border-b-0"
-              >
-                <div className="space-y-3">
-                  {/* 카테고리 - 구분 라벨 없이 바로 표시 */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-gray-900">
+          {/* 모바일 테이블 레이아웃 (sm 미만) */}
+          <div className="block sm:hidden overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="px-2 py-2 text-center text-xs font-bold text-gray-900">
+                    구분
+                  </th>
+                  <th className="px-2 py-2 text-center text-xs font-bold text-gray-900">
+                    내용
+                  </th>
+                  <th className="px-2 py-2 text-center text-xs font-bold text-gray-900">
+                    금액
+                  </th>
+                  <th className="px-2 py-2 text-center text-xs font-bold text-gray-900">
+                    비고
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {costData.items.map((item, index) => (
+                  <motion.tr
+                    key={index}
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="border-b border-gray-200"
+                  >
+                    <td className="px-2 py-3 text-xs font-semibold text-gray-900 text-center whitespace-nowrap">
                       {item.category}
-                    </span>
-                  </div>
-
-                  {/* 내용 */}
-                  <div>
-                    <span className="text-sm font-bold text-gray-900 block mb-1">
-                      내용
-                    </span>
-                    <div className="text-sm text-gray-700">
+                    </td>
+                    <td className="px-2 py-3 text-xs text-gray-700 text-left min-h-[60px]">
                       <div
-                        className="whitespace-pre-wrap"
+                        className="whitespace-pre-wrap leading-tight"
                         dangerouslySetInnerHTML={{
                           __html: item.description.replace(/\*.*/, ""),
                         }}
@@ -129,47 +137,28 @@ const StartUpCost = () => {
                           {item.description.match(/\*.*/)?.[0]}
                         </div>
                       )}
-                    </div>
-                  </div>
-
-                  {/* 금액 정보 */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-gray-900">
-                      기존금액
-                    </span>
-                    <span className="text-sm font-bold text-gray-900">
+                    </td>
+                    <td className="px-2 py-3 text-center text-xs font-bold text-gray-900 whitespace-nowrap">
                       {item.discount ? (
-                        <span className="line-through text-gray-500">
-                          {item.originalCost}
-                        </span>
+                        <div className="flex flex-col items-center">
+                          <span className="line-through text-gray-500 text-xs">
+                            {item.originalCost}
+                          </span>
+                          <span className="text-red-600 font-bold">
+                            → {item.discountCost}
+                          </span>
+                        </div>
                       ) : (
                         item.originalCost
                       )}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-gray-900">
-                      할인금액
-                    </span>
-                    <span className="text-sm font-bold text-red-600">
-                      {item.discountCost}
-                    </span>
-                  </div>
-
-                  {item.discount && (
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-gray-900">
-                        비고
-                      </span>
-                      <span className="text-sm text-gray-600">
-                        {item.discount}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                    </td>
+                    <td className="px-2 py-3 text-center text-xs text-gray-600 whitespace-nowrap break-keep min-w-[60px]">
+                      {item.discount}
+                    </td>
+                  </motion.tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
           {/* 데스크톱 테이블 레이아웃 (sm 이상) */}
@@ -184,10 +173,7 @@ const StartUpCost = () => {
                     내용
                   </th>
                   <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
-                    기존금액
-                  </th>
-                  <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
-                    할인
+                    금액
                   </th>
                   <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900">
                     비고
@@ -222,17 +208,19 @@ const StartUpCost = () => {
                     </td>
                     <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900 whitespace-nowrap">
                       {item.discount ? (
-                        <span className="line-through text-gray-500">
-                          {item.originalCost}
-                        </span>
+                        <div className="flex flex-col items-center">
+                          <span className="line-through text-gray-500 text-xs sm:text-sm lg:text-base">
+                            {item.originalCost}
+                          </span>
+                          <span className="text-red-600 font-bold text-xs sm:text-base lg:text-lg">
+                            → {item.discountCost}
+                          </span>
+                        </div>
                       ) : (
                         item.originalCost
                       )}
                     </td>
-                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-red-600 whitespace-nowrap">
-                      {item.discountCost}
-                    </td>
-                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-sm lg:text-base text-gray-600 whitespace-nowrap">
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-sm lg:text-base text-gray-600 whitespace-nowrap break-keep min-w-[80px] sm:min-w-[100px] lg:min-w-[120px]">
                       {item.discount}
                     </td>
                   </motion.tr>

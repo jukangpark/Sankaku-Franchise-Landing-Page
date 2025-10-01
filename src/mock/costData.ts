@@ -8,7 +8,7 @@ const costData = {
       cost: "1,000만원",
       originalCost: "1,000만원",
       discountCost: "면제",
-      discount: "한시적 할인",
+      discount: "할인",
     },
     {
       category: "교육비",
@@ -17,7 +17,7 @@ const costData = {
       cost: "500만원",
       originalCost: "700만원",
       discountCost: "500만원",
-      discount: "한시적 할인",
+      discount: "할인",
     },
     {
       category: "보증금",
@@ -68,7 +68,7 @@ const costData = {
       cost: "200만원",
       originalCost: "500만원",
       discountCost: "200만원",
-      discount: "한시적 할인",
+      discount: "할인",
     },
     {
       category: "오픈 판촉물",
@@ -76,7 +76,7 @@ const costData = {
       cost: "50만원",
       originalCost: "200만원",
       discountCost: "50만원",
-      discount: "한시적 할인",
+      discount: "할인",
     },
   ],
 };
