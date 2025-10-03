@@ -63,13 +63,13 @@ const PopupModal = () => {
   }
 
   return (
-    <div className="absolute top-30 left-4 z-50 flex gap-4 md:flex-row flex-col">
+    <div className="absolute top-30 left-4 z-50 lg:flex lg:gap-4 lg:flex-row">
       {popups.map(
         (popup, index) =>
           !closedPopups.includes(popup.id) && (
             <div
               key={popup.id}
-              className="relative bg-white rounded-lg shadow-lg md:static absolute"
+              className="bg-white rounded-lg shadow-lg absolute lg:static"
               style={{
                 top: "0px",
                 left: "0px",
