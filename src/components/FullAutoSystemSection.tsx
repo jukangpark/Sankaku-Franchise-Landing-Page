@@ -1,59 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import fullAutoSystemData from "@/mock/fullAutoSystemData";
 
 const FullAutoSystemSection = () => {
-  const sections = [
-    {
-      id: 1,
-      title: "본사 인력 파견근무",
-      content: [
-        "본사에서 직접 관리자급 인력 파견",
-        "인사, 인건비 관리",
-        "식자재 관리",
-        "점주와의 꾸준한 소통 및 피드백 제공",
-      ],
-      bgImage: "/슈퍼바이징/1c.jpg",
-    },
-    {
-      id: 2,
-      title: "본사 직접 마케팅 관리",
-      content: [
-        "체험단, 인스타그램, 네이버 등",
-        "모든 플랫폼 관리",
-        "순위 확인 및 리뷰관리",
-        "대리 홍보, 마케팅 진행",
-        "분석자료 및 추후 진행방향 제안",
-      ],
-      bgImage: "/슈퍼바이징/2c.jpg",
-    },
-    {
-      id: 3,
-      title: "매장 운영 피드백",
-      content: [
-        "본사와 관리자의 소통으로",
-        "매장 운영 방향성 제시",
-        "문제점 파악 및 해결 진행",
-        "점주, 관리자, 본사의 끈끈한 상생관계",
-      ],
-      bgImage: "/슈퍼바이징/3c.jpg",
-    },
-    {
-      id: 4,
-      title: "매장 관리자 양성",
-      content: [
-        "본사 관리자의 교육 진행",
-        "해당 매장에서 근무할 관리자급 인재 양성",
-        "해당 인원이 주축이 되어,",
-        "해당매장을 이끌어 나갈것",
-        "안정적인 운영 가능",
-      ],
-      bgImage: "/슈퍼바이징/4c.jpg",
-    },
-  ];
-
   return (
-    <section className="w-full bg-white py-16 md:py-24" id="full-auto-system">
+    <section
+      className="w-full bg-white py-16 md:py-24 px-4 md:px-0"
+      id="full-auto-system"
+    >
       <div className="mx-auto">
         {/* 헤더 */}
         <motion.div
@@ -81,8 +36,8 @@ const FullAutoSystemSection = () => {
         </motion.div>
 
         {/* 4등분 그리드 - 뷰포트 너비의 25%씩 */}
-        <div className="flex flex-col md:flex-row w-full">
-          {sections.map((section, index) => (
+        <div className="flex flex-col md:flex-row w-full gap-2 md:gap-0">
+          {fullAutoSystemData.map((section, index) => (
             <motion.div
               key={section.id}
               whileInView={{ opacity: 1, y: 0 }}
@@ -112,17 +67,19 @@ const FullAutoSystemSection = () => {
               >
                 {/* 제목 */}
                 <div className="mb-6">
-                  <h4 className="text-[18px] sm:text-[28px] lg:text-[43px] font-extrabold text-white mb-4 leading-tight">
-                    {section.title}
+                  <h4 className="text-[26px] sm:text-[28px] lg:text-[43px] font-extrabold text-white leading-tight">
+                    {section.title}{" "}
+                    <span className="text-yellow-400">{section.highlight}</span>
                   </h4>
                 </div>
 
-                {/* 내용 */}
-                <div className="space-y-2">
-                  {section.content.map((item, itemIndex) => (
+                <div className="w-9/10 h-0.25 bg-yellow-400 mx-auto mb-4" />
+
+                <div>
+                  {section.content.map((item, index) => (
                     <p
-                      key={itemIndex}
-                      className="text-[12px] sm:text-[16px] lg:text-[26px] font-bold text-gray-200 leading-relaxed"
+                      key={index}
+                      className="text-white text-[14px] sm:text-[20px] lg:text-[23px] font-bold leading-tight"
                     >
                       {item}
                     </p>
