@@ -8,11 +8,15 @@ const CountUpAnimation = ({
   duration = 2,
   suffix = "",
   prefix = "",
+  numberColor = "#9c5f07",
+  unitColor = "black",
 }: {
   endValue: number;
   duration?: number;
   suffix?: string;
   prefix?: string;
+  numberColor?: string;
+  unitColor?: string;
 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -53,10 +57,20 @@ const CountUpAnimation = ({
   }, [endValue, duration]);
 
   return (
-    <div ref={ref}>
-      {prefix}
-      {Math.round(count).toLocaleString()}
-      {suffix}
+    <div ref={ref} className="flex items-baseline justify-center">
+      <span
+        className="text-[24px] sm:text-2xl font-extrabold"
+        style={{ color: numberColor }}
+      >
+        {prefix}
+        {Math.round(count).toLocaleString()}
+      </span>
+      <span
+        className="text-[13px] sm:text-base font-bold ml-1"
+        style={{ color: unitColor }}
+      >
+        {suffix}
+      </span>
     </div>
   );
 };

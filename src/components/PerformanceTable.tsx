@@ -11,7 +11,7 @@ const PerformanceTable = ({
   return (
     <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 text-4xl font-bold text-gray-900 mb-6 mt-16">
       <motion.div
-        className="w-full lg:w-[600px] h-[300px] sm:h-[400px] lg:h-[553px] text-center flex flex-col justify-center items-center text-white space-y-2 lg:space-y-4"
+        className="w-full lg:w-[600px] h-[150px] sm:h-[400px] lg:h-[553px] text-center flex flex-col justify-center items-center text-white space-y-2 lg:space-y-4"
         style={{
           background:
             "linear-gradient(rgba(201, 60, 32, 0.5), rgba(201, 60, 32, 0.8)), url(/인테리어/interior_5.jpg) no-repeat 50% 50% / cover",
@@ -45,7 +45,7 @@ const PerformanceTable = ({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
       >
-        <div className="grid grid-cols-2 gap-1 w-full lg:w-full lg:h-full">
+        <div className="grid grid-cols-2 gap-1 w-full lg:w-full lg:h-full aspect-square lg:aspect-auto">
           {[
             {
               number: 11,
@@ -74,7 +74,7 @@ const PerformanceTable = ({
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="border-2 border-black p-6 bg-white flex flex-col justify-between items-start relative w-full"
+              className="border-2 border-[#033914] p-3 sm:p-6 bg-white flex flex-col justify-between items-start relative w-full aspect-square lg:aspect-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
@@ -82,18 +82,23 @@ const PerformanceTable = ({
               <img
                 src={item.icon}
                 alt={item.label}
-                className="w-12 h-12 absolute top-15 left-7"
+                className="w-12 h-12 absolute top-2 left-2 sm:top-15 sm:left-7"
               />
-              <div className="mt-10">
-                <div className="flex items-baseline justify-start mt-16 mb-2">
-                  <span className="text-[32px] sm:text-[48px] md:text-[56px] lg:text-7xl font-bold text-[#033914]">
-                    <CountUpAnimation endValue={item.number} duration={2} />
+              <div className="mt-6 sm:mt-10">
+                <div className="flex items-baseline justify-start mt-8 sm:mt-16 mb-2">
+                  <span className="text-[48px] sm:text-[48px] md:text-[56px] lg:text-7xl font-bold">
+                    <CountUpAnimation
+                      endValue={item.number}
+                      duration={2}
+                      numberColor="#033914"
+                      unitColor="#033914"
+                    />
                   </span>
-                  <span className="text-[14px] sm:text-[18px] md:text-[20px] lg:text-2xl font-extrabold text-[#033914] ml-1">
+                  <span className="text-[14px] sm:text-[18px] md:text-[20px] lg:text-2xl font-extrabold text-[#000000] ml-1">
                     {item.unit}
                   </span>
                 </div>
-                <p className="text-[14px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-bold text-gray-800">
+                <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-bold text-gray-800">
                   {item.label}
                 </p>
               </div>

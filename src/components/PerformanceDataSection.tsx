@@ -71,22 +71,22 @@ const PerformanceDataSection = ({
                 ease: "easeOut",
               }}
             >
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-2 lg:mb-4">
                 <Image
                   src={data.icon}
                   alt={data.subtitle}
                   width={103}
                   height={103}
-                  className="w-[103px] h-[103px] object-contain"
+                  className="w-[55px] h-[55px] sm:w-[103px] sm:h-[103px] object-contain"
                 />
               </div>
               <h3
-                className="text-2xl sm:text-3xl font-bold mb-2 whitespace-nowrap"
+                className="text-2xl sm:text-3xl font-extrabold lg:mb-2 whitespace-nowrap"
                 style={{ color: "#9c5f07" }}
               >
                 {data.title}
               </h3>
-              <p className="text-base sm:text-lg font-semibold text-gray-700 mb-2">
+              <p className="text-[13px] sm:text-lg font-extrabold text-gray-700 lg:mb-2">
                 {data.subtitle}
               </p>
               <p className="text-xs sm:text-sm text-gray-500">{data.note}</p>
