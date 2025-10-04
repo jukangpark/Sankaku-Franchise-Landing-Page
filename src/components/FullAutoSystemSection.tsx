@@ -67,13 +67,19 @@ const FullAutoSystemSection = () => {
               >
                 {/* 제목 */}
                 <div className="mb-6">
-                  <h4 className="text-[26px] sm:text-[28px] lg:text-[43px] font-extrabold text-white leading-tight">
-                    {section.title}{" "}
+                  <h4
+                    className="text-[35px] sm:text-[28px] lg:text-[43px] text-white leading-tight"
+                    style={{
+                      fontFamily: "var(--font-cheongdo)",
+                      fontWeight: 900,
+                    }}
+                  >
+                    {section.title} <br />
                     <span className="text-yellow-400">{section.highlight}</span>
                   </h4>
                 </div>
 
-                <div className="w-9/10 h-0.25 bg-yellow-400 mx-auto mb-4" />
+                <div className="w-[100%] mx-auto mb-4 border-t-[0.25px] border-yellow-400" />
 
                 <div>
                   {section.content.map((item, index) => (
