@@ -215,10 +215,10 @@ const StartUpCost = () => {
                       index % 2 === 1 ? "bg-gray-50" : "bg-white"
                     }`}
                   >
-                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-base lg:text-lg font-semibold text-gray-900 text-center whitespace-nowrap">
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-base lg:text-[22px] font-semibold text-gray-900 text-center whitespace-nowrap">
                       {item.category}
                     </td>
-                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-sm lg:text-base text-[#555555] text-left">
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-sm lg:text-[20px] text-[#555555] text-left">
                       <div
                         className="whitespace-pre-wrap"
                         dangerouslySetInnerHTML={{
@@ -226,7 +226,7 @@ const StartUpCost = () => {
                         }}
                       />
                       {item.description.includes("*") && (
-                        <div className="text-[8px] text-gray-500 mt-1">
+                        <div className="text-[8px] lg:text-[15px] text-gray-500 mt-1">
                           {item.description.match(/\*.*/)?.[0]}
                         </div>
                       )}
@@ -235,12 +235,12 @@ const StartUpCost = () => {
                       {item.discount ? (
                         <div className="flex flex-col items-center">
                           <span
-                            className="line-through text-gray-500 text-xs sm:text-sm lg:text-base"
+                            className="line-through text-gray-500 text-xs sm:text-sm lg:text-[20px]"
                             style={{ textDecorationColor: "red" }}
                           >
                             {item.originalCost}
                           </span>
-                          <span className="text-red-600 font-bold text-xs sm:text-base lg:text-lg">
+                          <span className="text-red-600 font-extrabold text-xs sm:text-base lg:text-[25px]">
                             → {item.discountCost}
                           </span>
                         </div>
@@ -248,13 +248,18 @@ const StartUpCost = () => {
                         item.originalCost
                       )}
                     </td>
-                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-sm lg:text-base text-gray-600 whitespace-nowrap break-keep min-w-[80px] sm:min-w-[100px] lg:min-w-[120px]">
+                    <td className="px-2 sm:px-4 lg:px-2 py-2 sm:py-4 text-center text-xs sm:text-sm lg:text-base text-gray-600 whitespace-nowrap break-keep min-w-[80px] sm:min-w-[100px] lg:min-w-[200px]">
                       {item.discount && (
-                        <div className="inline-flex items-center text-white py-1 rounded text-[8px] sm:text-sm animate-pulse">
+                        <div
+                          className="inline-flex items-center gap-0 bg-red-600 text-white px-0.5 py-0.5 rounded text-[8px] sm:text-sm font-extrabold lg:text-[22px]"
+                          style={{
+                            animation: "blink 1.5s infinite",
+                          }}
+                        >
                           <img
                             src="/favicon.ico"
                             alt="할인 아이콘"
-                            className="w-3 h-3 sm:w-4 sm:h-4"
+                            className="w-3 h-3 sm:w-4 sm:h-4 lg:w-10 lg:h-10"
                           />
                           한시적 할인
                         </div>
