@@ -55,16 +55,14 @@ const StoreShowCaseSection = ({
                   alt="산카쿠"
                   width={253}
                   height={73}
-                  className="w-[120px] sm:w-[150px] lg:w-[253px] h-auto"
-                  style={{ width: "100%", height: "auto" }}
+                  className="w-[164.98px] sm:w-[150px] lg:w-[252px] h-auto"
                 />
                 <Image
                   src="/신기록행진/1.png"
                   alt="산카쿠"
                   width={253}
                   height={73}
-                  className="w-[120px] sm:w-[150px] lg:w-[253px] h-auto"
-                  style={{ width: "100%", height: "auto" }}
+                  className="w-[164.98px] sm:w-[150px] lg:w-[252px] h-auto"
                 />
               </div>
             </motion.h1>
