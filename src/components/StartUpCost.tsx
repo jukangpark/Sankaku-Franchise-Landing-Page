@@ -143,7 +143,10 @@ const StartUpCost = () => {
                     <td className="px-1 py-2 text-center text-[11px] font-bold text-gray-900 whitespace-nowrap">
                       {item.discount ? (
                         <div className="flex flex-col items-center">
-                          <span className="line-through text-gray-500 text-[11px]">
+                          <span
+                            className="line-through text-gray-500 text-[11px]"
+                            style={{ textDecorationColor: "red" }}
+                          >
                             {item.originalCost}
                           </span>
                           <span className="text-red-600 font-bold text-[14px]">
@@ -231,7 +234,10 @@ const StartUpCost = () => {
                     <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-base lg:text-lg font-bold text-gray-900 whitespace-nowrap">
                       {item.discount ? (
                         <div className="flex flex-col items-center">
-                          <span className="line-through text-gray-500 text-xs sm:text-sm lg:text-base">
+                          <span
+                            className="line-through text-gray-500 text-xs sm:text-sm lg:text-base"
+                            style={{ textDecorationColor: "red" }}
+                          >
                             {item.originalCost}
                           </span>
                           <span className="text-red-600 font-bold text-xs sm:text-base lg:text-lg">
