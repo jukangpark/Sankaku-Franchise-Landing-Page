@@ -96,18 +96,18 @@ const StartUpCost = () => {
           {/* 모바일 테이블 레이아웃 (sm 미만) */}
           <div className="block sm:hidden overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-900">
+              <thead className="bg-[#000000]">
                 <tr>
-                  <th className="px-2 py-2 text-center text-xs font-bold text-white">
+                  <th className="px-1 py-1 text-center text-[14px] font-extrabold text-white h-[40px]">
                     구분
                   </th>
-                  <th className="px-2 py-2 text-center text-xs font-bold text-white">
+                  <th className="px-1 py-1 text-center text-[14px] font-extrabold text-white">
                     내용
                   </th>
-                  <th className="px-2 py-2 text-center text-xs font-bold text-white">
+                  <th className="px-1 py-1 text-center text-[14px] font-extrabold text-white">
                     금액
                   </th>
-                  <th className="px-2 py-2 text-center text-xs font-bold text-white">
+                  <th className="px-1 py-1 text-center text-[14px] font-extrabold text-white">
                     비고
                   </th>
                 </tr>
@@ -124,10 +124,10 @@ const StartUpCost = () => {
                       index % 2 === 1 ? "bg-gray-50" : "bg-white"
                     }`}
                   >
-                    <td className="px-2 py-3 text-xs font-semibold text-gray-900 text-center whitespace-nowrap">
+                    <td className="px-1 py-2 text-[11px] font-extrabold text-gray-900 text-center whitespace-nowrap">
                       {item.category}
                     </td>
-                    <td className="px-2 py-3 text-xs text-gray-700 text-left min-h-[60px]">
+                    <td className="px-1 py-2 text-[11px] text-[#555555] text-left min-h-[50px]">
                       <div
                         className="whitespace-pre-wrap leading-tight"
                         dangerouslySetInnerHTML={{
@@ -135,27 +135,45 @@ const StartUpCost = () => {
                         }}
                       />
                       {item.description.includes("*") && (
-                        <div className="text-xs text-gray-500 mt-1">
+                        <div className="text-[11px] text-color-[#555555]">
                           {item.description.match(/\*.*/)?.[0]}
                         </div>
                       )}
                     </td>
-                    <td className="px-2 py-3 text-center text-xs font-bold text-gray-900 whitespace-nowrap">
+                    <td className="px-1 py-2 text-center text-[11px] font-bold text-gray-900 whitespace-nowrap">
                       {item.discount ? (
                         <div className="flex flex-col items-center">
-                          <span className="line-through text-gray-500 text-xs">
+                          <span className="line-through text-gray-500 text-[11px]">
                             {item.originalCost}
                           </span>
-                          <span className="text-red-600 font-bold">
-                            → {item.discountCost}
+                          <span className="text-red-600 font-bold text-[14px]">
+                            <span className="font-extrabold ">
+                              {item.discountCost}
+                            </span>
                           </span>
                         </div>
                       ) : (
-                        item.originalCost
+                        <span className="text-[14px] font-extrabold">
+                          {item.originalCost}
+                        </span>
                       )}
                     </td>
-                    <td className="px-2 py-3 text-center text-xs text-gray-600 whitespace-nowrap break-keep min-w-[60px]">
-                      {item.discount}
+                    <td className="px-0 py-2 text-center text-[8px] text-gray-600 whitespace-nowrap break-keep min-w-[60px]">
+                      {item.discount && (
+                        <div
+                          className="inline-flex items-center gap-0 bg-red-600 text-white px-0.5 py-0.5 rounded text-[8px] font-extrabold"
+                          style={{
+                            animation: "blink 1.5s infinite",
+                          }}
+                        >
+                          <img
+                            src="/favicon.ico"
+                            alt="할인 아이콘"
+                            className="w-4 h-4"
+                          />
+                          한시적 할인
+                        </div>
+                      )}
                     </td>
                   </motion.tr>
                 ))}
@@ -197,7 +215,7 @@ const StartUpCost = () => {
                     <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-base lg:text-lg font-semibold text-gray-900 text-center whitespace-nowrap">
                       {item.category}
                     </td>
-                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-sm lg:text-base text-gray-700 text-left">
+                    <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-xs sm:text-sm lg:text-base text-[#555555] text-left">
                       <div
                         className="whitespace-pre-wrap"
                         dangerouslySetInnerHTML={{
@@ -205,7 +223,7 @@ const StartUpCost = () => {
                         }}
                       />
                       {item.description.includes("*") && (
-                        <div className="text-xs text-gray-500 mt-1">
+                        <div className="text-[8px] text-gray-500 mt-1">
                           {item.description.match(/\*.*/)?.[0]}
                         </div>
                       )}
@@ -225,7 +243,16 @@ const StartUpCost = () => {
                       )}
                     </td>
                     <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-4 text-center text-xs sm:text-sm lg:text-base text-gray-600 whitespace-nowrap break-keep min-w-[80px] sm:min-w-[100px] lg:min-w-[120px]">
-                      {item.discount}
+                      {item.discount && (
+                        <div className="inline-flex items-center text-white py-1 rounded text-[8px] sm:text-sm animate-pulse">
+                          <img
+                            src="/favicon.ico"
+                            alt="할인 아이콘"
+                            className="w-3 h-3 sm:w-4 sm:h-4"
+                          />
+                          한시적 할인
+                        </div>
+                      )}
                     </td>
                   </motion.tr>
                 ))}

@@ -5,14 +5,14 @@ const YouTubeSection = () => {
   return (
     <section
       id="success-stories"
-      className="text-white w-full flex items-center justify-center pt-20 relative min-h-[375px] lg:min-h-screen"
+      className="text-white w-full flex items-center justify-center pt-10 relative min-h-[375px] lg:min-h-screen"
       style={{
         background: "url(/images/vis_bg.jpg) no-repeat 50% 50% / contain",
         overflow: "hidden",
       }}
     >
       <motion.div
-        className="w-full max-w-[1460px] mx-auto px-[30px] relative z-10 min-h-[600px] lg:min-h-[800px] pt-20 pb-16 md:pb-20 lg:pb-24"
+        className="w-full max-w-[1460px] mx-auto px-[20px] relative z-10 min-h-[600px] lg:min-h-[800px] pt-20 pb-16 md:pb-20 lg:pb-24"
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -33,7 +33,7 @@ const YouTubeSection = () => {
               ease: "easeOut",
             }}
           >
-            <div className="text-[#e18c12] text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-extrabold tracking-tighter">
+            <div className="text-[#e18c12] text-[14px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-extrabold tracking-tighter">
               대한민국 최초 <br />
               라멘&오니기리 전문점
             </div>

@@ -36,3 +36,14 @@ h2 {
 html {
   overflow-x: hidden;
 }
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
