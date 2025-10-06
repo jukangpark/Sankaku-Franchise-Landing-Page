@@ -10,6 +10,7 @@ const CountUpAnimation = ({
   prefix = "",
   numberColor = "#9c5f07",
   unitColor = "black",
+  largeSize = false,
 }: {
   endValue: number;
   duration?: number;
@@ -17,6 +18,7 @@ const CountUpAnimation = ({
   prefix?: string;
   numberColor?: string;
   unitColor?: string;
+  largeSize?: boolean;
 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -59,7 +61,11 @@ const CountUpAnimation = ({
   return (
     <div ref={ref} className="flex items-baseline justify-center">
       <span
-        className="text-[24px] sm:text-2xl font-extrabold"
+        className={`font-extrabold ${
+          largeSize
+            ? "text-[24px] sm:text-2xl lg:text-[90px]"
+            : "text-[24px] sm:text-2xl"
+        }`}
         style={{ color: numberColor }}
       >
         {prefix}
