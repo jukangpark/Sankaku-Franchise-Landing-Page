@@ -18,6 +18,7 @@ import StartUpCost from "@/components/StartUpCost";
 import DifferentiationSection from "@/components/DifferentiationSection";
 import FullAutoSystemSection from "@/components/FullAutoSystemSection";
 import PopupModal from "@/components/PopupModal";
+import StartupSupportSystemSection from "@/components/StartupSupportSystemSection";
 
 export default function Home() {
   const containerVariants = {
@@ -76,6 +77,7 @@ export default function Home() {
 
       <DifferentiationSection />
 
+      <StartupSupportSystemSection />
       <FullAutoSystemSection />
 
       <StartUpCost />
