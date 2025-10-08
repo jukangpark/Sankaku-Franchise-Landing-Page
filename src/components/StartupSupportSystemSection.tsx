@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import startupSupportSystemData from "@/mock/startupSupportSystemData";
 
 const StartupSupportSystemSection = () => {
   return (
