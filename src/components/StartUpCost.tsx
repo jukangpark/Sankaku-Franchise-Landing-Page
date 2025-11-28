@@ -174,7 +174,7 @@ const StartUpCost = () => {
                             alt="할인 아이콘"
                             className="w-4 h-4"
                           />
-                          한시적 할인
+                          {item.discountCost === "면제" ? "한시적 면제" : "한시적 할인"}
                         </div>
                       )}
                     </td>
@@ -261,7 +261,7 @@ const StartUpCost = () => {
                             alt="할인 아이콘"
                             className="w-3 h-3 sm:w-4 sm:h-4 lg:w-10 lg:h-10"
                           />
-                          한시적 할인
+                          {item.discountCost === "면제" ? "한시적 면제" : "한시적 할인"}
                         </div>
                       )}
                     </td>
@@ -292,11 +292,12 @@ const StartUpCost = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <p className="text-sm sm:text-base text-gray-600 text-center">
-            <span className="font-semibold">* 별도사항:</span> 철거, 덕트,
-            냉·난방기, 소방, 전기 증설 등 (별도사항은 매장 현장 상황에 따라 금액
-            상이)
-          </p>
+          <ul className="text-sm sm:text-base text-gray-600 space-y-2">
+            <li>* 현장에 따라 변동될 수 있습니다.</li>
+            <li>* 광주, 전남 이외의 지역은 일부 추가비용 발생할 수 있습니다.</li>
+            <li>* 외부공사 / 철거, 건물 개보수공사 / 변기수압 및 가스공사 / 외부상하수로 등은 별도 이며, 필요시 비용 발생합니다.</li>
+            <li>* 소방시설 및 파트외부협상 등은 별도입니다.</li>
+          </ul>
         </motion.div>
       </div>
     </section>

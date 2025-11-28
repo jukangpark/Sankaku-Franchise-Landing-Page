@@ -41,8 +41,8 @@ const YouTubeSection = () => {
               산카쿠
             </h1>
             <h2 className="text-[14px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-medium text-gray-800">
-              확신으로 완성하는 성장의 공식, <br />
-              검증된 브랜드 힘으로 키우세요.
+              단순함 속의 깊은 맛, <br />
+              운영까지 책임지는 프랜차이즈
             </h2>
           </motion.div>
           <motion.div

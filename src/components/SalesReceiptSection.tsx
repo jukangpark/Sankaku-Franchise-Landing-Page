@@ -86,10 +86,7 @@ const SalesReceiptSection = () => {
                     <div
                       className="w-[80px] sm:w-[90px] lg:w-[103px] mr-[20px] sm:mr-[25px] lg:mr-[30px] text-center flex items-center text-[clamp(0.75rem,0.6rem+0.5vw,1.5rem)] font-extrabold tracking-[0.02em] leading-[1.2em] whitespace-nowrap"
                       style={{
-                        color:
-                          item.category === "영업이익"
-                            ? "#5dc41a"
-                            : item.bgColor,
+                        color: item.categoryColor,
                       }}
                     >
                       {item.category}
@@ -110,11 +107,8 @@ const SalesReceiptSection = () => {
                       <div
                         className="text-[clamp(0.7rem,0.6rem+0.3vw,1.25rem)] w-[40px] sm:w-[45px] lg:w-[50px] text-center"
                         style={{
-                          color:
-                            item.category === "영업이익"
-                              ? "#222222"
-                              : item.textColor,
-                          opacity: item.category === "영업이익" ? 1 : 0.6,
+                          color: item.percentageColor,
+                          opacity: item.percentageOpacity,
                         }}
                       >
                         {item.percentage}
