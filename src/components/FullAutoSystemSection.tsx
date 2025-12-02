@@ -19,20 +19,43 @@ const FullAutoSystemSection = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-[32px] sm:text-[48px] lg:text-[88px] font-extrabold text-gray-900 mb-4">
-            바쁜 점주님을 위한
+            FULL-AUTO SYSTEM
           </h2>
-          <h3 className="text-[18px] sm:text-[28px] lg:text-[64px] font-bold text-red-600 mb-6">
-            본사 직접 운영 풀오토 시스템
-          </h3>
-          <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 max-w-2xl mx-auto">
-            <p className="text-[16px] sm:text-[20px] lg:text-[32px] font-bold text-gray-700">
-              <span className="font-semibold">
-                * 안내되는 내용은 모두 '선택사항' 입니다.
-              </span>
-              <br />
-              자세한 내용은 문의 부탁드립니다.
-            </p>
+          <h2 className="text-[18px] sm:text-[28px] lg:text-[64px] font-bold text-red-600 mb-6">
+            &quot;투자는 점주가, 운영은 본사가.&quot;
+          </h2>
+          
+          <div className="max-w-4xl mx-auto space-y-4 mb-6">
+            <div 
+              className="p-4 sm:p-6 lg:p-8"
+              style={{ border: "3px solid #4f3f34" }}
+            >
+              <h1 className="text-[14px] sm:text-[18px] lg:text-[24px] text-gray-700">
+                산카쿠는 <span className="text-red-600">전문 인력 파견 + 자동 운영 시스템</span>으로 점주의 부담을 최소화 했습니다.
+              </h1>
+            </div>
+            
+            <div 
+              className="p-4 sm:p-6 lg:p-8"
+              style={{ border: "3px solid #4f3f34" }}
+            >
+              <h1 className="text-[14px] sm:text-[18px] lg:text-[24px] text-gray-700">
+                본사 아카데미에서 교육된 <span className="text-red-600">전문 조리 운영 인력</span> 파견 메뉴얼화된 조리 서비스 프로세스로 품질 유지 매출, 재고, 발주까지 관리되는 자동 운영 시스템
+              </h1>
+            </div>
+            
+            <div 
+              className="p-4 sm:p-6 lg:p-8"
+              style={{ border: "3px solid #4f3f34" }}
+            >
+              <h1 className="text-[14px] sm:text-[18px] lg:text-[24px] text-gray-700">
+                이제 점주는 오직 투자와 수익 확대에만 집중하세요.
+                <br />
+                운영은 저희 산카쿠 본사팀이 대신합니다.
+              </h1>
+            </div>
           </div>
+          
         </motion.div>
 
         {/* 4등분 그리드 - 뷰포트 너비의 25%씩 */}

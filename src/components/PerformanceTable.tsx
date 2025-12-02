@@ -52,56 +52,62 @@ const PerformanceTable = ({
               unit: "회전",
               label: "테이블 회전율",
               icon: "/icons/테이블_아이콘.png",
+              subLabel: "* 25년 1월 광주 전대점"
             },
             {
               number: 314,
               unit: "만원",
               label: "일 매출",
               icon: "/icons/일매출_아이콘.png",
+              subLabel: "* 25년 1월 광주 전대점"
             },
             {
               number: 30.7,
               unit: "%",
               label: "평균 수익률",
               icon: "/icons/재방문율_아이콘.png",
+              subLabel: "* 본점기준이며 가맹점은 다를 수 있습니다."              
             },
             {
               number: 240,
               unit: "%",
               label: "타 브랜드 대비 마진율",
               icon: "/icons/평균수익률_아이콘.png",
+              subLabel: "* 25년 1월 매출 자료 집계 기준"              
             },
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="border-2 border-[#033914] p-3 sm:p-6 bg-white flex flex-col justify-between items-start relative w-full aspect-square lg:aspect-auto"
+              className="border-2 border-[#a88d6c] p-3 sm:p-6 bg-white flex flex-col justify-between items-start relative w-full aspect-square lg:aspect-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
             >
-              <img
-                src={item.icon}
-                alt={item.label}
-                className="w-12 h-12 absolute top-2 left-2 sm:top-10 sm:left-7"
-              />
-              <div className="mt-6 sm:mt-5">
-                <div className="flex items-baseline justify-start mt-8 sm:mt-12 mb-0">
-                  <span className="text-[48px] sm:text-[48px] md:text-[56px] lg:text-7xl font-bold">
-                    <CountUpAnimation
-                      endValue={item.number}
-                      duration={2}
-                      numberColor="#033914"
-                      unitColor="#033914"
-                      largeSize={true}
-                    />
-                  </span>
-                  <span className="text-[14px] sm:text-[18px] md:text-[20px] lg:text-2xl font-extrabold text-[#000000] ml-1">
-                    {item.unit}
-                  </span>
+              <div className="mt-6 sm:mt-5 w-full flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex items-baseline justify-start mt-8 sm:mt-12 mb-0">
+                    <span className="text-[48px] sm:text-[48px] md:text-[56px] lg:text-7xl font-bold">
+                      <CountUpAnimation
+                        endValue={item.number}
+                        duration={2}
+                        numberColor="#271c14"
+                        unitColor="#271c14"
+                        largeSize={true}
+                      />
+                    </span>
+                    <span className="text-[14px] sm:text-[18px] md:text-[20px] lg:text-2xl font-extrabold text-[#271c14] ml-1">
+                      {item.unit}
+                    </span>
+                  </div>
+                  <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-bold text-[#271c14]">
+                    {item.label}
+                  </p>
                 </div>
-                <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-bold text-gray-800">
-                  {item.label}
-                </p>
+                {item.subLabel && (
+                  <p className="text-[10px] sm:text-[10px] md:text-[10px] lg:text-[10px] text-[#bba689] mt-2">
+                    {item.subLabel}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}

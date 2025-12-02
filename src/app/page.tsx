@@ -15,6 +15,7 @@ import MenuSection from "@/components/MenuSection";
 import InteriorSection from "@/components/InteriorSection";
 import StoreInfoSection from "@/components/StoreInfoSection";
 import StartUpCost from "@/components/StartUpCost";
+import WhyChooseSankakuSection from "@/components/WhyChooseSankakuSection";
 import DifferentiationSection from "@/components/DifferentiationSection";
 import FullAutoSystemSection from "@/components/FullAutoSystemSection";
 import PopupModal from "@/components/PopupModal";
@@ -81,6 +82,8 @@ export default function Home() {
       <FullAutoSystemSection />
 
       <StartUpCost />
+
+      <WhyChooseSankakuSection />
 
       <FranchiseContactForm
         containerVariants={containerVariants}
