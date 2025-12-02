@@ -76,10 +76,17 @@ const DifferentiationSection = () => {
             인건비 부담되세요?
           </motion.h1>
           <motion.h2 className="text-[18px] sm:text-[28px] lg:text-[64px] font-medium text-black mb-4 sm:mb-6 lg:mb-8 rounded-full bg-white p-2 sm:p-3 lg:p-4">
-            자체 <span className="font-extrabold">가공장</span> 운영으로 해결
+            본사 <span className="font-extrabold">직영 공장</span> 가맹점 직배송 시스템
           </motion.h2>
           <motion.p className="text-[16px] sm:text-[20px] lg:text-[32px] font-bold text-white">
-            요식업 최대난제 인건비, 해결해드립니다.
+          산카쿠는 식자재의 품질과 안정적인 공급망을 위해<br/> 
+          <span className="font-extrabold text-[#ef3f3c]">자체 생산 및 물류 시스템</span>을 운영합니다.<br/><br/>
+          산카쿠 전용 공장에서 직접 제조한 면, 육수, 소스 공급<br/>
+          전국 가맹점 직배송 시스템 구축으로 신선도 보장<br/>
+          재고 및 유통 관리까지 본사에서 통합 관리<br/>
+          <br/>
+          언제 어디서나 동일한 맛,<br/>
+          그것이 <span className="font-extrabold">산카쿠가 지켜온 &apos;정직한 맛의 기준&apos;</span> 입니다.
           </motion.p>
         </motion.div>
 

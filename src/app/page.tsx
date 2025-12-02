@@ -1,6 +1,9 @@
 "use client";
 
 import LogoSlider from "@/components/LogoSlider";
+import SimpleButDeepSection from "@/components/SimpleButDeepSection";
+import CompleteBowlSection from "@/components/CompleteBowlSection";
+import SankakuPhilosophySection from "@/components/SankakuPhilosophySection";
 import Navigation from "@/components/Navigation";
 import YouTubeSection from "@/components/YouTubeSection";
 import PerformanceDataSection from "@/components/PerformanceDataSection";
@@ -51,10 +54,16 @@ export default function Home() {
 
       <LogoSlider />
 
+      <SimpleButDeepSection />
+
+      <CompleteBowlSection />
+
       <PerformanceDataSection
         containerVariants={containerVariants}
         itemVariants={itemVariants}
       />
+
+      <SankakuPhilosophySection />
 
       {/* 임의 제거 */}
       {/* <BrandSuccessSection /> */}
